@@ -36,7 +36,7 @@ qx.Class.define("qxl.themedemo.Application",
   {
     desktop: null,
     
-    main: function()
+    main: function(options)
     {
       this.base(arguments);
 
@@ -50,7 +50,7 @@ qx.Class.define("qxl.themedemo.Application",
       var doc = this.getRoot();
       
       var desktop = this.desktop = new qx.ui.window.Desktop()
-      desktop.add(this.createTitle(), {top: 10, left: 10});
+      desktop.add(this.createTitle(options.title ?? ""), {top: 10, left: 10});
       
       var mainContainer = this.mainContainer = new qx.ui.container.Composite()
       mainContainer.setLayout(new qx.ui.layout.Canvas());
@@ -59,18 +59,18 @@ qx.Class.define("qxl.themedemo.Application",
       
       doc.add(mainContainer, {edge: 0});
       
-      var about = this.about = new qxl.themedemo.About();
+      var about = this.about = new qxl.themedemo.About(options.about_url  ?? "");
       about.open();
       
       desktop.add(about);
     },
     
 
-    createTitle: function()
+    createTitle: function(title)
     {
       var separator = new qxl.themedemo.Separator(80);
       
-      var themeLabel = new qx.ui.basic.Label("DarkTheme").set({
+      var themeLabel = new qx.ui.basic.Label(title).set({
         // font: "title", 
         // textColor: "text-label",
         cursor: "pointer"

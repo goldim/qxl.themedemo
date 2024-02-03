@@ -18,7 +18,7 @@
 
 /**
  *
- * @asset(bernstein/demo/loader.gif)
+ * @asset(qxl/themedemo/loader.gif)
  * @use(qxl.themedemo.pages.Tree)
  * @use(qxl.themedemo.pages.List)
  * @use(qxl.themedemo.pages.Form)

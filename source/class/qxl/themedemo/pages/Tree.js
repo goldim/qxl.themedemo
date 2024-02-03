@@ -25,7 +25,7 @@
  *
  * TreeVirtual
  *
- * @asset(bernstein/demo/tree.json)
+ * @asset(qxl/themedemo/tree.json)
  *
  */
 
@@ -133,7 +133,7 @@ qx.Class.define("qxl.themedemo.pages.Tree",
         height: 400
       });
 
-      var url = "bernstein/demo/tree.json";
+      var url = "qxl/themedemo/tree.json";
       var store = new qx.data.store.Json(url);
 
       store.bind("model", tree, "model");

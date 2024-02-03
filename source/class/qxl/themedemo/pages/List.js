@@ -37,7 +37,7 @@ qx.Class.define("qxl.themedemo.pages.List",
     layout.setRowHeight(2, 30);
     layout.setRowHeight(4, 150);
     this.__grid = new qx.ui.container.Composite(layout);
-    this.__listUrl = qx.util.ResourceManager.getInstance().toUri("bernstein/demo/people.json");
+    this.__listUrl = qx.util.ResourceManager.getInstance().toUri("qxl/themedemo/people.json");
     this.add(this.__grid);
 
     this.initWidgets();

@@ -16,17 +16,17 @@ qx.Class.define("qxl.themedemo.About",
 {
   extend: qx.ui.window.Window,
 
-  construct: function()
+  construct: function(link)
   {
     this.base(arguments);
-
+    this._aboutTextUrl = link ?? "resource/qxl/themedemo/blank.html";
     this._createControls();
   },
 
 
   members:
   {
-    _aboutTextUrl: "resource/qxl/themedemo/about.html",
+    _aboutTextUrl: null,
     
     _createControls: function()
     {
