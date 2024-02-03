@@ -7,6 +7,14 @@
       "uri": "qooxdoo/qxl.formdemo",
       "repo_name": "qooxdoo/qxl.formdemo",
       "repo_tag": "v2.0.0"
+    },
+    {
+      "library_name": "widgetbrowser",
+      "library_version": "2.0.1",
+      "path": "qx_packages/qooxdoo_qxl_widgetbrowser_v2_0_1",
+      "uri": "qooxdoo/qxl.widgetbrowser",
+      "repo_name": "qooxdoo/qxl.widgetbrowser",
+      "repo_tag": "v2.0.1"
     }
   ],
   "version": "2.1.0"

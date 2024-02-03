@@ -41,7 +41,13 @@ qx.Class.define("qxl.themedemo.WidgetBrowser",
         icon: "icon/16/apps/utilities-statistics.png"
       });
       
-      this._tabView = new qxl.themedemo.view.TabView();
+      this._tabView =  new qxl.widgetbrowser.view.TabView();
+      const tabsToRemove = ["Table", "Basic", "Control"];
+      this._tabView.getChildren().forEach(page => {
+        if (tabsToRemove.includes(page.getLabel())){
+          this._tabView.remove(page);
+        }
+      });
       this._tabView.set({
         minWidth: 880,
         minHeight: 610,
