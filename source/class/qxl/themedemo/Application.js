@@ -50,7 +50,7 @@ qx.Class.define("qxl.themedemo.Application",
       var doc = this.getRoot();
       
       var desktop = this.desktop = new qx.ui.window.Desktop()
-      desktop.add(this.createTitle(options.title ?? ""), {top: 10, left: 10});
+      desktop.add(this.createTitle(options ? options.title : ""), {top: 10, left: 10});
       
       var mainContainer = this.mainContainer = new qx.ui.container.Composite()
       mainContainer.setLayout(new qx.ui.layout.Canvas());
@@ -59,7 +59,7 @@ qx.Class.define("qxl.themedemo.Application",
       
       doc.add(mainContainer, {edge: 0});
       
-      var about = this.about = new qxl.themedemo.About(options.about_url  ?? "");
+      var about = this.about = new qxl.themedemo.About(options ? options.about_url : "");
       about.open();
       
       desktop.add(about);
