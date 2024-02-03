@@ -16,6 +16,10 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-color-chooser.png)
+ */
+
 qx.Class.define("qxl.themedemo.ColorChooser",
 {
   extend: qx.ui.window.Window,
@@ -34,7 +38,7 @@ qx.Class.define("qxl.themedemo.ColorChooser",
     {
       this.set({
         layout: new qx.ui.layout.VBox(16),
-        // icon: "@fontawesome/f53f/16",
+        icon: "icon/16/apps/utilities-color-chooser.png",
         caption: "Color Selector",
         allowStretchX: false,
         allowStretchY: false
@@ -46,12 +50,21 @@ qx.Class.define("qxl.themedemo.ColorChooser",
         allowGrowX: true,
         allowGrowY: true
       });
-    
+      
       var colorSelector = new qx.ui.control.ColorSelector();
       colorSelector.getChildControl("hex-field").setWidth(65);
-
+      colorSelector.getChildControl("hsb-spinner-brightness").setWidth(55);
+      colorSelector.getChildControl("hsb-spinner-hue").setWidth(55);
+      colorSelector.getChildControl("hsb-spinner-saturation").setWidth(55);
+      colorSelector.getChildControl("rgb-spinner-blue").setWidth(55);
+      colorSelector.getChildControl("rgb-spinner-green").setWidth(55);
+      colorSelector.getChildControl("rgb-spinner-red").setWidth(55);
+      colorSelector.getChildControl("preset-field-set").setAlignX("center");
+    
       box.add(colorSelector);
       this.add(box, {flex: 1});
+      
+      this.addListenerOnce("appear", this.center, this);
       
       this.addListener("appear", function() {
         this.fadeIn(200);

@@ -44,7 +44,7 @@ qx.Class.define("qxl.themedemo.pages.EmbedFrame",
     {
       var widgets = this._widgets;
       var label, left, right;
-      var url = qx.util.ResourceManager.getInstance().toUri("bernstein/demo/blank.html");
+      var url = qx.util.ResourceManager.getInstance().toUri("qxl/themedemo/blank.html");
 
       var splitPane = new qx.ui.splitpane.Pane("horizontal").set({padding: 5});
       // remove the background color for a better look

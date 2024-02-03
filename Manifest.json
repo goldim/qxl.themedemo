@@ -8,10 +8,14 @@
     "homepage" : "",
     "license" : "MIT license",
     "authors" : [
-  {
-    "name": "Dmitrii Zolotov (goldim)",
-    "email": "zolotovdy@yandex.ru"
-  }
+      {
+        "name" : "Norbert Schröder (scro34)",
+        "email" : "schroeder@scro34.de"
+      },
+      {
+        "name": "Dmitrii Zolotov (goldim)",
+        "email": "zolotovdy@yandex.ru"
+      }
 ],
     "version" : "1.0.0"
   },

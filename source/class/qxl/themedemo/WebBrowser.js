@@ -16,6 +16,13 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(qx/icon/${qx.icontheme}/16/actions/media-playback-start.png)
+ * @asset(qx/icon/${qx.icontheme}/16/actions/go-previous.png)
+ * @asset(qx/icon/${qx.icontheme}/16/actions/go-next.png)
+ * @asset(qx/icon/${qx.icontheme}/16/categories/internet.png)
+ */
+ 
 qx.Class.define("qxl.themedemo.WebBrowser",
 {
   extend: qx.ui.window.Window,
@@ -49,7 +56,7 @@ qx.Class.define("qxl.themedemo.WebBrowser",
         width: 900,
         height: 700,
         contentPadding: 0,
-        // icon: "@fontawesome/f0ac/16",
+        icon: "icon/16/categories/internet.png"
       });
     
       var toolbar = this._createToolbar();
@@ -66,17 +73,13 @@ qx.Class.define("qxl.themedemo.WebBrowser",
     {
       var toolbar = new qx.ui.toolbar.ToolBar();
 
-      var btnBack = new qx.ui.toolbar.Button(null,
-        // "@fontawesome/f359/14"
-      );
+      var btnBack = new qx.ui.toolbar.Button(null, "icon/16/actions/go-previous.png");
       btnBack.addListener("execute", function(e) {
         // this.iframe.getWindow().history.back();
       }, this);
       toolbar.add(btnBack);
 
-      var btnForward = new qx.ui.toolbar.Button(null,
-        // "@fontawesome/f35a/14"
-      );
+      var btnForward = new qx.ui.toolbar.Button(null, "icon/16/actions/go-next.png");
       btnForward.addListener("execute", function(e) {
         // this.iframe.getWindow().history.forward();
       }, this);
@@ -102,9 +105,7 @@ qx.Class.define("qxl.themedemo.WebBrowser",
       }, this);
       toolbar.add(this.txtUrl, {flex: 1});
 
-      var btnGo = new qx.ui.toolbar.Button(null,
-        // "@fontawesome/f04b/16"
-      );
+      var btnGo = new qx.ui.toolbar.Button(null, "icon/16/actions/media-playback-start.png");
       btnGo.addListener("execute", function(e) {
         this.surfTo(this.txtUrl.getValue());
       }, this);

@@ -16,6 +16,16 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(qx/icon/${qx.icontheme}/16/apps/office-chart.png)
+ * @asset(qx/icon/${qx.icontheme}/16/apps/office-calendar.png)
+ * @asset(qx/icon/${qx.icontheme}/16/actions/edit-undo.png)
+ * @asset(qx/icon/${qx.icontheme}/16/actions/list-add.png)
+ * @asset(qx/icon/${qx.icontheme}/16/actions/list-remove.png)
+ * @asset(qx/icon/${qx.icontheme}/16/status/dialog-information.png)
+ * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
+ */
+ 
 qx.Class.define("qxl.themedemo.TableWindow",
 {
   extend: qx.ui.window.Window,
@@ -40,15 +50,15 @@ qx.Class.define("qxl.themedemo.TableWindow",
         layout: new qx.ui.layout.VBox(0),
         contentPadding: 3,
         caption: "Table",
-        // icon: "@fontawesome/f0ce/16",
-        allowStretchX: false,
-        allowStretchY: false
+        icon: "icon/16/apps/office-chart.png"
       });
 
       var table = this.createTable();
       
       this.add(this.createToolbar());
       this.add(table, {flex: 1});
+
+      this.addListenerOnce("appear", this.center, this);
 
       this.addListener("appear", function() {
         this.fadeIn(200);
@@ -92,9 +102,7 @@ qx.Class.define("qxl.themedemo.TableWindow",
       tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
 
       // use a different header renderer
-      tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon(
-        // "@fontawesome/f073/14"
-        null, "A date"));
+      tcm.setHeaderCellRenderer(2, new qx.ui.table.headerrenderer.Icon("icon/16/apps/office-calendar.png", "A date"));
 
       return table;
     },
@@ -119,9 +127,7 @@ qx.Class.define("qxl.themedemo.TableWindow",
       part = new qx.ui.toolbar.Part();
       bar.add(part);
 
-      button = new qx.ui.toolbar.Button("Change row with ID 10",
-      // "@fontawesome/f2ea/14"
-      );
+      button = new qx.ui.toolbar.Button("Change row with ID 10", "icon/16/actions/edit-undo.png");
       button.addListener("execute", function(evt) {
         var rowData = this.createRandomRows(1);
         for (var i = 1; i < this._tableModel.getColumnCount(); i++) {
@@ -131,9 +137,7 @@ qx.Class.define("qxl.themedemo.TableWindow",
       }, this);
       part.add(button);
 
-      button = new qx.ui.toolbar.Button("Add 10 rows",
-      // "@fontawesome/f067/14"
-      );
+      button = new qx.ui.toolbar.Button("Add 10 rows", "icon/16/actions/list-add.png");
       button.addListener("execute", function(evt) {
         var rowData = this.createRandomRows(10);
         this._tableModel.addRows(rowData);
@@ -141,9 +145,7 @@ qx.Class.define("qxl.themedemo.TableWindow",
       }, this);
       part.add(button);
 
-      button = new qx.ui.toolbar.Button("Remove 5 rows",
-      // "@fontawesome/f068/14"
-      );
+      button = new qx.ui.toolbar.Button("Remove 5 rows", "icon/16/actions/list-remove.png");
       button.addListener("execute", function(evt) {
         var rowCount = this._tableModel.getRowCount();
         this._tableModel.removeRows(rowCount-5, 5);
@@ -151,9 +153,7 @@ qx.Class.define("qxl.themedemo.TableWindow",
       }, this);
       part.add(button);
 
-      button = new qx.ui.toolbar.Button("Show selection",
-      // "@fontawesome/f05a/14"
-      );
+      button = new qx.ui.toolbar.Button("Show selection", "icon/16/status/dialog-information.png");
       button.addListener("execute", function(evt)
       {
         var selection = [];

@@ -13,8 +13,19 @@
 ************************************************************************ */
 
 /**
- * @asset(bernstein/demo/*)
+ * @asset(qxl/themedemo/*)
  * 
+ * @asset(qx/icon/${qx.icontheme}/32/apps/media-audio-player.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/media-photo-album.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/office-address-book.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/office-chart.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-calculator.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-color-chooser.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-statistics.png)
+ * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-text-editor.png)
+ * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
+ * 
+ * @@asset(qx/icon/${qx.icontheme}/48/devices*)
  */
 qx.Class.define("qxl.themedemo.Application",
 {
@@ -59,16 +70,16 @@ qx.Class.define("qxl.themedemo.Application",
     {
       var separator = new qxl.themedemo.Separator(80);
       
-      var themeLabel = new qx.ui.basic.Label("Bernstein").set({
+      var themeLabel = new qx.ui.basic.Label("DarkTheme").set({
         // font: "title", 
-        // textColor: "text-active",
+        // textColor: "text-label",
         cursor: "pointer"
       });
       themeLabel.addListener("mouseover", function() {
-        this.setTextColor("text-selected");
+        this.setTextColor("text-textfield");
       }, themeLabel);
       themeLabel.addListener("mouseout", function() {
-        this.setTextColor("text-active");
+        this.setTextColor("text-label");
       }, themeLabel);
       themeLabel.addListener("click", function() {
         this.about.open();
@@ -306,38 +317,106 @@ qx.Class.define("qxl.themedemo.Application",
       });
     },
 
+    
+    onAudioPlayerWindow: function(e)
+    {
+      var button = e.getTarget();
+      var that = this;
+      
+      this.dockButtonClick(button, this.audioPlayerWindow, function()
+      {
+        if (!that.audioPlayerWindow) {
+          that.audioPlayerWindow = new qxl.themedemo.PlayerWindow();
+          that.audioPlayerWindow.addListener("openHomepage", that.onOpenHomepage, that);
+          that.audioPlayerWindow.addListener("openWikipedia", that.onOpenWikipedia, that);
+          that.audioPlayerWindow.addListener("openVideo", that.onOpenVideo, that);
+          that.audioPlayerWindow.addListener("close", function() {
+            button.setValue(false);
+            this.checkShowDock();
+          }, that);
+          that.desktop.add(that.audioPlayerWindow, {top: 110, left: 20});
+        }
+        that.audioPlayerWindow.open();
+      });
+    },
+    
+    
+    onOpenHomepage: function(e)
+    {
+      if (!this.homePageWindow) {
+        this.homePageWindow = new qxl.themedemo.WebBrowser();
+        this.desktop.add(this.homePageWindow);
+      }
+      this.homePageWindow.setIcon(e.getData().icon);
+      this.homePageWindow.setCaption(e.getData().caption);
+      this.homePageWindow.surfTo(e.getData().url);
+      this.homePageWindow.open();
+    },
+    
+    
+    onOpenWikipedia: function(e)
+    {
+      if (!this.wikipediaWindow) {
+        this.wikipediaWindow = new qxl.themedemo.WebBrowser();
+        this.desktop.add(this.wikipediaWindow);
+      }
+      this.wikipediaWindow.setIcon(e.getData().icon);
+      this.wikipediaWindow.setCaption(e.getData().caption);
+      this.wikipediaWindow.surfTo(e.getData().url);
+      this.wikipediaWindow.open();
+    },
+
+    onOpenVideo: function(e)
+    {
+      if (!this.videoWindow) {
+        this.videoWindow = new qxl.themedemo.VideoWindow();
+        this.desktop.add(this.videoWindow, {top: 60, right: 20});
+      }
+      this.videoWindow.setIcon(e.getData().icon);
+      this.videoWindow.setCaption(e.getData().caption);
+      this.videoWindow.setVideoLink(e.getData().video);
+      this.videoWindow.open();
+    },
+    
+
     getButtonData: function()
     {
       return [
         {
-          // icon: "@fontawesome/f0ca/32",
+          icon: "icon/32/apps/utilities-statistics.png",
           toolTip: "Widget Browser",
           name: "WidgetBrowser",
           action: this.onWidgetBrowser
         },
         {
-          // icon: "@fontawesome/f1ec/32",
+          icon: "icon/32/apps/utilities-calculator.png",
           toolTip: "Calculator",
           name: "Calculator",
           action: this.onCalculator
         },
         {
-          // icon: "@fontawesome/f53f/32",
+          icon: "icon/32/apps/utilities-color-chooser.png",
           toolTip: "Color Selector",
           name: "ColorSelector",
           action: this.onColorChooser
         },
         {
-          // icon: "@fontawesome/f0ce/32",
+          icon: "icon/32/apps/office-chart.png",
           toolTip: "Table",
           name: "Table",
           action: this.onTableWindow
         },
         {
-          // icon: "@fontawesome/f0ac/32",
+          icon: "icon/32/categories/internet.png",
           toolTip: "Web Browser",
           name: "WebBrowser",
           action: this.onWebBrowser
+        },
+        {
+          icon: "icon/32/apps/media-audio-player.png",
+          toolTip: "Audio Player",
+          name: "AudioPlayer",
+          action: this.onAudioPlayerWindow
         }
       ];
     }

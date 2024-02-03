@@ -16,6 +16,10 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-calculator.png)
+ */
+ 
 qx.Class.define("qxl.themedemo.Calculator",
 {
   extend: qx.ui.window.Window,
@@ -46,13 +50,14 @@ qx.Class.define("qxl.themedemo.Calculator",
         minWidth: 260,
         height: 260,
         caption: "Calculator",
-        // icon: "@fontawesome/f1ec/16",
+        icon: "icon/16/apps/utilities-calculator.png",
         allowStretchX: false,
         allowStretchY: false
       });
 
       this.addListenerOnce("appear", function(e) {
         this.add(this._createCalculator(), {flex: 1});
+        this.center();
       }, this);
 
       this.addListener("appear", function(e) {
@@ -88,6 +93,8 @@ qx.Class.define("qxl.themedemo.Calculator",
         minWidth: 140,
         height: 32,
         paddingRight: 8,
+        // textColor: "text-active",
+        enabled: false,
 
         font: new qx.bom.Font().set({
           size: 20,

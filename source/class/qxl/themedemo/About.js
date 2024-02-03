@@ -26,14 +26,13 @@ qx.Class.define("qxl.themedemo.About",
 
   members:
   {
-    _aboutTextUrl: "resource/bernstein/demo/about.html",
+    _aboutTextUrl: "resource/qxl/themedemo/about.html",
     
     _createControls: function()
     {
       this.set({
         layout: new qx.ui.layout.VBox(0),
         caption: "About",
-        // icon: "@fontawesome/f05a/16",
         contentPadding: 5,
         showMaximize: false,
         showMinimize: false,
@@ -41,9 +40,10 @@ qx.Class.define("qxl.themedemo.About",
       });
 
       var url = qx.util.ResourceManager.getInstance().toUri(this._aboutTextUrl);
-      //url = this._aboutTextUrl;
+      this.debug(url);
       
       var textBox = this.textBox = new qx.ui.embed.ThemedIframe(url).set({
+		// decorator: "input",
         width: 580,
         height: 350
       });
@@ -70,12 +70,7 @@ qx.Class.define("qxl.themedemo.About",
     
     _getButtonBox: function()
     {
-      var btnClose = new qx.ui.form.Button("Close",
-      // "@fontawesome/f00d/14"
-      )
-      .set({
-        width: 100
-      });
+      var btnClose = new qx.ui.form.Button("Close").set({width: 100});
       btnClose.addState("circle");
       btnClose.addListener("execute", this.close, this);
       

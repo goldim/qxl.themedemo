@@ -21,7 +21,7 @@
  *
  * List
  * 
- * @asset(bernstein/demo/people.json)
+ * @asset(qxl/themedemo/people.json)
  *
  */
 

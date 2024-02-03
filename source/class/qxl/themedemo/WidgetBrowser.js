@@ -12,6 +12,10 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-statistics.png)
+ */
+ 
 qx.Class.define("qxl.themedemo.WidgetBrowser",
 {
   extend: qx.ui.window.Window,
@@ -34,7 +38,7 @@ qx.Class.define("qxl.themedemo.WidgetBrowser",
         layout: new qx.ui.layout.VBox(),
         contentPadding: [10, 0, 0, 0],
         caption: "WidgetBrowser",
-        // icon: "@fontawesome/f0ca/16",
+        icon: "icon/16/apps/utilities-statistics.png"
       });
       
       this._tabView = new qxl.themedemo.view.TabView();
