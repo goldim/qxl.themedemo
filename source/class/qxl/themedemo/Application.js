@@ -54,7 +54,6 @@ qx.Class.define("qxl.themedemo.Application",
       let title;
       if (!options || !options.title){
         const currentTheme = qx.theme.manager.Meta.getInstance().getTheme().name;
-        console.log(qx.theme.manager.Meta.getInstance().getTheme());
         let themePart = currentTheme.substring(0, currentTheme.indexOf('.'));
         if (themePart === "qxl"){
           themePart = currentTheme.substring(currentTheme.lastIndexOf('.') + 1, currentTheme.length);

@@ -47,6 +47,14 @@ qx.Theme.define("qxl.themedemo.theme.Decoration",
         shadowBlurRadius: 3,
         shadowColor: "shadow-input"
       }
+    },
+    "radiobutton-checked-hovered": 
+    {
+      include: "radiobutton",
+      
+      style: {
+        endColor: "text-hovered"
+      }
     }
   }
 });

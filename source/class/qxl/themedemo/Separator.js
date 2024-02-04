@@ -35,7 +35,7 @@ qx.Class.define("qxl.themedemo.Separator",
     }));
     
     this.add(new qx.ui.basic.Atom().set({
-      // decorator: "radiobutton-checked-hovered", 
+      decorator: "radiobutton-checked-hovered", 
       width: 15, 
       height: 15,
       maxHeight: 15,
