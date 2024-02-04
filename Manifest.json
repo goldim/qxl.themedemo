@@ -30,6 +30,9 @@
   },
 
   "requires": {
-    "@qooxdoo/framework": "^7.6.3"
+    "@qooxdoo/framework": "^7.6.3",
+    "qooxdoo/qxl.widgetbrowser": "^2.0.0",
+    "qooxdoo/qxl.formdemo": "^2.0.0",
+    "qooxdoo/qxl.versionlabel": "^2.0.0"
   }
 }
