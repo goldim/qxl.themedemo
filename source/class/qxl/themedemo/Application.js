@@ -72,7 +72,7 @@ qx.Class.define("qxl.themedemo.Application",
       
       var themeLabel = new qx.ui.basic.Label(title).set({
         // font: "title", 
-        // textColor: "text-label",
+        textColor: "text-label",
         cursor: "pointer"
       });
       themeLabel.addListener("mouseover", function() {

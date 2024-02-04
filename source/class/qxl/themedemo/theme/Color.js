@@ -18,6 +18,8 @@ qx.Theme.define("qxl.themedemo.theme.Color",
     "text-active": "black",
     "border-input": "#101010",
     "input-start": "white",
-    "input-end": "white"
+    "input-end": "white",
+    "text-label": "#A2A2A2",
+    "text-textfield": "#050505"
   }
 });
