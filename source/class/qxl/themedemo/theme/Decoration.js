@@ -30,6 +30,23 @@ qx.Theme.define("qxl.themedemo.theme.Decoration",
       style: {
         endColor: "text-selected"
       }
+    },
+
+    "input":
+    {
+      style: {
+        color: "border-input",
+        width: 1,
+        radius: 2,
+        startColor: "input-start",
+        endColor: "input-end",
+        startColorPosition: 0,
+        endColorPosition: 2,
+        colorPositionUnit: "px",
+        shadowLength: 0,
+        shadowBlurRadius: 3,
+        shadowColor: "shadow-input"
+      }
     }
   }
 });

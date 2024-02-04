@@ -114,7 +114,7 @@ qx.Class.define("qxl.themedemo.PlayerWindow",
       albumCover.addListener("changeSource", this._onChangeSource, this);
       
       var albumBox = this._albumBox = new qx.ui.container.Composite(new qx.ui.layout.VBox(0)).set({
-        // decorator: "input", 
+        decorator: "input", 
         padding: 5
       });
       

@@ -14,6 +14,9 @@ qx.Theme.define("qxl.themedemo.theme.Color",
 
   colors :
   {
-    "text-active": "black"
+    "text-active": "black",
+    "border-input": "#101010",
+    "input-start": "white",
+    "input-end": "white"
   }
 });

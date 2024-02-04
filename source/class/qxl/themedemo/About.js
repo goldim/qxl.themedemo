@@ -42,7 +42,7 @@ qx.Class.define("qxl.themedemo.About",
       var url = qx.util.ResourceManager.getInstance().toUri(this._aboutTextUrl);
 
       var textBox = this.textBox = new qx.ui.embed.ThemedIframe(url).set({
-		// decorator: "input",
+		    decorator: "input",
         width: 580,
         height: 350
       });

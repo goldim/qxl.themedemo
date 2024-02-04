@@ -87,7 +87,7 @@ qx.Class.define("qxl.themedemo.Calculator",
       box.setLayout(gridLayout);
 
       this.__display = new qx.ui.basic.Label(this.__cal.getCurrentValue().toString()).set({
-        // decorator: "input",
+        decorator: "input",
         allowGrowX: true,
         allowGrowY: true,
         minWidth: 140,
