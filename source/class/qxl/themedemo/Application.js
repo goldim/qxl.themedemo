@@ -26,6 +26,7 @@
  * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
  * 
  * @@asset(qx/icon/${qx.icontheme}/48/devices*)
+ * @usefont(JosefinSlab)
  */
 qx.Class.define("qxl.themedemo.Application",
 {
@@ -50,7 +51,7 @@ qx.Class.define("qxl.themedemo.Application",
       var doc = this.getRoot();
       
       var desktop = this.desktop = new qx.ui.window.Desktop()
-      desktop.add(this.createTitle(options ? options.title : ""), {top: 10, left: 10});
+      desktop.add(this.createTitle(options ? options.title : "Indigo"), {top: 10, left: 10});
       
       var mainContainer = this.mainContainer = new qx.ui.container.Composite()
       mainContainer.setLayout(new qx.ui.layout.Canvas());
@@ -69,9 +70,10 @@ qx.Class.define("qxl.themedemo.Application",
     createTitle: function(title)
     {
       var separator = new qxl.themedemo.Separator(80);
+      const font = new qx.bom.Font(36, ["serif"]);
       
       var themeLabel = new qx.ui.basic.Label(title).set({
-        // font: "title", 
+        font, 
         textColor: "text-label",
         cursor: "pointer"
       });
@@ -98,9 +100,10 @@ qx.Class.define("qxl.themedemo.Application",
     
     createVersionInfo: function()
     {
+      const font = new qx.bom.Font(19, ["serif"]);
       var qooxdoo = new qx.ui.basic.Label("qooxdoo").set(
         {
-          // font: "qooxdoo",
+          font,
           paddingBottom: 3, cursor: "pointer"}
       );
       qooxdoo.addListener("mouseover", function() {
