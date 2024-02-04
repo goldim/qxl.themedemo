@@ -19,7 +19,7 @@ qx.Class.define("qxl.themedemo.About",
   construct: function(link)
   {
     this.base(arguments);
-    this._aboutTextUrl = link ?? "resource/qxl/themedemo/blank.html";
+    this._aboutTextUrl = link;
     this._createControls();
   },
 
@@ -38,6 +38,17 @@ qx.Class.define("qxl.themedemo.About",
         showMinimize: false,
         resizable: false
       });
+
+      if (this._aboutTextUrl){
+        const appName = qx.core.Environment.get("qx.application");
+        const nsName = appName.replace(".Application", "");
+        const OPTION_NAME = "resourceUri";
+        const libManager = qx.util.LibraryManager.getInstance();
+        const resourcePath = libManager.get(nsName, OPTION_NAME);
+        this._aboutTextUrl = resourcePath + "/" + this._aboutTextUrl;
+      } else {
+        this._aboutTextUrl = "resource/qxl/themedemo/blank.html"
+      }
 
       var url = qx.util.ResourceManager.getInstance().toUri(this._aboutTextUrl);
 
