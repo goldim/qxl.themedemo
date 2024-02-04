@@ -498,11 +498,11 @@ qx.Class.define("qxl.themedemo.PlayerWindow",
                                      "icon/22/actions/media-playback-start.png");
       if (pressed) {
         this._playSong(false);
-        // this._positionKnob.setDecorator("slider-knob-hovered");
+        this._positionKnob.setDecorator("slider-knob-hovered");
         this._btnPlay.setToolTip(this._ttPause);
       } else {
         this._audio.pause();
-        // this._positionKnob.setDecorator("slider-knob");
+        this._positionKnob.setDecorator("slider-knob");
         this._btnPlay.setToolTip(this._ttResume);
       }
     },

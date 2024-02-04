@@ -14,5 +14,6 @@ qx.Theme.define("qxl.themedemo.theme.Color",
 
   colors :
   {
+    "text-active": "black"
   }
 });

@@ -93,7 +93,7 @@ qx.Class.define("qxl.themedemo.Calculator",
         minWidth: 140,
         height: 32,
         paddingRight: 8,
-        // textColor: "text-active",
+        textColor: "text-active",
         enabled: false,
 
         font: new qx.bom.Font().set({

@@ -14,5 +14,22 @@ qx.Theme.define("qxl.themedemo.theme.Decoration",
 
   decorations :
   {
+    "slider-knob":
+    {
+      include: "button-checked",
+      
+      style: {
+        radius: 15
+      }
+    },
+
+    "slider-knob-hovered":
+    {
+      include: "slider-knob",
+      
+      style: {
+        endColor: "text-selected"
+      }
+    }
   }
 });
