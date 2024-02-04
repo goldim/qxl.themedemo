@@ -50,8 +50,21 @@ qx.Class.define("qxl.themedemo.Application",
       
       var doc = this.getRoot();
       
-      var desktop = this.desktop = new qx.ui.window.Desktop()
-      desktop.add(this.createTitle(options ? options.title : "Indigo"), {top: 10, left: 10});
+      var desktop = this.desktop = new qx.ui.window.Desktop();
+      let title;
+      if (!options || !options.title){
+        const currentTheme = qx.theme.manager.Meta.getInstance().getTheme().name;
+        console.log(qx.theme.manager.Meta.getInstance().getTheme());
+        let themePart = currentTheme.substring(0, currentTheme.indexOf('.'));
+        if (themePart === "qxl"){
+          themePart = currentTheme.substring(currentTheme.lastIndexOf('.') + 1, currentTheme.length);
+        }
+        title = qx.lang.String.firstUp(themePart);
+      }
+      else if (options && options.title) {
+        title = options.title;
+      }
+      desktop.add(this.createTitle(title), {top: 10, left: 10});
       
       var mainContainer = this.mainContainer = new qx.ui.container.Composite()
       mainContainer.setLayout(new qx.ui.layout.Canvas());
@@ -71,7 +84,7 @@ qx.Class.define("qxl.themedemo.Application",
     {
       var separator = new qxl.themedemo.Separator(80);
       const font = new qx.bom.Font(36, ["serif"]);
-      
+
       var themeLabel = new qx.ui.basic.Label(title).set({
         font, 
         textColor: "text-label",
