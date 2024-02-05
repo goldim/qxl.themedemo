@@ -73,9 +73,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
         allowGrowY: true,
       });
 
-      const gridLayout = new qx.ui.layout.Grid(5, 5);
-
-      box.setLayout(gridLayout);
+      box.setLayout(this.__createGridLayout());
 
       this.__display = new qx.ui.basic.Label(
         this.__cal.getCurrentValue().toString()
@@ -100,7 +98,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
 
       this.__display.setEnabled(false);
 
-      var fontButton = this.__fontButton = new qx.bom.Font().set({
+      this.__fontButton = new qx.bom.Font().set({
         size: 12,
         family: ["Verdana", "sans-serif"],
         bold: true,
@@ -108,43 +106,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
 
       this.__createAndAddNumbersToBox(box);
       this.__createAndAddMathActionsToBox(box);
-
-      var buttonC = new qx.ui.form.Button("C").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonCE = new qx.ui.form.Button("CE").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonDelete = new qx.ui.form.Button("Del").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonChangeSign = new qx.ui.form.Button("+/-").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonComma = new qx.ui.form.Button(".").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      gridLayout.setColumnFlex(0, 1);
-      gridLayout.setColumnFlex(1, 1);
-      gridLayout.setColumnFlex(2, 1);
-      gridLayout.setColumnFlex(3, 1);
-
-      gridLayout.setRowFlex(1, 1);
-      gridLayout.setRowFlex(2, 1);
-      gridLayout.setRowFlex(3, 1);
-      gridLayout.setRowFlex(4, 1);
-      gridLayout.setRowFlex(5, 1);
-      gridLayout.setRowFlex(6, 1);
+      this.__createAndAddSpecialActions(box);
 
       box.add(this.__display, {
         row: 0,
@@ -153,64 +115,88 @@ qx.Class.define("qxl.themedemo.Calculator", {
         colSpan: 4,
       });
 
-      box.add(buttonC, {
-        row: 1,
-        column: 2,
-        rowSpan: 1,
-        colSpan: 2,
-      });
-
-      box.add(buttonCE, {
-        row: 1,
-        column: 1,
-      });
-
-      box.add(buttonDelete, {
-        row: 1,
-        column: 0,
-      });
-
-      box.add(buttonChangeSign, {
-        row: 5,
-        column: 1,
-      });
-
-      box.add(buttonComma, {
-        row: 5,
-        column: 2,
-      });
-
-      buttonC.addListener("execute", (e) => {
-        this.__cal.cleanDisplay();
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      buttonCE.addListener("execute", (e) => {
-        this.__cal.clearEntry();
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getCurrentValue().toString());
-        }
-      });
-
-      buttonDelete.addListener("execute", (e) => {
-        this.__cal.deleteNumber();
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      buttonChangeSign.addListener("execute", (e) => {
-        this.__cal.setSign();
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getResult().toString());
-        }
-      });
-
-      buttonComma.addListener("execute", (e) => {
-        this.__cal.setComma();
-      });
-
       return box;
+    },
+
+    __createGridLayout(){
+      const layout = new qx.ui.layout.Grid(5, 5);
+      for (let i = 0; i <= 3; i++) { 
+        layout.setColumnFlex(i, 1);
+      }
+      for (let i = 1; i <= 6; i++) { 
+        layout.setRowFlex(i, 1);
+      }
+      return layout;
+    },
+
+    __createAndAddSpecialActions(box){
+      const actions = [
+        {
+          label: "C",
+          handler: () => {
+            this.__cal.cleanDisplay();
+            this.__display.setValue(this.__cal.getCurrentValue().toString());
+          },
+          position: {
+            row: 1,
+            column: 2,
+            rowSpan: 1,
+            colSpan: 2,
+          }
+        },
+        {
+          label: "CE",
+          handler: () => {
+            this.__cal.clearEntry();
+            if (this.__cal.getResult() != null) {
+              this.__display.setValue(this.__cal.getCurrentValue().toString());
+            }
+          },
+          position: {
+            row: 1,
+            column: 1,
+          }
+        },
+        {
+          label: "Del",
+          handler: () => {
+            this.__cal.deleteNumber();
+            this.__display.setValue(this.__cal.getCurrentValue().toString());
+          },
+          position: {
+            row: 1,
+            column: 0,
+          }
+        },
+        {
+          label: "+/-",
+          handler: () => {
+            this.__cal.setSign();
+            if (this.__cal.getResult() != null) {
+              this.__display.setValue(this.__cal.getResult().toString());
+            }
+          },
+          position: {
+            row: 5,
+            column: 1,
+          }
+        },
+        {
+          label: ".",
+          handler: () => {
+            this.__cal.setComma();
+          },
+          position: {
+            row: 5,
+            column: 2,
+          }
+        }
+      ];
+
+      actions.forEach(action => {
+        const button = this.__createButton(action.label, action.handler);
+        box.add(button, action.position);
+      });
     },
 
     __createAndAddMathActionsToBox(box){
