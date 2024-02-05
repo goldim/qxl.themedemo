@@ -214,7 +214,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
     },
 
     __createAndAddMathActionsToBox(box){
-      let actionOptions = [
+      let operations = [
         { label: "+", position: {row: 5, column: 3} },
         { label: "-", position:  { row: 2, column: 3 }},
         { label: "*", position: { row: 3, column: 3 } },
@@ -222,21 +222,21 @@ qx.Class.define("qxl.themedemo.Calculator", {
         { label: "=", position: { row: 6, column: 0, rowSpan: 1, colSpan: 4 } }
       ];
 
-      actionOptions.forEach(options => {
+      operations.forEach(operation => {
         const handler = () => {
-          this.__cal.calculate(options.label);
+          this.__cal.calculate(operation.label);
           if (this.__cal.getResult() != null) {
             this.__display.setValue(this.__cal.getResult().toString());
           }
           this.__cal.resetCurrentValue();
         }
-        const button = this.__createButton(options.label, handler);
-        box.add(button, options.position);
+        const button = this.__createButton(operation.label, handler);
+        box.add(button, operation.position);
       });
     },
 
     __createAndAddNumbersToBox(box){
-      const numberButtonOptions = [
+      const numbers = [
         { label: "1", position: { row: 4, column: 0 } },
         { label: "2", position: { row: 4, column: 1 } },
         { label: "3", position: { row: 4, column: 2 } },
@@ -259,9 +259,9 @@ qx.Class.define("qxl.themedemo.Calculator", {
       });
       box.add(button0, { row: 5, column: 0 });
 
-      numberButtonOptions.forEach(options => {
-        const button = this.__createNumberButton(options.label, options.value);
-        box.add(button, options.position);
+      numbers.forEach(number => {
+        const button = this.__createNumberButton(number.label, number.value);
+        box.add(button, number.position);
       });
     },
 
