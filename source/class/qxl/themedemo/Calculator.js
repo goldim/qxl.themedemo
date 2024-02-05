@@ -134,11 +134,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
         minWidth: 30,
       });
 
-      var buttonResult = new qx.ui.form.Button("=").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
       gridLayout.setColumnFlex(0, 1);
       gridLayout.setColumnFlex(1, 1);
       gridLayout.setColumnFlex(2, 1);
@@ -185,13 +180,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
         column: 2,
       });
 
-      box.add(buttonResult, {
-        row: 6,
-        column: 0,
-        rowSpan: 1,
-        colSpan: 4,
-      });
-
       buttonC.addListener("execute", (e) => {
         this.__cal.cleanDisplay();
         this.__display.setValue(this.__cal.getCurrentValue().toString());
@@ -218,16 +206,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
         }
       });
 
-      buttonResult.addListener("execute", (e) => {
-        this.__cal.calculate("=");
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getResult().toString());
-        }
-
-        this.__cal.resetCurrentValue();
-      });
-
       buttonComma.addListener("execute", (e) => {
         this.__cal.setComma();
       });
@@ -240,7 +218,8 @@ qx.Class.define("qxl.themedemo.Calculator", {
         { label: "+", position: {row: 5, column: 3} },
         { label: "-", position:  { row: 2, column: 3 }},
         { label: "*", position: { row: 3, column: 3 } },
-        { label: "/", position: { row: 4, column: 3 } }
+        { label: "/", position: { row: 4, column: 3 } },
+        { label: "=", position: { row: 6, column: 0, rowSpan: 1, colSpan: 4 } }
       ];
 
       actionOptions.forEach(options => {
