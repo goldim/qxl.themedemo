@@ -14,8 +14,8 @@
 
 /**
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-statistics.png)
+ * @usefont(MaterialIcons)
  */
-
 qx.Class.define("qxl.themedemo.WidgetBrowser", {
   extend: qx.ui.window.Window,
 
