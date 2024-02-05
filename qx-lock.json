@@ -10,11 +10,11 @@
     },
     {
       "library_name": "widgetbrowser",
-      "library_version": "2.0.1",
-      "path": "qx_packages/qooxdoo_qxl_widgetbrowser_v2_0_1",
+      "library_version": "2.0.2",
+      "path": "qx_packages/qooxdoo_qxl_widgetbrowser_v2_0_2",
       "uri": "qooxdoo/qxl.widgetbrowser",
       "repo_name": "qooxdoo/qxl.widgetbrowser",
-      "repo_tag": "v2.0.1"
+      "repo_tag": "v2.0.2"
     },
     {
       "library_name": "versionlabel",
