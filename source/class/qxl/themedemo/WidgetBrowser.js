@@ -49,17 +49,6 @@ qx.Class.define("qxl.themedemo.WidgetBrowser", {
       });
 
       this.add(this._tabView, { flex: 1 });
-
-      this.addListener("appear", () => {
-        this.center();
-        this.fadeIn(200);
-      });
-
-      this.addListener("keypress", (e) => {
-        if (e.getKeyIdentifier() == "Escape") {
-          this.close();
-        }
-      });
     },
   },
 });

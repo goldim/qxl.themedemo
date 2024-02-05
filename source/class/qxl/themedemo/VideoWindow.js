@@ -52,15 +52,8 @@ qx.Class.define("qxl.themedemo.VideoWindow", {
 
     setVideoLink(data) {
       this.htmlFrame.set({ width: data.width + 2, height: data.height + 2 });
-      this.htmlFrame.setHtml(
-        "<iframe width='" +
-          data.width +
-          "' height='" +
-          data.height +
-          "' src='" +
-          data.url +
-          "' frameborder='0' allowfullscreen></iframe>"
-      );
+      const html = `<iframe width="${data.width}" height="${data.height}" src="${data.url}" frameborder='0' allowfullscreen></iframe>`;
+      this.htmlFrame.setHtml(html);
     },
   },
 });

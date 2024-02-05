@@ -21,7 +21,7 @@
  */
 
 qx.Class.define("qxl.themedemo.Calculator", {
-  extend: qx.ui.window.Window,
+  extend: qxl.themedemo.Window,
 
   construct() {
     super();
@@ -51,16 +51,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
       this.addListenerOnce("appear", () => {
         this.add(this._createCalculator(), { flex: 1 });
         this.center();
-      });
-
-      this.addListener("appear", () => {
-        this.fadeIn(200);
-      });
-
-      this.addListener("keypress", (e) => {
-        if (e.getKeyIdentifier() == "Escape") {
-          this.close();
-        }
       });
     },
 

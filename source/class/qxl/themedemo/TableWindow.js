@@ -27,7 +27,7 @@
  */
 
 qx.Class.define("qxl.themedemo.TableWindow", {
-  extend: qx.ui.window.Window,
+  extend: qxl.themedemo.Window,
 
   construct() {
     super();
@@ -53,16 +53,6 @@ qx.Class.define("qxl.themedemo.TableWindow", {
       this.add(table, { flex: 1 });
 
       this.addListenerOnce("appear", this.center, this);
-
-      this.addListener("appear", () => {
-        this.fadeIn(200);
-      });
-
-      this.addListener("keypress", (e) => {
-        if (e.getKeyIdentifier() == "Escape") {
-          this.close();
-        }
-      });
     },
 
     createTable() {
