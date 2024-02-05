@@ -36,7 +36,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
     _createControls() {
       this.__cal = new qxl.themedemo.CalculatorLogic();
 
-      var layout = new qx.ui.layout.VBox(16);
+      const layout = new qx.ui.layout.VBox(16);
       this.set({
         layout: layout,
         width: 260,
@@ -48,12 +48,12 @@ qx.Class.define("qxl.themedemo.Calculator", {
         allowStretchY: false,
       });
 
-      this.addListenerOnce("appear", (e) => {
+      this.addListenerOnce("appear", () => {
         this.add(this._createCalculator(), { flex: 1 });
         this.center();
       });
 
-      this.addListener("appear", (e) => {
+      this.addListener("appear", () => {
         this.fadeIn(200);
       });
 
@@ -65,7 +65,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
     },
 
     _createCalculator() {
-      var box = new qx.ui.container.Composite().set({
+      const box = new qx.ui.container.Composite().set({
         minWidth: 140,
         minHeight: 260,
         padding: 3,
@@ -73,7 +73,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
         allowGrowY: true,
       });
 
-      var gridLayout = new qx.ui.layout.Grid(5, 5);
+      const gridLayout = new qx.ui.layout.Grid(5, 5);
 
       box.setLayout(gridLayout);
 
@@ -100,61 +100,13 @@ qx.Class.define("qxl.themedemo.Calculator", {
 
       this.__display.setEnabled(false);
 
-      var fontButton = new qx.bom.Font().set({
+      var fontButton = this.__fontButton = new qx.bom.Font().set({
         size: 12,
         family: ["Verdana", "sans-serif"],
         bold: true,
       });
 
-      var button0 = (this.button0 = new qx.ui.form.Button("0").set({
-        font: fontButton,
-        minWidth: 30,
-      }));
-
-      var button1 = new qx.ui.form.Button("1").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button2 = new qx.ui.form.Button("2").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button3 = new qx.ui.form.Button("3").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button4 = new qx.ui.form.Button("4").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button5 = new qx.ui.form.Button("5").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button6 = new qx.ui.form.Button("6").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button7 = new qx.ui.form.Button("7").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button8 = new qx.ui.form.Button("8").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var button9 = new qx.ui.form.Button("9").set({
-        font: fontButton,
-        minWidth: 30,
-      });
+      this.__createAndAddNumbersToBox(box);
 
       var buttonC = new qx.ui.form.Button("C").set({
         font: fontButton,
@@ -242,39 +194,9 @@ qx.Class.define("qxl.themedemo.Calculator", {
         column: 0,
       });
 
-      box.add(button7, {
-        row: 2,
-        column: 0,
-      });
-
-      box.add(button8, {
-        row: 2,
-        column: 1,
-      });
-
-      box.add(button9, {
-        row: 2,
-        column: 2,
-      });
-
       box.add(buttonDivision, {
         row: 2,
         column: 3,
-      });
-
-      box.add(button4, {
-        row: 3,
-        column: 0,
-      });
-
-      box.add(button5, {
-        row: 3,
-        column: 1,
-      });
-
-      box.add(button6, {
-        row: 3,
-        column: 2,
       });
 
       box.add(buttonMultiplication, {
@@ -282,29 +204,9 @@ qx.Class.define("qxl.themedemo.Calculator", {
         column: 3,
       });
 
-      box.add(button1, {
-        row: 4,
-        column: 0,
-      });
-
-      box.add(button2, {
-        row: 4,
-        column: 1,
-      });
-
-      box.add(button3, {
-        row: 4,
-        column: 2,
-      });
-
       box.add(buttonMinus, {
         row: 4,
         column: 3,
-      });
-
-      box.add(button0, {
-        row: 5,
-        column: 0,
       });
 
       box.add(buttonChangeSign, {
@@ -353,61 +255,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
         if (this.__cal.getResult() != null) {
           this.__display.setValue(this.__cal.getResult().toString());
         }
-      });
-
-      button0.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(0);
-        this.__display.setValue(
-          this.__cal
-            .getCurrentValue()
-            .toFixed(this.__cal.getZeroCounter())
-            .toString()
-        );
-      });
-
-      button1.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(1);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button2.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(2);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button3.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(3);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button4.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(4);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button5.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(5);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button6.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(6);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button7.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(7);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button8.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(8);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
-      });
-
-      button9.addListener("execute", (e) => {
-        this.__cal.setCurrentValue(9);
-        this.__display.setValue(this.__cal.getCurrentValue().toString());
       });
 
       buttonPlus.addListener("execute", (e) => {
@@ -466,6 +313,54 @@ qx.Class.define("qxl.themedemo.Calculator", {
 
       return box;
     },
+
+    __createAndAddNumbersToBox(box){
+      const numberButtonOptions = [
+        { label: "1", position: { row: 4, column: 0 } },
+        { label: "2", position: { row: 4, column: 1 } },
+        { label: "3", position: { row: 4, column: 2 } },
+        { label: "4", position: { row: 3, column: 0 } },
+        { label: "5", position: { row: 3, column: 1 } },
+        { label: "6", position: { row: 3, column: 2 } },
+        { label: "7", position: { row: 2, column: 0 } },
+        { label: "8", position: { row: 2, column: 1 } },
+        { label: "9", position: { row: 2, column: 2 } },
+      ];
+
+      const button0 = this.__createButton("0", 0, () => {
+        this.__cal.setCurrentValue(0);
+        this.__display.setValue(
+          this.__cal
+            .getCurrentValue()
+            .toFixed(this.__cal.getZeroCounter())
+            .toString()
+        );
+      });
+      box.add(button0, { row: 5, column: 0 });
+
+      numberButtonOptions.forEach(options => {
+        const button = this.__createNumberButton(options.label, options.value);
+        box.add(button, options.position);
+      });
+    },
+
+    __createNumberButton(label){
+      const value = Number(label);
+      const handler = () => {
+        this.__cal.setCurrentValue(value);
+        this.__display.setValue(this.__cal.getCurrentValue().toString());
+      }
+      return this.__createButton(label, value, handler);
+    },
+
+    __createButton(label, value, handler){
+      const button = new qx.ui.form.Button(label).set({
+        font: this.__fontButton,
+        minWidth: 30
+      });
+      button.addListener("execute", handler);
+      return button;
+    }
   },
 
   destruct() {
