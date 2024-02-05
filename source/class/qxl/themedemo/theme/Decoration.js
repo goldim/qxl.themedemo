@@ -8,32 +8,27 @@
 
 ************************************************************************ */
 
-qx.Theme.define("qxl.themedemo.theme.Decoration",
-{
-  extend : qx.theme.indigo.Decoration,
+qx.Theme.define("qxl.themedemo.theme.Decoration", {
+  extend: qx.theme.indigo.Decoration,
 
-  decorations :
-  {
-    "slider-knob":
-    {
+  decorations: {
+    "slider-knob": {
       include: "button-checked",
-      
+
       style: {
-        radius: 15
-      }
+        radius: 15,
+      },
     },
 
-    "slider-knob-hovered":
-    {
+    "slider-knob-hovered": {
       include: "slider-knob",
-      
+
       style: {
-        endColor: "text-selected"
-      }
+        endColor: "text-selected",
+      },
     },
 
-    "input":
-    {
+    input: {
       style: {
         color: "border-input",
         width: 1,
@@ -45,16 +40,15 @@ qx.Theme.define("qxl.themedemo.theme.Decoration",
         colorPositionUnit: "px",
         shadowLength: 0,
         shadowBlurRadius: 3,
-        shadowColor: "shadow-input"
-      }
+        shadowColor: "shadow-input",
+      },
     },
-    "radiobutton-checked-hovered": 
-    {
+    "radiobutton-checked-hovered": {
       include: "radiobutton",
-      
+
       style: {
-        endColor: "text-hovered"
-      }
-    }
-  }
+        endColor: "text-hovered",
+      },
+    },
+  },
 });

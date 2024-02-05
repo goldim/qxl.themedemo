@@ -22,15 +22,12 @@
  * @asset(qx/icon/${qx.icontheme}/16/actions/go-next.png)
  * @asset(qx/icon/${qx.icontheme}/16/categories/internet.png)
  */
- 
-qx.Class.define("qxl.themedemo.WebBrowser",
-{
-  extend: qx.ui.window.Window,
-  
 
-  construct: function()
-  {
-    this.base(arguments);
+qx.Class.define("qxl.themedemo.WebBrowser", {
+  extend: qx.ui.window.Window,
+
+  construct() {
+    super();
 
     this.setCaption("Web Browser");
     this._createControls();
@@ -42,81 +39,81 @@ qx.Class.define("qxl.themedemo.WebBrowser",
   *****************************************************************************
   */
 
-  members:
-  {
+  members: {
     iframe: null,
     txtUrl: "",
 
-
-    _createControls: function()
-    {
+    _createControls() {
       var layout = new qx.ui.layout.VBox(0);
       this.set({
         layout: layout,
         width: 900,
         height: 700,
         contentPadding: 0,
-        icon: "icon/16/categories/internet.png"
+        icon: "icon/16/categories/internet.png",
       });
-    
+
       var toolbar = this._createToolbar();
-      this.iframe = new qx.ui.embed.ThemedIframe().set({scrollbarY: "on", scrollbarX: "on"});
+      this.iframe = new qx.ui.embed.ThemedIframe().set({
+        scrollbarY: "on",
+        scrollbarX: "on",
+      });
 
       this.add(toolbar);
       this.add(this.iframe, { flex: 1 });
-    
+
       this.addListenerOnce("appear", this._onAppear, this);
     },
 
-
-    _createToolbar: function()
-    {
+    _createToolbar() {
       var toolbar = new qx.ui.toolbar.ToolBar();
 
-      var btnBack = new qx.ui.toolbar.Button(null, "icon/16/actions/go-previous.png");
-      btnBack.addListener("execute", function(e) {
+      var btnBack = new qx.ui.toolbar.Button(
+        null,
+        "icon/16/actions/go-previous.png"
+      );
+      btnBack.addListener("execute", (e) => {
         // this.iframe.getWindow().history.back();
-      }, this);
+      });
       toolbar.add(btnBack);
-
-      var btnForward = new qx.ui.toolbar.Button(null, "icon/16/actions/go-next.png");
-      btnForward.addListener("execute", function(e) {
+      var btnForward = new qx.ui.toolbar.Button(
+        null,
+        "icon/16/actions/go-next.png"
+      );
+      btnForward.addListener("execute", (e) => {
         // this.iframe.getWindow().history.forward();
-      }, this);
-      toolbar.add(btnForward);
-
-      // IE does not allow access to an iframes history object
+      });
+      toolbar.add(btnForward); // IE does not allow access to an iframes history object
       // Firefox applies history changes to the main window
       // Opera throws a script error when trying to go forward or back
-
-      btnForward.setToolTipText("This feature is currently not supported.")
-      btnBack.setToolTipText("This feature is currently not supported.")
-
+      btnForward.setToolTipText("This feature is currently not supported.");
+      btnBack.setToolTipText("This feature is currently not supported.");
       this.txtUrl = new qx.ui.form.TextField().set({
         marginLeft: 1,
         value: "http://qooxdoo.org",
         padding: 2,
-        alignY: "middle"
+        alignY: "middle",
       });
-      this.txtUrl.addListener("keypress", function(e) {
+      this.txtUrl.addListener("keypress", (e) => {
         if (e.getKeyIdentifier() == "Enter") {
           this.surfTo(this.txtUrl.getValue());
         }
-      }, this);
-      toolbar.add(this.txtUrl, {flex: 1});
+      });
+      toolbar.add(this.txtUrl, { flex: 1 });
 
-      var btnGo = new qx.ui.toolbar.Button(null, "icon/16/actions/media-playback-start.png");
-      btnGo.addListener("execute", function(e) {
+      var btnGo = new qx.ui.toolbar.Button(
+        null,
+        "icon/16/actions/media-playback-start.png"
+      );
+      btnGo.addListener("execute", (e) => {
         this.surfTo(this.txtUrl.getValue());
-      }, this);
+      });
       toolbar.add(btnGo);
 
       return toolbar;
     },
 
-
-    surfTo: function(url)
-    {
+    surfTo(url) {
       if (url.indexOf("http://") !== 0) {
         url = "http://" + url;
       }
@@ -124,14 +121,10 @@ qx.Class.define("qxl.themedemo.WebBrowser",
       this.iframe.setSource(url);
     },
 
-
-    _onAppear: function(e)
-    {
+    _onAppear(e) {
       this.surfTo(this.txtUrl.getValue());
       this.fadeIn(250);
       this.center();
-    }
-  }
-
+    },
+  },
 });
-

@@ -12,24 +12,18 @@
 
 ************************************************************************ */
 
-qx.Class.define("qxl.themedemo.VideoWindow",
-{
+qx.Class.define("qxl.themedemo.VideoWindow", {
   extend: qx.ui.window.Window,
 
-
-  construct: function()
-  {
-    this.base(arguments);
+  construct() {
+    super();
     this.createControls();
   },
 
-
-  members:
-  {
+  members: {
     htmlFrame: null,
-    
-    createControls: function()
-    {
+
+    createControls() {
       var layout = new qx.ui.layout.VBox();
       this.set({
         caption: "Video",
@@ -38,26 +32,35 @@ qx.Class.define("qxl.themedemo.VideoWindow",
         allowStretchX: false,
         showMaximize: false,
         showMinimize: false,
-        resizable: false
+        resizable: false,
       });
-    
+
       this.htmlFrame = new qx.ui.embed.Html();
-      this.htmlFrame.set({width: 642, height: 482, decorator: "input", padding: 0});
-      
-      this.add(this.htmlFrame, {flex: 1});
+      this.htmlFrame.set({
+        width: 642,
+        height: 482,
+        decorator: "input",
+        padding: 0,
+      });
 
-      this.addListenerOnce("appear", function() {
+      this.add(this.htmlFrame, { flex: 1 });
+
+      this.addListenerOnce("appear", () => {
         this.fadeIn(250);
-      }, this);
+      });
     },
-    
-    setVideoLink: function(data)
-    {
-      this.htmlFrame.set({width: data.width + 2, height: data.height + 2});
-      this.htmlFrame.setHtml("<iframe width='" + data.width + "' height='" + data.height + "' src='" + data.url + "' frameborder='0' allowfullscreen></iframe>");
-    }
-    
-  }
 
+    setVideoLink(data) {
+      this.htmlFrame.set({ width: data.width + 2, height: data.height + 2 });
+      this.htmlFrame.setHtml(
+        "<iframe width='" +
+          data.width +
+          "' height='" +
+          data.height +
+          "' src='" +
+          data.url +
+          "' frameborder='0' allowfullscreen></iframe>"
+      );
+    },
+  },
 });
-

@@ -14,7 +14,7 @@
 
 /**
  * @asset(qxl/themedemo/*)
- * 
+ *
  * @asset(qx/icon/${qx.icontheme}/32/apps/media-audio-player.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/media-photo-album.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/office-address-book.png)
@@ -24,22 +24,18 @@
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-statistics.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-text-editor.png)
  * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
- * 
+ *
  * @@asset(qx/icon/${qx.icontheme}/48/devices*)
  * @usefont(JosefinSlab)
  */
-qx.Class.define("qxl.themedemo.Application",
-{
+qx.Class.define("qxl.themedemo.Application", {
   extend: qx.application.Standalone,
 
-
-  members:
-  {
+  members: {
     desktop: null,
-    
-    main: function(options)
-    {
-      this.base(arguments);
+
+    main(options) {
+      super.main();
 
       if (qx.core.Environment.get("qx.debug")) {
         qx.log.appender.Native;
@@ -47,142 +43,179 @@ qx.Class.define("qxl.themedemo.Application",
       }
 
       /***************************************************************************/
-      
+
       var doc = this.getRoot();
-      
-      var desktop = this.desktop = new qx.ui.window.Desktop();
+
+      var desktop = (this.desktop = new qx.ui.window.Desktop());
       let title;
-      if (!options || !options.title){
-        const currentTheme = qx.theme.manager.Meta.getInstance().getTheme().name;
-        let themePart = currentTheme.substring(0, currentTheme.indexOf('.'));
-        if (themePart === "qxl"){
-          themePart = currentTheme.substring(currentTheme.lastIndexOf('.') + 1, currentTheme.length);
+      if (!options || !options.title) {
+        const currentTheme =
+          qx.theme.manager.Meta.getInstance().getTheme().name;
+        let themePart = currentTheme.substring(0, currentTheme.indexOf("."));
+        if (themePart === "qxl") {
+          themePart = currentTheme.substring(
+            currentTheme.lastIndexOf(".") + 1,
+            currentTheme.length
+          );
         }
         title = qx.lang.String.firstUp(themePart);
-      }
-      else if (options && options.title) {
+      } else if (options && options.title) {
         title = options.title;
       }
-      desktop.add(this.createTitle(title), {top: 10, left: 10});
-      
-      var mainContainer = this.mainContainer = new qx.ui.container.Composite()
+      desktop.add(this.createTitle(title), { top: 10, left: 10 });
+
+      var mainContainer = (this.mainContainer =
+        new qx.ui.container.Composite());
       mainContainer.setLayout(new qx.ui.layout.Canvas());
-      mainContainer.add(desktop, {top: 0, left: 0, bottom: 0, right: 0});
-      mainContainer.add(this.createDock(), {left: 5, bottom: 0, right: 5});
-      
-      doc.add(mainContainer, {edge: 0});
-      
-      var about = this.about = new qxl.themedemo.About(options ? options.about_url : "");
+      mainContainer.add(desktop, { top: 0, left: 0, bottom: 0, right: 0 });
+      mainContainer.add(this.createDock(), { left: 5, bottom: 0, right: 5 });
+
+      doc.add(mainContainer, { edge: 0 });
+
+      var about = (this.about = new qxl.themedemo.About(
+        options ? options.about_url : ""
+      ));
       about.open();
-      
+
       desktop.add(about);
     },
-    
 
-    createTitle: function(title)
-    {
+    createTitle(title) {
       var separator = new qxl.themedemo.Separator(80);
       const font = new qx.bom.Font(36, ["serif"]);
 
       var themeLabel = new qx.ui.basic.Label(title).set({
-        font, 
+        font,
         textColor: "text-label",
-        cursor: "pointer"
+        cursor: "pointer",
       });
-      themeLabel.addListener("mouseover", function() {
-        this.setTextColor("text-textfield");
-      }, themeLabel);
-      themeLabel.addListener("mouseout", function() {
-        this.setTextColor("text-label");
-      }, themeLabel);
-      themeLabel.addListener("click", function() {
+      themeLabel.addListener(
+        "mouseover",
+        function () {
+          this.setTextColor("text-textfield");
+        },
+        themeLabel
+      );
+      themeLabel.addListener(
+        "mouseout",
+        function () {
+          this.setTextColor("text-label");
+        },
+        themeLabel
+      );
+      themeLabel.addListener("click", () => {
         this.about.open();
-      }, this);
-      
-      var container = new qx.ui.container.Composite(new qx.ui.layout.VBox(0).set({
-        alignX: "center"
-      }));
+      });
+
+      var container = new qx.ui.container.Composite(
+        new qx.ui.layout.VBox(0).set({
+          alignX: "center",
+        })
+      );
       container.add(themeLabel);
       container.add(separator);
       container.add(new qx.ui.basic.Label("Theme Demo"));
-      
+
       return container;
     },
-    
-    
-    createVersionInfo: function()
-    {
+
+    createVersionInfo() {
       const font = new qx.bom.Font(19, ["serif"]);
-      var qooxdoo = new qx.ui.basic.Label("qooxdoo").set(
-        {
-          font,
-          paddingBottom: 3, cursor: "pointer"}
+      var qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
+        font,
+        paddingBottom: 3,
+        cursor: "pointer",
+      });
+      qooxdoo.addListener(
+        "mouseover",
+        function () {
+          this.setTextColor("text-selected");
+        },
+        qooxdoo
       );
-      qooxdoo.addListener("mouseover", function() {
-        this.setTextColor("text-selected");
-      }, qooxdoo);
-      qooxdoo.addListener("mouseout", function() {
-        this.setTextColor("text-label");
-      }, qooxdoo);
-      qooxdoo.addListener("click", function() {
+      qooxdoo.addListener(
+        "mouseout",
+        function () {
+          this.setTextColor("text-label");
+        },
+        qooxdoo
+      );
+      qooxdoo.addListener("click", () => {
         this.pressButton("WebBrowser");
-      }, this);
-      
-      var container = new qx.ui.container.Composite(new qx.ui.layout.HBox(5).set({alignY: "middle"}));
-      container.add(new qx.ui.basic.Label("powered by").set({font: "small"}));
+      });
+
+      var container = new qx.ui.container.Composite(
+        new qx.ui.layout.HBox(5).set({ alignY: "middle" })
+      );
+      container.add(new qx.ui.basic.Label("powered by").set({ font: "small" }));
       container.add(qooxdoo);
-      container.add(new qx.ui.basic.Label(qx.core.Environment.get("qx.version")).set({font: "small"}));
+      container.add(
+        new qx.ui.basic.Label(qx.core.Environment.get("qx.version")).set({
+          font: "small",
+        })
+      );
 
       return container;
     },
 
-
-    createDock: function()
-    {
-      var container = new qx.ui.container.Composite(new qx.ui.layout.HBox(10).set({
-        alignX: "center"
-      })).set({
-        paddingBottom: 5
+    createDock() {
+      var container = new qx.ui.container.Composite(
+        new qx.ui.layout.HBox(10).set({
+          alignX: "center",
+        })
+      ).set({
+        paddingBottom: 5,
       });
-      container.addListener("appear", function() {
-        this.fadeIn(200);
-      }, container);
-      
+      container.addListener(
+        "appear",
+        function () {
+          this.fadeIn(200);
+        },
+        container
+      );
+
       var button;
       var buttonData = this.getButtonData();
       for (var i = 0; i < buttonData.length; i++) {
         button = new qx.ui.form.ToggleButton(null, buttonData[i].icon).set({
-          padding: 10, 
-          toolTip: new qx.ui.tooltip.ToolTip(buttonData[i].toolTip)
+          padding: 10,
+          toolTip: new qx.ui.tooltip.ToolTip(buttonData[i].toolTip),
         });
         button.addState("circle");
         button.setUserData("name", buttonData[i].name);
         button.addListener("changeValue", buttonData[i].action, this);
         container.add(button);
       }
-      
-      var buttonDock = this.buttonDock = new qx.ui.container.Composite(new qx.ui.layout.Canvas());
-      buttonDock.add(container, {top: 0, left: 0, bottom: 0, right: 0});
-      buttonDock.add(this.createVersionInfo(), {bottom: 2, right: 0});
-      
-      buttonDock.addListener("mousemove", function(e) {
+
+      var buttonDock = (this.buttonDock = new qx.ui.container.Composite(
+        new qx.ui.layout.Canvas()
+      ));
+      buttonDock.add(container, { top: 0, left: 0, bottom: 0, right: 0 });
+      buttonDock.add(this.createVersionInfo(), { bottom: 2, right: 0 });
+
+      buttonDock.addListener("mousemove", (e) => {
         var docHeight = this.getRoot()._computeSizeHint().height;
         var buttonDockHeight = this.buttonDock._computeSizeHint().height;
         var buttonDockContainer = this.buttonDock.getChildren()[0];
-        
-        if (!this.hasActiveButtons(buttonDockContainer) || (e.getDocumentTop() >= docHeight - 20 && e.getDocumentTop() <= docHeight - 3)) {
+
+        if (
+          !this.hasActiveButtons(buttonDockContainer) ||
+          (e.getDocumentTop() >= docHeight - 20 &&
+            e.getDocumentTop() <= docHeight - 3)
+        ) {
           buttonDockContainer.setVisibility("visible");
-        } else if (e.getDocumentTop() <= docHeight - buttonDockHeight + 10 || e.getDocumentTop() >= docHeight - 3) {
+        } else if (
+          e.getDocumentTop() <= docHeight - buttonDockHeight + 10 ||
+          e.getDocumentTop() >= docHeight - 3
+        ) {
           buttonDockContainer.setVisibility("excluded");
-        } 
-      }, this);
-      
+        }
+      });
+
       return buttonDock;
     },
-    
-    
-    hasActiveButtons: function(container)
-    {
+
+    hasActiveButtons(container) {
       var buttonDockButtons = container.getChildren();
 
       for (var i = 0; i < buttonDockButtons.length; i++) {
@@ -190,23 +223,19 @@ qx.Class.define("qxl.themedemo.Application",
           return true;
         }
       }
-      
+
       return false;
     },
-    
-    
-    checkShowDock: function()
-    {
+
+    checkShowDock() {
       var container = this.buttonDock.getChildren()[0];
-      
+
       if (!this.hasActiveButtons(container)) {
         container.setVisibility("visible");
       }
     },
 
-
-    pressButton: function(buttonName)
-    {
+    pressButton(buttonName) {
       var buttonDockContainer = this.buttonDock.getChildren()[0];
       var buttonDockButtons = buttonDockContainer.getChildren();
 
@@ -217,14 +246,15 @@ qx.Class.define("qxl.themedemo.Application",
         }
       }
     },
-    
 
-    dockButtonClick: function(button, targetWindow, openFunc)
-    {
+    dockButtonClick(button, targetWindow, openFunc) {
       if (button.getValue()) {
         openFunc();
       } else {
-        if (targetWindow.getVisibility() == "visible" && !targetWindow.getActive()) {
+        if (
+          targetWindow.getVisibility() == "visible" &&
+          !targetWindow.getActive()
+        ) {
           button.setValue(true);
         } else {
           targetWindow.close();
@@ -232,132 +262,148 @@ qx.Class.define("qxl.themedemo.Application",
       }
     },
 
-
-    onCalculator: function(e)
-    {
+    onCalculator(e) {
       var button = e.getTarget();
       var that = this;
-      
-      this.dockButtonClick(button, this.calculator, function()
-      {
+
+      this.dockButtonClick(button, this.calculator, function () {
         if (!that.calculator) {
           that.calculator = new qxl.themedemo.Calculator();
-          that.calculator.addListener("close", function() {
-            button.setValue(false);
-            this.checkShowDock();
-          }, that);
-          that.desktop.add(that.calculator, {top: 20, right: 50});
+          that.calculator.addListener(
+            "close",
+            function () {
+              button.setValue(false);
+              this.checkShowDock();
+            },
+            that
+          );
+          that.desktop.add(that.calculator, { top: 20, right: 50 });
         }
         that.calculator.open();
       });
     },
 
-    
-    onColorChooser: function(e)
-    {
+    onColorChooser(e) {
       var button = e.getTarget();
       var that = this;
-      
-      this.dockButtonClick(button, this.colorChooser, function()
-      {
+
+      this.dockButtonClick(button, this.colorChooser, function () {
         if (!that.colorChooser) {
           that.colorChooser = new qxl.themedemo.ColorChooser();
-          that.colorChooser.addListener("close", function() {
-            button.setValue(false);
-            this.checkShowDock();
-          }, that);
-          that.desktop.add(that.colorChooser, {bottom: 30, right: 10});
+          that.colorChooser.addListener(
+            "close",
+            function () {
+              button.setValue(false);
+              this.checkShowDock();
+            },
+            that
+          );
+          that.desktop.add(that.colorChooser, { bottom: 30, right: 10 });
         }
         that.colorChooser.open();
       });
     },
-    
-    
-    onTableWindow: function(e)
-    {
+
+    onTableWindow(e) {
       var button = e.getTarget();
       var that = this;
-      
-      this.dockButtonClick(button, this.tableWindow, function()
-      {
+
+      this.dockButtonClick(button, this.tableWindow, function () {
         if (!that.tableWindow) {
           that.tableWindow = new qxl.themedemo.TableWindow();
-          that.tableWindow.addListener("close", function() {
-            button.setValue(false);
-            this.checkShowDock();
-          }, that);
-          that.desktop.add(that.tableWindow, {left: 50, bottom: 20});
+          that.tableWindow.addListener(
+            "close",
+            function () {
+              button.setValue(false);
+              this.checkShowDock();
+            },
+            that
+          );
+          that.desktop.add(that.tableWindow, { left: 50, bottom: 20 });
         }
         that.tableWindow.open();
       });
     },
-    
-    
-    onWebBrowser: function(e)
-    {
+
+    onWebBrowser(e) {
       var button = e.getTarget();
       var that = this;
-      
-      this.dockButtonClick(button, this.webBrowser, function()
-      {
+
+      this.dockButtonClick(button, this.webBrowser, function () {
         if (!that.webBrowser) {
           that.webBrowser = new qxl.themedemo.WebBrowser();
-          that.webBrowser.addListener("close", function() {
-            button.setValue(false);
-            this.checkShowDock();
-          }, that);
+          that.webBrowser.addListener(
+            "close",
+            function () {
+              button.setValue(false);
+              this.checkShowDock();
+            },
+            that
+          );
           that.desktop.add(that.webBrowser);
         }
         that.webBrowser.open();
       });
     },
 
-    
-    onWidgetBrowser: function(e)
-    {
+    onWidgetBrowser(e) {
       var button = e.getTarget();
       var that = this;
-      
-      this.dockButtonClick(button, this.widgetBrowser, function()
-      {
+
+      this.dockButtonClick(button, this.widgetBrowser, function () {
         if (!that.widgetBrowser) {
           that.widgetBrowser = new qxl.themedemo.WidgetBrowser();
-          that.widgetBrowser.addListener("close", function() {
-            button.setValue(false);
-            this.checkShowDock();
-          }, that);
+          that.widgetBrowser.addListener(
+            "close",
+            function () {
+              button.setValue(false);
+              this.checkShowDock();
+            },
+            that
+          );
           that.desktop.add(that.widgetBrowser);
         }
         that.widgetBrowser.open();
       });
     },
 
-    
-    onAudioPlayerWindow: function(e)
-    {
+    onAudioPlayerWindow(e) {
       var button = e.getTarget();
       var that = this;
-      
-      this.dockButtonClick(button, this.audioPlayerWindow, function()
-      {
+
+      this.dockButtonClick(button, this.audioPlayerWindow, function () {
         if (!that.audioPlayerWindow) {
           that.audioPlayerWindow = new qxl.themedemo.PlayerWindow();
-          that.audioPlayerWindow.addListener("openHomepage", that.onOpenHomepage, that);
-          that.audioPlayerWindow.addListener("openWikipedia", that.onOpenWikipedia, that);
-          that.audioPlayerWindow.addListener("openVideo", that.onOpenVideo, that);
-          that.audioPlayerWindow.addListener("close", function() {
-            button.setValue(false);
-            this.checkShowDock();
-          }, that);
-          that.desktop.add(that.audioPlayerWindow, {top: 110, left: 20});
+          that.audioPlayerWindow.addListener(
+            "openHomepage",
+            that.onOpenHomepage,
+            that
+          );
+          that.audioPlayerWindow.addListener(
+            "openWikipedia",
+            that.onOpenWikipedia,
+            that
+          );
+          that.audioPlayerWindow.addListener(
+            "openVideo",
+            that.onOpenVideo,
+            that
+          );
+          that.audioPlayerWindow.addListener(
+            "close",
+            function () {
+              button.setValue(false);
+              this.checkShowDock();
+            },
+            that
+          );
+          that.desktop.add(that.audioPlayerWindow, { top: 110, left: 20 });
         }
         that.audioPlayerWindow.open();
       });
     },
-    
-    
-    onOpenHomepage: function(e)
-    {
+
+    onOpenHomepage(e) {
       if (!this.homePageWindow) {
         this.homePageWindow = new qxl.themedemo.WebBrowser();
         this.desktop.add(this.homePageWindow);
@@ -367,10 +413,8 @@ qx.Class.define("qxl.themedemo.Application",
       this.homePageWindow.surfTo(e.getData().url);
       this.homePageWindow.open();
     },
-    
-    
-    onOpenWikipedia: function(e)
-    {
+
+    onOpenWikipedia(e) {
       if (!this.wikipediaWindow) {
         this.wikipediaWindow = new qxl.themedemo.WebBrowser();
         this.desktop.add(this.wikipediaWindow);
@@ -381,60 +425,56 @@ qx.Class.define("qxl.themedemo.Application",
       this.wikipediaWindow.open();
     },
 
-    onOpenVideo: function(e)
-    {
+    onOpenVideo(e) {
       if (!this.videoWindow) {
         this.videoWindow = new qxl.themedemo.VideoWindow();
-        this.desktop.add(this.videoWindow, {top: 60, right: 20});
+        this.desktop.add(this.videoWindow, { top: 60, right: 20 });
       }
       this.videoWindow.setIcon(e.getData().icon);
       this.videoWindow.setCaption(e.getData().caption);
       this.videoWindow.setVideoLink(e.getData().video);
       this.videoWindow.open();
     },
-    
 
-    getButtonData: function()
-    {
+    getButtonData() {
       return [
         {
           icon: "icon/32/apps/utilities-statistics.png",
           toolTip: "Widget Browser",
           name: "WidgetBrowser",
-          action: this.onWidgetBrowser
+          action: this.onWidgetBrowser,
         },
         {
           icon: "icon/32/apps/utilities-calculator.png",
           toolTip: "Calculator",
           name: "Calculator",
-          action: this.onCalculator
+          action: this.onCalculator,
         },
         {
           icon: "icon/32/apps/utilities-color-chooser.png",
           toolTip: "Color Selector",
           name: "ColorSelector",
-          action: this.onColorChooser
+          action: this.onColorChooser,
         },
         {
           icon: "icon/32/apps/office-chart.png",
           toolTip: "Table",
           name: "Table",
-          action: this.onTableWindow
+          action: this.onTableWindow,
         },
         {
           icon: "icon/32/categories/internet.png",
           toolTip: "Web Browser",
           name: "WebBrowser",
-          action: this.onWebBrowser
+          action: this.onWebBrowser,
         },
         {
           icon: "icon/32/apps/media-audio-player.png",
           toolTip: "Audio Player",
           name: "AudioPlayer",
-          action: this.onAudioPlayerWindow
-        }
+          action: this.onAudioPlayerWindow,
+        },
       ];
-    }
-    
-  }
+    },
+  },
 });

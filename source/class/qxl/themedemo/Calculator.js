@@ -19,28 +19,21 @@
 /**
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-calculator.png)
  */
- 
-qx.Class.define("qxl.themedemo.Calculator",
-{
+
+qx.Class.define("qxl.themedemo.Calculator", {
   extend: qx.ui.window.Window,
 
-  
-  construct: function()
-  {
-    this.base(arguments);
+  construct() {
+    super();
 
     this._createControls();
   },
 
-
-  members:
-  {
+  members: {
     __display: null,
     __cal: null,
 
-
-    _createControls: function()
-    {
+    _createControls() {
       this.__cal = new qxl.themedemo.CalculatorLogic();
 
       var layout = new qx.ui.layout.VBox(16);
@@ -52,41 +45,41 @@ qx.Class.define("qxl.themedemo.Calculator",
         caption: "Calculator",
         icon: "icon/16/apps/utilities-calculator.png",
         allowStretchX: false,
-        allowStretchY: false
+        allowStretchY: false,
       });
 
-      this.addListenerOnce("appear", function(e) {
-        this.add(this._createCalculator(), {flex: 1});
+      this.addListenerOnce("appear", (e) => {
+        this.add(this._createCalculator(), { flex: 1 });
         this.center();
-      }, this);
+      });
 
-      this.addListener("appear", function(e) {
+      this.addListener("appear", (e) => {
         this.fadeIn(200);
-      }, this);
+      });
 
-      this.addListener("keypress", function(e) {
+      this.addListener("keypress", (e) => {
         if (e.getKeyIdentifier() == "Escape") {
           this.close();
         }
-      }, this);
+      });
     },
-    
 
-    _createCalculator: function()
-    {
+    _createCalculator() {
       var box = new qx.ui.container.Composite().set({
         minWidth: 140,
         minHeight: 260,
         padding: 3,
         allowGrowX: true,
-        allowGrowY: true
+        allowGrowY: true,
       });
 
       var gridLayout = new qx.ui.layout.Grid(5, 5);
 
       box.setLayout(gridLayout);
 
-      this.__display = new qx.ui.basic.Label(this.__cal.getCurrentValue().toString()).set({
+      this.__display = new qx.ui.basic.Label(
+        this.__cal.getCurrentValue().toString()
+      ).set({
         decorator: "input",
         allowGrowX: true,
         allowGrowY: true,
@@ -98,119 +91,119 @@ qx.Class.define("qxl.themedemo.Calculator",
 
         font: new qx.bom.Font().set({
           size: 20,
-          family: [ "Verdana", "sans-serif" ],
-          bold: true
+          family: ["Verdana", "sans-serif"],
+          bold: true,
         }),
 
-        textAlign: "right"
+        textAlign: "right",
       });
 
       this.__display.setEnabled(false);
 
       var fontButton = new qx.bom.Font().set({
         size: 12,
-        family: [ "Verdana", "sans-serif" ],
-        bold: true
+        family: ["Verdana", "sans-serif"],
+        bold: true,
       });
 
-      var button0 = this.button0 = new qx.ui.form.Button("0").set({
+      var button0 = (this.button0 = new qx.ui.form.Button("0").set({
         font: fontButton,
-        minWidth: 30
-      });
+        minWidth: 30,
+      }));
 
       var button1 = new qx.ui.form.Button("1").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button2 = new qx.ui.form.Button("2").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button3 = new qx.ui.form.Button("3").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button4 = new qx.ui.form.Button("4").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button5 = new qx.ui.form.Button("5").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button6 = new qx.ui.form.Button("6").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button7 = new qx.ui.form.Button("7").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button8 = new qx.ui.form.Button("8").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var button9 = new qx.ui.form.Button("9").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonC = new qx.ui.form.Button("C").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonCE = new qx.ui.form.Button("CE").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonDelete = new qx.ui.form.Button("Del").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonChangeSign = new qx.ui.form.Button("+/-").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonComma = new qx.ui.form.Button(".").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonPlus = new qx.ui.form.Button("+").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonMinus = new qx.ui.form.Button("-").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonMultiplication = new qx.ui.form.Button("*").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonDivision = new qx.ui.form.Button("/").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       var buttonResult = new qx.ui.form.Button("=").set({
         font: fontButton,
-        minWidth: 30
+        minWidth: 30,
       });
 
       gridLayout.setColumnFlex(0, 1);
@@ -229,190 +222,195 @@ qx.Class.define("qxl.themedemo.Calculator",
         row: 0,
         column: 0,
         rowSpan: 0,
-        colSpan: 4
+        colSpan: 4,
       });
 
       box.add(buttonC, {
         row: 1,
         column: 2,
         rowSpan: 1,
-        colSpan: 2
+        colSpan: 2,
       });
 
       box.add(buttonCE, {
         row: 1,
-        column: 1
+        column: 1,
       });
 
       box.add(buttonDelete, {
         row: 1,
-        column: 0
+        column: 0,
       });
 
       box.add(button7, {
         row: 2,
-        column: 0
+        column: 0,
       });
 
       box.add(button8, {
         row: 2,
-        column: 1
+        column: 1,
       });
 
       box.add(button9, {
         row: 2,
-        column: 2
+        column: 2,
       });
 
       box.add(buttonDivision, {
         row: 2,
-        column: 3
+        column: 3,
       });
 
       box.add(button4, {
         row: 3,
-        column: 0
+        column: 0,
       });
 
       box.add(button5, {
         row: 3,
-        column: 1
+        column: 1,
       });
 
       box.add(button6, {
         row: 3,
-        column: 2
+        column: 2,
       });
 
       box.add(buttonMultiplication, {
         row: 3,
-        column: 3
+        column: 3,
       });
 
       box.add(button1, {
         row: 4,
-        column: 0
+        column: 0,
       });
 
       box.add(button2, {
         row: 4,
-        column: 1
+        column: 1,
       });
 
       box.add(button3, {
         row: 4,
-        column: 2
+        column: 2,
       });
 
       box.add(buttonMinus, {
         row: 4,
-        column: 3
+        column: 3,
       });
 
       box.add(button0, {
         row: 5,
-        column: 0
+        column: 0,
       });
 
       box.add(buttonChangeSign, {
         row: 5,
-        column: 1
+        column: 1,
       });
 
       box.add(buttonComma, {
         row: 5,
-        column: 2
+        column: 2,
       });
 
       box.add(buttonPlus, {
         row: 5,
-        column: 3
+        column: 3,
       });
 
       box.add(buttonResult, {
         row: 6,
         column: 0,
         rowSpan: 1,
-        colSpan: 4
+        colSpan: 4,
       });
 
-      buttonC.addListener("execute", function(e) {
+      buttonC.addListener("execute", (e) => {
         this.__cal.cleanDisplay();
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      buttonCE.addListener("execute", function(e) {
+      buttonCE.addListener("execute", (e) => {
         this.__cal.clearEntry();
 
         if (this.__cal.getResult() != null) {
           this.__display.setValue(this.__cal.getCurrentValue().toString());
         }
-      }, this);
+      });
 
-      buttonDelete.addListener("execute", function(e) {
+      buttonDelete.addListener("execute", (e) => {
         this.__cal.deleteNumber();
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      buttonChangeSign.addListener("execute", function(e) {
+      buttonChangeSign.addListener("execute", (e) => {
         this.__cal.setSign();
 
         if (this.__cal.getResult() != null) {
           this.__display.setValue(this.__cal.getResult().toString());
         }
-      }, this);
+      });
 
-      button0.addListener("execute", function(e) {
+      button0.addListener("execute", (e) => {
         this.__cal.setCurrentValue(0);
-        this.__display.setValue(this.__cal.getCurrentValue().toFixed(this.__cal.getZeroCounter()).toString());
-      }, this);
+        this.__display.setValue(
+          this.__cal
+            .getCurrentValue()
+            .toFixed(this.__cal.getZeroCounter())
+            .toString()
+        );
+      });
 
-      button1.addListener("execute", function(e) {
+      button1.addListener("execute", (e) => {
         this.__cal.setCurrentValue(1);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button2.addListener("execute", function(e) {
+      button2.addListener("execute", (e) => {
         this.__cal.setCurrentValue(2);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button3.addListener("execute", function(e) {
+      button3.addListener("execute", (e) => {
         this.__cal.setCurrentValue(3);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button4.addListener("execute", function(e) {
+      button4.addListener("execute", (e) => {
         this.__cal.setCurrentValue(4);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button5.addListener("execute", function(e) {
+      button5.addListener("execute", (e) => {
         this.__cal.setCurrentValue(5);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button6.addListener("execute", function(e) {
+      button6.addListener("execute", (e) => {
         this.__cal.setCurrentValue(6);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button7.addListener("execute", function(e) {
+      button7.addListener("execute", (e) => {
         this.__cal.setCurrentValue(7);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button8.addListener("execute", function(e) {
+      button8.addListener("execute", (e) => {
         this.__cal.setCurrentValue(8);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      button9.addListener("execute", function(e) {
+      button9.addListener("execute", (e) => {
         this.__cal.setCurrentValue(9);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
-      }, this);
+      });
 
-      buttonPlus.addListener("execute", function(e) {
+      buttonPlus.addListener("execute", (e) => {
         this.__cal.calculate("+");
 
         if (this.__cal.getResult() != null) {
@@ -420,9 +418,9 @@ qx.Class.define("qxl.themedemo.Calculator",
         }
 
         this.__cal.resetCurrentValue();
-      }, this);
+      });
 
-      buttonMinus.addListener("execute", function(e) {
+      buttonMinus.addListener("execute", (e) => {
         this.__cal.calculate("-");
 
         if (this.__cal.getResult() != null) {
@@ -430,9 +428,9 @@ qx.Class.define("qxl.themedemo.Calculator",
         }
 
         this.__cal.resetCurrentValue();
-      }, this);
+      });
 
-      buttonMultiplication.addListener("execute", function(e) {
+      buttonMultiplication.addListener("execute", (e) => {
         this.__cal.calculate("*");
 
         if (this.__cal.getResult() != null) {
@@ -440,9 +438,9 @@ qx.Class.define("qxl.themedemo.Calculator",
         }
 
         this.__cal.resetCurrentValue();
-      }, this);
+      });
 
-      buttonDivision.addListener("execute", function(e) {
+      buttonDivision.addListener("execute", (e) => {
         this.__cal.calculate("/");
 
         if (this.__cal.getResult() != null) {
@@ -450,9 +448,9 @@ qx.Class.define("qxl.themedemo.Calculator",
         }
 
         this.__cal.resetCurrentValue();
-      }, this);
+      });
 
-      buttonResult.addListener("execute", function(e) {
+      buttonResult.addListener("execute", (e) => {
         this.__cal.calculate("=");
 
         if (this.__cal.getResult() != null) {
@@ -460,21 +458,17 @@ qx.Class.define("qxl.themedemo.Calculator",
         }
 
         this.__cal.resetCurrentValue();
-      }, this);
+      });
 
-      buttonComma.addListener("execute", function(e) {
+      buttonComma.addListener("execute", (e) => {
         this.__cal.setComma();
-      }, this);
+      });
 
       return box;
-    }
-    
+    },
   },
 
-
-  destruct: function()
-  {
+  destruct() {
     this._disposeObjects("__cal", "__display");
-  }
+  },
 });
-

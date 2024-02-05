@@ -19,24 +19,21 @@
 /**
  * This class is responsible for the logic of the calculator.
  */
-qx.Class.define("qxl.themedemo.CalculatorLogic",
-{
+qx.Class.define("qxl.themedemo.CalculatorLogic", {
   extend: qx.core.Object,
 
-  members:
-  {
-    __currentValue : 0,
-    __result : 0,
-    __currentOperation : "n",
-    __opCounter : 0,
-    __resultContainer : 0,
-    __ecCounter : 0,
-    __isCommaPressed : false,
-    __commaDivider : 1,
-    __zeroCounter : 0,
-    __isSigned : false,
-    __signPressedCounter : 0,
-
+  members: {
+    __currentValue: 0,
+    __result: 0,
+    __currentOperation: "n",
+    __opCounter: 0,
+    __resultContainer: 0,
+    __ecCounter: 0,
+    __isCommaPressed: false,
+    __commaDivider: 1,
+    __zeroCounter: 0,
+    __isSigned: false,
+    __signPressedCounter: 0,
 
     /**
      * sets the pressed number into the display.
@@ -44,81 +41,68 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
      * @param currentValue {var} Pressed number
      * @return {void}
      */
-    setCurrentValue : function(currentValue)
-    {
-
-      if (this.__isCommaPressed)
-      {
+    setCurrentValue(currentValue) {
+      if (this.__isCommaPressed) {
         this.__commaDivider *= 10;
-        this.__currentValue = this.__currentValue + (currentValue / this.__commaDivider);
+        this.__currentValue =
+          this.__currentValue + currentValue / this.__commaDivider;
 
         if (currentValue == 0) {
           this.__zeroCounter++;
         }
-      }
-      else
-      {
+      } else {
         this.__isCommaPressed = false;
 
         if (this.__currentValue < 0) {
           this.__currentValue = this.__currentValue * 10 - currentValue;
         } else {
-
-        this.__currentValue = this.__currentValue * 10 + currentValue;
+          this.__currentValue = this.__currentValue * 10 + currentValue;
         }
-
       }
-
     },
-
 
     /**
      * returns the counter to regulate the decimal place.
      *
      * @return {Integer} a counter
      */
-    getZeroCounter : function() {
+    getZeroCounter() {
       return this.__zeroCounter;
     },
-
 
     /**
      * sets a comma.
      *
      * @return {void}
      */
-    setComma : function() {
+    setComma() {
       this.__isCommaPressed = true;
     },
-
 
     /**
      * returns the pressed number.
      *
      * @return {Float} is the pressed value
      */
-    getCurrentValue : function() {
+    getCurrentValue() {
       return this.__currentValue;
     },
-
 
     /**
      * resets the pressed number.
      *
      * @return {void}
      */
-    resetCurrentValue : function() {
+    resetCurrentValue() {
       this.__currentValue = null;
     },
-
 
     /**
      * cleans the display and resets all variables.
      *
      * @return {void}
      */
-    cleanDisplay : function()
-    {
+    cleanDisplay() {
       this.__signPressedCounter = 0;
       this.__resultContainer = 0;
       this.__currentOperation = "n";
@@ -132,27 +116,24 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
       this.__isSigned = false;
     },
 
-
     /**
      * sets the result.
      *
      * @param result {var} the calculated result.
      * @return {void}
      */
-    setResult : function(result) {
+    setResult(result) {
       this.__result = result;
     },
-
 
     /**
      * returns the calculated result.
      *
      * @return {Integer} calculated result.
      */
-    getResult : function() {
+    getResult() {
       return Math.round(this.__result * 10000000) / 10000000;
     },
-
 
     /**
      * sets the operator.
@@ -160,28 +141,25 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
      * @param op {var} pressed operator
      * @return {void}
      */
-    setCurrentOperation : function(op) {
+    setCurrentOperation(op) {
       this.__currentOperation = op;
     },
-
 
     /**
      * returns the recent pressed operator.
      *
      * @return {Char} recent operator
      */
-    getCurrentOperation : function() {
+    getCurrentOperation() {
       return this.__currentOperation;
     },
-
 
     /**
      * clears the entry.
      *
      * @return {void}
      */
-    clearEntry : function()
-    {
+    clearEntry() {
       this.__isSigned = false;
       this.__zeroCounter = 0;
       this.__commaDivider = 1;
@@ -193,21 +171,18 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
         this.__resultContainer = this.__result;
       }
 
-      if (this.__opCounter >= 2)
-      {
+      if (this.__opCounter >= 2) {
         this.__result = 0;
         this.__opCounter = 0;
       }
     },
-
 
     /**
      * sets the sign from plus to minus or the other way round.
      *
      * @return {void}
      */
-    setSign : function()
-    {
+    setSign() {
       this.__signPressedCounter++;
 
       if (this.__signPressedCounter % 2 == 0) {
@@ -220,14 +195,13 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
         this.__currentValue = this.__result;
       }
 
-      this.__currentValue = this.__currentValue * (-1);
+      this.__currentValue = this.__currentValue * -1;
 
       if (this.__result == 0) {
         this.__result = this.__currentValue;
       }
 
-      if (this.__result != 0)
-      {
+      if (this.__result != 0) {
         this.__resultContainer = this.__result;
         this.__result = this.__currentValue;
       }
@@ -238,21 +212,17 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
      *
      * @return {void}
      */
-    deleteNumber : function()
-    {
+    deleteNumber() {
       var isDecimal = false;
       var isNegative = false;
 
-      if (this.__currentValue < 0)
-      {
-        this.__currentValue = this.__currentValue * (-1);
+      if (this.__currentValue < 0) {
+        this.__currentValue = this.__currentValue * -1;
         isNegative = true;
       }
 
-      if (this.__currentValue != null)
-      {
-        if (this.__currentValue.toString().lastIndexOf(".") != -1)
-        {
+      if (this.__currentValue != null) {
+        if (this.__currentValue.toString().lastIndexOf(".") != -1) {
           this.__currentValue = this.__currentValue * this.__commaDivider;
           isDecimal = true;
         }
@@ -263,20 +233,17 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
       this.__currentValue = this.__currentValue / 10;
       this.__currentValue = this.__currentValue - num2;
 
-      if (isDecimal)
-      {
+      if (isDecimal) {
         this.__commaDivider /= 10;
-        this.__currentValue = this.__currentValue / (this.__commaDivider);
+        this.__currentValue = this.__currentValue / this.__commaDivider;
         isDecimal = false;
       }
 
-      if (isNegative)
-      {
-        this.__currentValue = this.__currentValue * (-1);
+      if (isNegative) {
+        this.__currentValue = this.__currentValue * -1;
         isNegative = false;
       }
     },
-
 
     /**
      * computes the given numbers with the desired operation.
@@ -286,18 +253,20 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
      *
      * @lint ignoreDeprecated(alert)
      */
-    calculate : function(currentOperation)
-    {
-      if (currentOperation == "+" || currentOperation == "*" || currentOperation == "/" || currentOperation == "-" || currentOperation == "=")
-      {
+    calculate(currentOperation) {
+      if (
+        currentOperation == "+" ||
+        currentOperation == "*" ||
+        currentOperation == "/" ||
+        currentOperation == "-" ||
+        currentOperation == "="
+      ) {
         this.__isCommaPressed = false;
         this.__commaDivider = 1;
         this.__zeroCounter = 0;
 
-        if (this.__currentOperation != "n")
-        {
-          if (this.__currentOperation == "+")
-          {
+        if (this.__currentOperation != "n") {
+          if (this.__currentOperation == "+") {
             if (this.__result == null) {
               this.__result = this.__resultContainer;
             }
@@ -312,10 +281,8 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
             this.__resultContainer = this.__result;
           }
 
-          if (this.__currentOperation == "-")
-          {
-            if (this.__result == 0)
-            {
+          if (this.__currentOperation == "-") {
+            if (this.__result == 0) {
               this.__result = this.__currentValue;
               this.__currentValue = 0;
             }
@@ -334,10 +301,8 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
             this.__resultContainer = this.__result;
           }
 
-          if (this.__currentOperation == "/")
-          {
-            if (this.__result == 0)
-            {
+          if (this.__currentOperation == "/") {
+            if (this.__result == 0) {
               this.__result = this.__currentValue;
               this.__currentValue = 1;
             }
@@ -346,18 +311,14 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
               this.__result = this.__resultContainer;
             }
 
-            if (this.__currentValue != null)
-            {
-              if (this.__currentValue != 0)
-              {
+            if (this.__currentValue != null) {
+              if (this.__currentValue != 0) {
                 if (this.__isSigned) {
                   this.__result = this.__resultContainer / this.__currentValue;
                 } else {
                   this.__result = this.__result / this.__currentValue;
                 }
-              }
-              else
-              {
+              } else {
                 alert("You can't divide by 0!");
               }
             }
@@ -366,8 +327,7 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
             this.__resultContainer = this.__result;
           }
 
-          if (this.__currentOperation == "*")
-          {
+          if (this.__currentOperation == "*") {
             if (this.__result == 0) {
               this.__result = 1;
             }
@@ -389,17 +349,13 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
             this.__currentValue = this.__result;
             this.__resultContainer = this.__result;
           }
-        }
-        else
-        {
+        } else {
           this.__result = this.__currentValue;
         }
 
         if (currentOperation != "=") {
           this.__currentOperation = currentOperation;
-        }
-        else
-        {
+        } else {
           this.__opCounter++;
           this.__result = this.__resultContainer;
 
@@ -411,7 +367,6 @@ qx.Class.define("qxl.themedemo.CalculatorLogic",
 
         return;
       }
-    }
-
-  }
+    },
+  },
 });

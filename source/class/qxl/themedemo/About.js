@@ -12,34 +12,29 @@
 
 ************************************************************************ */
 
-qx.Class.define("qxl.themedemo.About",
-{
+qx.Class.define("qxl.themedemo.About", {
   extend: qx.ui.window.Window,
 
-  construct: function(link)
-  {
-    this.base(arguments);
+  construct(link) {
+    super();
     this._aboutTextUrl = link;
     this._createControls();
   },
 
-
-  members:
-  {
+  members: {
     _aboutTextUrl: null,
-    
-    _createControls: function()
-    {
+
+    _createControls() {
       this.set({
         layout: new qx.ui.layout.VBox(0),
         caption: "About",
         contentPadding: 5,
         showMaximize: false,
         showMinimize: false,
-        resizable: false
+        resizable: false,
       });
 
-      if (this._aboutTextUrl){
+      if (this._aboutTextUrl) {
         const appName = qx.core.Environment.get("qx.application");
         const nsName = appName.replace(".Application", "");
         const OPTION_NAME = "resourceUri";
@@ -47,50 +42,51 @@ qx.Class.define("qxl.themedemo.About",
         const resourcePath = libManager.get(nsName, OPTION_NAME);
         this._aboutTextUrl = resourcePath + "/" + this._aboutTextUrl;
       } else {
-        this._aboutTextUrl = "resource/qxl/themedemo/blank.html"
+        this._aboutTextUrl = "resource/qxl/themedemo/blank.html";
       }
 
       var url = qx.util.ResourceManager.getInstance().toUri(this._aboutTextUrl);
 
-      var textBox = this.textBox = new qx.ui.embed.ThemedIframe(url).set({
-		    decorator: "input",
+      var textBox = (this.textBox = new qx.ui.embed.ThemedIframe(url).set({
+        decorator: "input",
         width: 580,
-        height: 350
-      });
-      
-      this.add(textBox, {flex: 1});
-      this.add(new qx.ui.menu.Separator().set({
-        margin: 5
+        height: 350,
       }));
+
+      this.add(textBox, { flex: 1 });
+      this.add(
+        new qx.ui.menu.Separator().set({
+          margin: 5,
+        })
+      );
       this.add(this._getButtonBox());
 
       this.addListenerOnce("appear", this.center, this);
-      
-      this.addListener("appear", function() {
-        this.fadeIn(200);
-      }, this);
 
-      this.addListener("keypress", function(e) {
+      this.addListener("appear", () => {
+        this.fadeIn(200);
+      });
+
+      this.addListener("keypress", (e) => {
         if (e.getKeyIdentifier() == "Escape") {
           this.close();
         }
-      }, this);
+      });
     },
-    
-    
-    _getButtonBox: function()
-    {
-      var btnClose = new qx.ui.form.Button("Close").set({width: 100});
+
+    _getButtonBox() {
+      var btnClose = new qx.ui.form.Button("Close").set({ width: 100 });
       btnClose.addState("circle");
       btnClose.addListener("execute", this.close, this);
-      
-      var container = new qx.ui.container.Composite(new qx.ui.layout.HBox().set({
-        alignX: "center"
-      }));
+
+      var container = new qx.ui.container.Composite(
+        new qx.ui.layout.HBox().set({
+          alignX: "center",
+        })
+      );
       container.add(btnClose);
-      
+
       return container;
-    }
-    
-  }
+    },
+  },
 });

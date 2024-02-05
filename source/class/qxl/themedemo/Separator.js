@@ -12,41 +12,43 @@
 
 ************************************************************************ */
 
-qx.Class.define("qxl.themedemo.Separator",
-{
+qx.Class.define("qxl.themedemo.Separator", {
   extend: qx.ui.container.Composite,
 
-  construct: function(width)
-  {
-    this.base(arguments);
+  construct(width) {
+    super();
 
     var layout = new qx.ui.layout.HBox(5).set({
       alignX: "center",
-      alignY: "middle" 
+      alignY: "middle",
     });
-    
-    this.set({
-      layout: layout
-    });
-    
-    this.add(new qx.ui.menu.Separator().set({
-      width: width,
-      maxHeight: 2
-    }));
-    
-    this.add(new qx.ui.basic.Atom().set({
-      decorator: "radiobutton-checked-hovered", 
-      width: 15, 
-      height: 15,
-      maxHeight: 15,
-      marginBottom: 3
-    }));
-    
-    this.add(new qx.ui.menu.Separator().set({
-      width: width,
-      maxHeight: 2
-    }));
-      
-  }
 
+    this.set({
+      layout: layout,
+    });
+
+    this.add(
+      new qx.ui.menu.Separator().set({
+        width: width,
+        maxHeight: 2,
+      })
+    );
+
+    this.add(
+      new qx.ui.basic.Atom().set({
+        decorator: "radiobutton-checked-hovered",
+        width: 15,
+        height: 15,
+        maxHeight: 15,
+        marginBottom: 3,
+      })
+    );
+
+    this.add(
+      new qx.ui.menu.Separator().set({
+        width: width,
+        maxHeight: 2,
+      })
+    );
+  },
 });
