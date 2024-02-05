@@ -29,12 +29,6 @@
 qx.Class.define("qxl.themedemo.TableWindow", {
   extend: qxl.themedemo.Window,
 
-  construct() {
-    super();
-
-    this._createControls();
-  },
-
   members: {
     table: null,
     nextId: 0,

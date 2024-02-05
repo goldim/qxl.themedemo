@@ -23,12 +23,6 @@
 qx.Class.define("qxl.themedemo.Calculator", {
   extend: qxl.themedemo.Window,
 
-  construct() {
-    super();
-
-    this._createControls();
-  },
-
   members: {
     __display: null,
     __cal: null,

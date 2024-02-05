@@ -18,7 +18,6 @@ qx.Class.define("qxl.themedemo.About", {
   construct(link) {
     super();
     this._aboutTextUrl = link;
-    this._createControls();
   },
 
   members: {

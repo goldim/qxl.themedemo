@@ -4,6 +4,7 @@ qx.Class.define("qxl.themedemo.Window", {
     construct() {
         super();
         this.__initWindow();
+        this._createControls();
     },
 
     members: {

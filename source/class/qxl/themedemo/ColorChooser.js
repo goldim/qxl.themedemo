@@ -23,12 +23,6 @@
 qx.Class.define("qxl.themedemo.ColorChooser", {
   extend: qxl.themedemo.Window,
 
-  construct() {
-    super();
-
-    this._createControls();
-  },
-
   members: {
     _createControls() {
       this.set({

@@ -24,13 +24,11 @@
  */
 
 qx.Class.define("qxl.themedemo.WebBrowser", {
-  extend: qx.ui.window.Window,
+  extend: qxl.themedemo.Window,
 
   construct() {
     super();
-
     this.setCaption("Web Browser");
-    this._createControls();
   },
 
   /*
@@ -121,10 +119,8 @@ qx.Class.define("qxl.themedemo.WebBrowser", {
       this.iframe.setSource(url);
     },
 
-    _onAppear(e) {
+    _onAppear() {
       this.surfTo(this.txtUrl.getValue());
-      this.fadeIn(250);
-      this.center();
     },
   },
 });
