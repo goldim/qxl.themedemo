@@ -107,6 +107,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
       });
 
       this.__createAndAddNumbersToBox(box);
+      this.__createAndAddMathActionsToBox(box);
 
       var buttonC = new qx.ui.form.Button("C").set({
         font: fontButton,
@@ -129,26 +130,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
       });
 
       var buttonComma = new qx.ui.form.Button(".").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonPlus = new qx.ui.form.Button("+").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonMinus = new qx.ui.form.Button("-").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonMultiplication = new qx.ui.form.Button("*").set({
-        font: fontButton,
-        minWidth: 30,
-      });
-
-      var buttonDivision = new qx.ui.form.Button("/").set({
         font: fontButton,
         minWidth: 30,
       });
@@ -194,21 +175,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
         column: 0,
       });
 
-      box.add(buttonDivision, {
-        row: 2,
-        column: 3,
-      });
-
-      box.add(buttonMultiplication, {
-        row: 3,
-        column: 3,
-      });
-
-      box.add(buttonMinus, {
-        row: 4,
-        column: 3,
-      });
-
       box.add(buttonChangeSign, {
         row: 5,
         column: 1,
@@ -217,11 +183,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
       box.add(buttonComma, {
         row: 5,
         column: 2,
-      });
-
-      box.add(buttonPlus, {
-        row: 5,
-        column: 3,
       });
 
       box.add(buttonResult, {
@@ -257,46 +218,6 @@ qx.Class.define("qxl.themedemo.Calculator", {
         }
       });
 
-      buttonPlus.addListener("execute", (e) => {
-        this.__cal.calculate("+");
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getResult().toString());
-        }
-
-        this.__cal.resetCurrentValue();
-      });
-
-      buttonMinus.addListener("execute", (e) => {
-        this.__cal.calculate("-");
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getResult().toString());
-        }
-
-        this.__cal.resetCurrentValue();
-      });
-
-      buttonMultiplication.addListener("execute", (e) => {
-        this.__cal.calculate("*");
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getResult().toString());
-        }
-
-        this.__cal.resetCurrentValue();
-      });
-
-      buttonDivision.addListener("execute", (e) => {
-        this.__cal.calculate("/");
-
-        if (this.__cal.getResult() != null) {
-          this.__display.setValue(this.__cal.getResult().toString());
-        }
-
-        this.__cal.resetCurrentValue();
-      });
-
       buttonResult.addListener("execute", (e) => {
         this.__cal.calculate("=");
 
@@ -314,6 +235,27 @@ qx.Class.define("qxl.themedemo.Calculator", {
       return box;
     },
 
+    __createAndAddMathActionsToBox(box){
+      let actionOptions = [
+        { label: "+", position: {row: 5, column: 3} },
+        { label: "-", position:  { row: 2, column: 3 }},
+        { label: "*", position: { row: 3, column: 3 } },
+        { label: "/", position: { row: 4, column: 3 } }
+      ];
+
+      actionOptions.forEach(options => {
+        const handler = () => {
+          this.__cal.calculate(options.label);
+          if (this.__cal.getResult() != null) {
+            this.__display.setValue(this.__cal.getResult().toString());
+          }
+          this.__cal.resetCurrentValue();
+        }
+        const button = this.__createButton(options.label, handler);
+        box.add(button, options.position);
+      });
+    },
+
     __createAndAddNumbersToBox(box){
       const numberButtonOptions = [
         { label: "1", position: { row: 4, column: 0 } },
@@ -327,7 +269,7 @@ qx.Class.define("qxl.themedemo.Calculator", {
         { label: "9", position: { row: 2, column: 2 } },
       ];
 
-      const button0 = this.__createButton("0", 0, () => {
+      const button0 = this.__createButton("0", () => {
         this.__cal.setCurrentValue(0);
         this.__display.setValue(
           this.__cal
@@ -350,10 +292,10 @@ qx.Class.define("qxl.themedemo.Calculator", {
         this.__cal.setCurrentValue(value);
         this.__display.setValue(this.__cal.getCurrentValue().toString());
       }
-      return this.__createButton(label, value, handler);
+      return this.__createButton(label, handler);
     },
 
-    __createButton(label, value, handler){
+    __createButton(label, handler){
       const button = new qx.ui.form.Button(label).set({
         font: this.__fontButton,
         minWidth: 30
