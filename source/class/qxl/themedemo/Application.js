@@ -215,15 +215,8 @@ qx.Class.define("qxl.themedemo.Application", {
     },
 
     hasActiveButtons(container) {
-      var buttonDockButtons = container.getChildren();
-
-      for (var i = 0; i < buttonDockButtons.length; i++) {
-        if (buttonDockButtons[i].getValue()) {
-          return true;
-        }
-      }
-
-      return false;
+      const buttonDockButtons = container.getChildren();
+      return buttonDockButtons.some(button => button.getValue());
     },
 
     checkShowDock() {
@@ -262,23 +255,18 @@ qx.Class.define("qxl.themedemo.Application", {
     },
 
     onCalculator(e) {
-      var button = e.getTarget();
-      var that = this;
+      const button = e.getTarget();
 
-      this.dockButtonClick(button, this.calculator, function () {
-        if (!that.calculator) {
-          that.calculator = new qxl.themedemo.Calculator();
-          that.calculator.addListener(
-            "close",
-            function () {
+      this.dockButtonClick(button, this.calculator, () => {
+        if (!this.calculator) {
+          this.calculator = new qxl.themedemo.Calculator();
+          this.calculator.addListener("close", () => {
               button.setValue(false);
               this.checkShowDock();
-            },
-            that
-          );
-          that.desktop.add(that.calculator, { top: 20, right: 50 });
+          });
+          this.desktop.add(this.calculator, { top: 20, right: 50 });
         }
-        that.calculator.open();
+        this.calculator.open();
       });
     },
 
