@@ -1,7 +1,7 @@
 /* ************************************************************************
 
    Copyright:
-     2015-2021 Norbert Schröder
+     2015-2024 Norbert Schröder, Dmitrii Zolotov
 
    License:
      MIT: https://opensource.org/licenses/MIT
@@ -166,13 +166,7 @@ qx.Class.define("qxl.themedemo.Application", {
       ).set({
         paddingBottom: 5,
       });
-      container.addListener(
-        "appear",
-        function () {
-          this.fadeIn(200);
-        },
-        container
-      );
+      container.addListener("appear", () => container.fadeIn(200));
 
       const buttonData = this.getButtonData();
       buttonData.forEach(options => {
