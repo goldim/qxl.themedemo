@@ -81,33 +81,19 @@ qx.Class.define("qxl.themedemo.Application", {
     },
 
     createTitle(title) {
-      var separator = new qxl.themedemo.Separator(80);
+      const separator = new qxl.themedemo.Separator(80);
       const font = new qx.bom.Font(36, ["serif"]);
 
-      var themeLabel = new qx.ui.basic.Label(title).set({
+      const themeLabel = new qx.ui.basic.Label(title).set({
         font,
         textColor: "text-label",
         cursor: "pointer",
       });
-      themeLabel.addListener(
-        "mouseover",
-        function () {
-          this.setTextColor("text-textfield");
-        },
-        themeLabel
-      );
-      themeLabel.addListener(
-        "mouseout",
-        function () {
-          this.setTextColor("text-label");
-        },
-        themeLabel
-      );
-      themeLabel.addListener("click", () => {
-        this.about.open();
-      });
+      themeLabel.addListener("mouseover", () => themeLabel.setTextColor("text-textfield"));
+      themeLabel.addListener("mouseout", () => themeLabel.setTextColor("text-label"));
+      themeLabel.addListener("click", () => this.about.open());
 
-      var container = new qx.ui.container.Composite(
+      const container = new qx.ui.container.Composite(
         new qx.ui.layout.VBox(0).set({
           alignX: "center",
         })
@@ -121,30 +107,16 @@ qx.Class.define("qxl.themedemo.Application", {
 
     createVersionInfo() {
       const font = new qx.bom.Font(19, ["serif"]);
-      var qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
+      const qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
         font,
         paddingBottom: 3,
         cursor: "pointer",
       });
-      qooxdoo.addListener(
-        "mouseover",
-        function () {
-          this.setTextColor("text-selected");
-        },
-        qooxdoo
-      );
-      qooxdoo.addListener(
-        "mouseout",
-        function () {
-          this.setTextColor("text-label");
-        },
-        qooxdoo
-      );
-      qooxdoo.addListener("click", () => {
-        this.pressButton("WebBrowser");
-      });
+      qooxdoo.addListener("mouseover", () => qooxdoo.setTextColor("text-selected"));
+      qooxdoo.addListener("mouseout", () => qooxdoo.setTextColor("text-label"));
+      qooxdoo.addListener("click", () => this.pressButton("WebBrowser"));
 
-      var container = new qx.ui.container.Composite(
+      const container = new qx.ui.container.Composite(
         new qx.ui.layout.HBox(5).set({ alignY: "middle" })
       );
       container.add(new qx.ui.basic.Label("powered by").set({ font: "small" }));
