@@ -25,7 +25,7 @@
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-text-editor.png)
  * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
  *
- * @@asset(qx/icon/${qx.icontheme}/48/devices*)
+ * @asset(qx/icon/${qx.icontheme}/48/devices*)
  * @usefont(JosefinSlab)
  */
 qx.Class.define("qxl.themedemo.Application", {
@@ -174,18 +174,17 @@ qx.Class.define("qxl.themedemo.Application", {
         container
       );
 
-      var button;
-      var buttonData = this.getButtonData();
-      for (var i = 0; i < buttonData.length; i++) {
-        button = new qx.ui.form.ToggleButton(null, buttonData[i].icon).set({
+      const buttonData = this.getButtonData();
+      buttonData.forEach(options => {
+        const button = new qx.ui.form.ToggleButton(null, options.icon).set({
           padding: 10,
-          toolTip: new qx.ui.tooltip.ToolTip(buttonData[i].toolTip),
+          toolTip: new qx.ui.tooltip.ToolTip(options.toolTip),
         });
         button.addState("circle");
-        button.setUserData("name", buttonData[i].name);
-        button.addListener("changeValue", buttonData[i].action, this);
+        button.setUserData("name", options.name);
+        button.addListener("changeValue", options.action, this);
         container.add(button);
-      }
+      });
 
       var buttonDock = (this.buttonDock = new qx.ui.container.Composite(
         new qx.ui.layout.Canvas()
