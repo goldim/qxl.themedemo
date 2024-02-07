@@ -106,8 +106,7 @@ qx.Class.define("qxl.themedemo.Application", {
     },
 
     createDock() {
-      this.buttonDock = new qxl.themedemo.BottomPanel(this.getRoot()._computeSizeHint().height);
-      return this.buttonDock;
+      return new qxl.themedemo.BottomPanel(this.getRoot()._computeSizeHint().height);
     }
   }
 });
