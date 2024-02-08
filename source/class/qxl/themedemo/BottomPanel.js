@@ -12,10 +12,6 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
     },
 
     members: {
-        getButtonPanel(){
-            return this.__buttonPanel;
-        },
-
         _onMouseMove(e){
             const docHeight = this.__docHeight;
             const buttonDockHeight = this._computeSizeHint().height;
@@ -44,7 +40,7 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
             });
             qooxdoo.addListener("mouseover", () => qooxdoo.setTextColor("text-selected"));
             qooxdoo.addListener("mouseout", () => qooxdoo.setTextColor("text-label"));
-            qooxdoo.addListener("click", () => this.getButtonPanel().pressButton("WebBrowser"));
+            qooxdoo.addListener("click", () => this.__buttonPanel.pressButton("WebBrowser"));
 
             const container = new qx.ui.container.Composite(
                 new qx.ui.layout.HBox(5).set({ alignY: "middle" })
