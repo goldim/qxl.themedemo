@@ -21,16 +21,28 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
             );
         },
 
+        openPage(page, options){
+            page.setIcon(options.icon);
+            page.setCaption(options.caption);
+            page.open();
+        },
+
+        openWebPage(page, options){
+            page.surfTo(options.url);
+            this.openPage(page, options);
+        },
+
+        openVideoPage(page, options){
+            page.setVideoLink(options.video);
+            this.openPage(page, options);
+        },
+
         onOpenHomepage(e) {
             if (!this.homePageWindow) {
               this.homePageWindow = new qxl.themedemo.WebBrowser();
               qxl.themedemo.Desktop.getInstance().add(this.homePageWindow);
             }
-            const options = e.getData();
-            this.homePageWindow.setIcon(options.icon);
-            this.homePageWindow.setCaption(options.caption);
-            this.homePageWindow.surfTo(options.url);
-            this.homePageWindow.open();
+            this.openWebPage(this.homePageWindow, e.getData());
         },
 
         onOpenWikipedia(e) {
@@ -38,11 +50,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
                 this.wikipediaWindow = new qxl.themedemo.WebBrowser();
                 qxl.themedemo.Desktop.getInstance().add(this.wikipediaWindow);
             }
-            const options = e.getData();
-            this.wikipediaWindow.setIcon(options.icon);
-            this.wikipediaWindow.setCaption(options.caption);
-            this.wikipediaWindow.surfTo(options.url);
-            this.wikipediaWindow.open();
+            this.openWebPage(this.wikipediaWindow, e.getData());
         },
 
         onOpenVideo(e) {
@@ -50,11 +58,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
               this.videoWindow = new qxl.themedemo.VideoWindow();
               qxl.themedemo.Desktop.getInstance().add(this.videoWindow, { top: 60, right: 20 });
             }
-            const options = e.getData();
-            this.videoWindow.setIcon(options.icon);
-            this.videoWindow.setCaption(options.caption);
-            this.videoWindow.setVideoLink(options.video);
-            this.videoWindow.open();
+            this.openVideoPage(this.videoWindow, e.getData());
         }
     }
 });
