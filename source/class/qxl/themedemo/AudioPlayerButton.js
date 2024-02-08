@@ -24,7 +24,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
         onOpenHomepage(e) {
             if (!this.homePageWindow) {
               this.homePageWindow = new qxl.themedemo.WebBrowser();
-            //   this.desktop.add(this.homePageWindow);
+              qxl.themedemo.Desktop.getInstance().add(this.homePageWindow);
             }
             const options = e.getData();
             this.homePageWindow.setIcon(options.icon);
@@ -36,7 +36,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
         onOpenWikipedia(e) {
             if (!this.wikipediaWindow) {
                 this.wikipediaWindow = new qxl.themedemo.WebBrowser();
-                // this.desktop.add(this.wikipediaWindow);
+                qxl.themedemo.Desktop.getInstance().add(this.wikipediaWindow);
             }
             const options = e.getData();
             this.wikipediaWindow.setIcon(options.icon);
@@ -48,7 +48,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
         onOpenVideo(e) {
             if (!this.videoWindow) {
               this.videoWindow = new qxl.themedemo.VideoWindow();
-            //   this.desktop.add(this.videoWindow, { top: 60, right: 20 });
+              qxl.themedemo.Desktop.getInstance().add(this.videoWindow, { top: 60, right: 20 });
             }
             const options = e.getData();
             this.videoWindow.setIcon(options.icon);

@@ -5,7 +5,7 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
         super();
         this.__docHeight = docHeight;
         this.setLayout(new qx.ui.layout.Canvas());
-        const buttonPanel = this.__buttonPanel = this.createButtonPanel();
+        const buttonPanel = this.__buttonPanel = new qxl.themedemo.ButtonPanel();
         this.add(buttonPanel, { top: 0, left: 0, bottom: 0, right: 0 });
         this.add(this.createVersionInfo(), { bottom: 2, right: 0 });
         this.addListener("mousemove", this._onMouseMove, this);
@@ -33,11 +33,6 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
             ) {
                 buttonPanel.setVisibility("excluded");
             }
-        },
-
-        createButtonPanel(){
-            const panel = new qxl.themedemo.ButtonPanel();
-            return panel;
         },
 
         createVersionInfo() {

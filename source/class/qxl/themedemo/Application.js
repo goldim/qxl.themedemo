@@ -32,8 +32,6 @@ qx.Class.define("qxl.themedemo.Application", {
   extend: qx.application.Standalone,
 
   members: {
-    desktop: null,
-
     main(options) {
       super.main();
 
@@ -44,24 +42,8 @@ qx.Class.define("qxl.themedemo.Application", {
 
       /***************************************************************************/
 
-      var doc = this.getRoot();
-
-      var desktop = (this.desktop = new qx.ui.window.Desktop());
-      let title;
-      if (!options || !options.title) {
-        const currentTheme =
-          qx.theme.manager.Meta.getInstance().getTheme().name;
-        let themePart = currentTheme.substring(0, currentTheme.indexOf("."));
-        if (themePart === "qxl") {
-          themePart = currentTheme.substring(
-            currentTheme.lastIndexOf(".") + 1,
-            currentTheme.length
-          );
-        }
-        title = qx.lang.String.firstUp(themePart);
-      } else if (options && options.title) {
-        title = options.title;
-      }
+      const desktop = qxl.themedemo.Desktop.getInstance();
+      const title = this.__defineThemeTitle(options);
       desktop.add(this.createTitle(title), { top: 10, left: 10 });
 
       var mainContainer = (this.mainContainer =
@@ -70,7 +52,7 @@ qx.Class.define("qxl.themedemo.Application", {
       mainContainer.add(desktop, { top: 0, left: 0, bottom: 0, right: 0 });
       mainContainer.add(this.createDock(), { left: 5, bottom: 0, right: 5 });
 
-      doc.add(mainContainer, { edge: 0 });
+      this.getRoot().add(mainContainer, { edge: 0 });
 
       var about = (this.about = new qxl.themedemo.About(
         options ? options.about_url : ""
@@ -103,6 +85,25 @@ qx.Class.define("qxl.themedemo.Application", {
       container.add(new qx.ui.basic.Label("Theme Demo"));
 
       return container;
+    },
+
+    __defineThemeTitle(options){
+      let title;
+      if (!options || !options.title) {
+        const currentTheme =
+          qx.theme.manager.Meta.getInstance().getTheme().name;
+        let themePart = currentTheme.substring(0, currentTheme.indexOf("."));
+        if (themePart === "qxl") {
+          themePart = currentTheme.substring(
+            currentTheme.lastIndexOf(".") + 1,
+            currentTheme.length
+          );
+        }
+        title = qx.lang.String.firstUp(themePart);
+      } else if (options && options.title) {
+        title = options.title;
+      }
+      return title;
     },
 
     createDock() {
