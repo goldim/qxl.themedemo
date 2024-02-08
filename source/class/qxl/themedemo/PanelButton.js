@@ -19,21 +19,25 @@ qx.Class.define("qxl.themedemo.PanelButton", {
     members: {
         __name: null,
 
-        _onPress(e) {
-            this.dockButtonClick(() => {
+        _onPress() {
+            this.__clickButton(() => {
                 if (!this.window) {
-                  this.window = qxl.themedemo.window.Factory.getWindow(this.__name);
-                  this.window.addListener("close", () => {
-                      this.setValue(false);
-                      this.fireEvent("windowClose");
-                  });
-                  qxl.themedemo.Desktop.getInstance().add(this.window, { top: 20, right: 50 });
+                  this.__createWindow();
                 }
                 this.window.open();
             });
         },
 
-        dockButtonClick(openFunc) {
+        __createWindow(){
+          this.window = qxl.themedemo.window.Factory.getWindow(this.__name);
+          this.window.addListener("close", () => {
+              this.setValue(false);
+              this.fireEvent("windowClose");
+          });
+          qxl.themedemo.Desktop.getInstance().add(this.window, { top: 20, right: 50 });
+        },
+
+        __clickButton(openFunc) {
             if (this.getValue()) {
               openFunc();
             } else {
