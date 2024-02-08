@@ -1,4 +1,4 @@
-qx.Class.define("qxl.themedemo.Window", {
+qx.Class.define("qxl.themedemo.window.Window", {
     extend: qx.ui.window.Window,
 
     construct() {

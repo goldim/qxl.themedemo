@@ -21,7 +21,7 @@
  */
 
 qx.Class.define("qxl.themedemo.Calculator", {
-  extend: qxl.themedemo.Window,
+  extend: qxl.themedemo.window.Window,
 
   members: {
     __display: null,

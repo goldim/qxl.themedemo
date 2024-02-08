@@ -27,7 +27,7 @@
  */
 
 qx.Class.define("qxl.themedemo.TableWindow", {
-  extend: qxl.themedemo.Window,
+  extend: qxl.themedemo.window.Window,
 
   members: {
     table: null,

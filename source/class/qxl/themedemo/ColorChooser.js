@@ -21,7 +21,7 @@
  */
 
 qx.Class.define("qxl.themedemo.ColorChooser", {
-  extend: qxl.themedemo.Window,
+  extend: qxl.themedemo.window.Window,
 
   members: {
     _createControls() {

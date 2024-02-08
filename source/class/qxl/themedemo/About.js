@@ -13,7 +13,7 @@
 ************************************************************************ */
 
 qx.Class.define("qxl.themedemo.About", {
-  extend: qxl.themedemo.Window,
+  extend: qxl.themedemo.window.Window,
 
   construct(link) {
     super();

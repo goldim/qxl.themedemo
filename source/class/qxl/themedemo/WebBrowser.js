@@ -24,7 +24,7 @@
  */
 
 qx.Class.define("qxl.themedemo.WebBrowser", {
-  extend: qxl.themedemo.Window,
+  extend: qxl.themedemo.window.Window,
 
   construct() {
     super();
