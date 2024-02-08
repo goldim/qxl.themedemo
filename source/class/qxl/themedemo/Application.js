@@ -46,7 +46,7 @@ qx.Class.define("qxl.themedemo.Application", {
       const title = this.__defineThemeTitle(options);
       desktop.add(this.createTitle(title), { top: 10, left: 10 });
 
-      var mainContainer = (this.mainContainer =
+      const mainContainer = (this.mainContainer =
         new qx.ui.container.Composite());
       mainContainer.setLayout(new qx.ui.layout.Canvas());
       mainContainer.add(desktop, { top: 0, left: 0, bottom: 0, right: 0 });
@@ -54,7 +54,7 @@ qx.Class.define("qxl.themedemo.Application", {
 
       this.getRoot().add(mainContainer, { edge: 0 });
 
-      var about = (this.about = new qxl.themedemo.About(
+      const about = (this.about = new qxl.themedemo.About(
         options ? options.about_url : ""
       ));
       about.open();
@@ -107,7 +107,8 @@ qx.Class.define("qxl.themedemo.Application", {
     },
 
     createDock() {
-      return new qxl.themedemo.BottomPanel(this.getRoot()._computeSizeHint().height);
+      const height = this.getRoot()._computeSizeHint().height;
+      return new qxl.themedemo.BottomPanel(height);
     }
   }
 });
