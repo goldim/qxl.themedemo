@@ -22,7 +22,7 @@ qx.Class.define("qxl.themedemo.PanelButton", {
         _onPress(e) {
             this.dockButtonClick(() => {
                 if (!this.window) {
-                  this.window = qxl.themedemo.Factory.getWindow(this.__name);
+                  this.window = qxl.themedemo.window.Factory.getWindow(this.__name);
                   this.window.addListener("close", () => {
                       this.setValue(false);
                       this.fireEvent("windowClose");

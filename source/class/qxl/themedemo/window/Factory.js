@@ -1,4 +1,4 @@
-qx.Class.define("qxl.themedemo.Factory", {
+qx.Class.define("qxl.themedemo.window.Factory", {
     type: "static",
 
     statics: {
@@ -7,7 +7,7 @@ qx.Class.define("qxl.themedemo.Factory", {
                 case "WidgetBrowser":
                     return new qxl.themedemo.WidgetBrowser();
                 case "WebBrowser":
-                    return new qxl.themedemo.WidgetBrowser();
+                    return new qxl.themedemo.WebBrowser();
                 case "Table":
                     return new qxl.themedemo.TableWindow();
                 case "Calculator":
