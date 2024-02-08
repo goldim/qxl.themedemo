@@ -27,7 +27,7 @@ qx.Class.define("qxl.themedemo.PanelButton", {
                       this.setValue(false);
                       this.fireEvent("windowClose");
                   });
-                //   this.desktop.add(this.window, { top: 20, right: 50 });
+                  qxl.themedemo.Desktop.getInstance().add(this.window, { top: 20, right: 50 });
                 }
                 this.window.open();
             });
