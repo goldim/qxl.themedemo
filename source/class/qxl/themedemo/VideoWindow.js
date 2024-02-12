@@ -18,7 +18,7 @@ qx.Class.define("qxl.themedemo.VideoWindow", {
   members: {
     htmlFrame: null,
 
-    createControls() {
+    _createControls() {
       var layout = new qx.ui.layout.VBox();
       this.set({
         caption: "Video",

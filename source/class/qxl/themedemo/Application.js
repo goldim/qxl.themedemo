@@ -71,7 +71,7 @@ qx.Class.define("qxl.themedemo.Application", {
         textColor: "text-label",
         cursor: "pointer",
       });
-      themeLabel.addListener("mouseover", () => themeLabel.setTextColor("text-textfield"));
+      themeLabel.addListener("mouseover", () => themeLabel.setTextColor("text-selected"));
       themeLabel.addListener("mouseout", () => themeLabel.setTextColor("text-label"));
       themeLabel.addListener("click", () => this.about.open());
 
