@@ -13,12 +13,7 @@
 ************************************************************************ */
 
 qx.Class.define("qxl.themedemo.VideoWindow", {
-  extend: qx.ui.window.Window,
-
-  construct() {
-    super();
-    this.createControls();
-  },
+  extend: qxl.themedemo.window.Window,
 
   members: {
     htmlFrame: null,
@@ -44,10 +39,6 @@ qx.Class.define("qxl.themedemo.VideoWindow", {
       });
 
       this.add(this.htmlFrame, { flex: 1 });
-
-      this.addListenerOnce("appear", () => {
-        this.fadeIn(250);
-      });
     },
 
     setVideoLink(data) {
