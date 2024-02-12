@@ -46,11 +46,10 @@ qx.Class.define("qxl.themedemo.About", {
 
       var url = qx.util.ResourceManager.getInstance().toUri(this._aboutTextUrl);
 
-      var textBox = (this.textBox = new qx.ui.embed.ThemedIframe(url).set({
-        decorator: "input",
+      var textBox = new qx.ui.embed.ThemedIframe(url).set({
         width: 580,
-        height: 350,
-      }));
+        height: 350
+      });
 
       this.add(textBox, { flex: 1 });
       this.add(
