@@ -42,13 +42,16 @@ qx.Class.define("qxl.themedemo.window.ColorChooser", {
 
       var colorSelector = new qx.ui.control.ColorSelector();
       colorSelector.getChildControl("hex-field").setWidth(65);
-      colorSelector.getChildControl("hsb-spinner-brightness").setWidth(55);
-      colorSelector.getChildControl("hsb-spinner-hue").setWidth(55);
-      colorSelector.getChildControl("hsb-spinner-saturation").setWidth(55);
-      colorSelector.getChildControl("rgb-spinner-blue").setWidth(55);
-      colorSelector.getChildControl("rgb-spinner-green").setWidth(55);
-      colorSelector.getChildControl("rgb-spinner-red").setWidth(55);
       colorSelector.getChildControl("preset-field-set").setAlignX("center");
+      [
+        "hsb-spinner-brightness",
+        "hsb-spinner-hue",
+        "hsb-spinner-saturation",
+        "rgb-spinner-blue",
+        "rgb-spinner-green",
+        "rgb-spinner-red"
+      ]
+      .forEach(child => colorSelector.getChildControl(child).setWidth(55));
 
       box.add(colorSelector);
       this.add(box, { flex: 1 });
