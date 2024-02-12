@@ -20,8 +20,8 @@
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-calculator.png)
  */
 
-qx.Class.define("qxl.themedemo.Calculator", {
-  extend: qxl.themedemo.Window,
+qx.Class.define("qxl.themedemo.window.Calculator", {
+  extend: qxl.themedemo.window.Window,
 
   members: {
     __display: null,

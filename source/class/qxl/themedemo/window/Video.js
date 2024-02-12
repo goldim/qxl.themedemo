@@ -12,18 +12,13 @@
 
 ************************************************************************ */
 
-qx.Class.define("qxl.themedemo.VideoWindow", {
-  extend: qx.ui.window.Window,
-
-  construct() {
-    super();
-    this.createControls();
-  },
+qx.Class.define("qxl.themedemo.window.Video", {
+  extend: qxl.themedemo.window.Window,
 
   members: {
     htmlFrame: null,
 
-    createControls() {
+    _createControls() {
       var layout = new qx.ui.layout.VBox();
       this.set({
         caption: "Video",
@@ -44,10 +39,6 @@ qx.Class.define("qxl.themedemo.VideoWindow", {
       });
 
       this.add(this.htmlFrame, { flex: 1 });
-
-      this.addListenerOnce("appear", () => {
-        this.fadeIn(250);
-      });
     },
 
     setVideoLink(data) {

@@ -26,7 +26,7 @@
  * @asset(qx/icon/${qx.icontheme}/22/actions/media-playback-start.png)
  */
 
-qx.Class.define("qxl.themedemo.PlayerWindow", {
+qx.Class.define("qxl.themedemo.window.Player", {
   extend: qx.ui.window.Window,
 
   events: {

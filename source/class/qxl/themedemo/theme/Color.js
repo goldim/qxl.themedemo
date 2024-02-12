@@ -17,7 +17,6 @@ qx.Theme.define("qxl.themedemo.theme.Color", {
     "border-input": "#101010",
     "input-start": "white",
     "input-end": "white",
-    "text-label": "#A2A2A2",
-    "text-textfield": "#050505",
+    "text-label": "#A2A2A2"
   },
 });

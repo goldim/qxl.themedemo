@@ -26,8 +26,8 @@
  * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
  */
 
-qx.Class.define("qxl.themedemo.TableWindow", {
-  extend: qxl.themedemo.Window,
+qx.Class.define("qxl.themedemo.window.Table", {
+  extend: qxl.themedemo.window.Window,
 
   members: {
     table: null,
@@ -169,7 +169,6 @@ qx.Class.define("qxl.themedemo.TableWindow", {
       bar.add(part);
 
       var table = this._table;
-      var that = this;
 
       checkBox = this._checkBox1 = new qx.ui.toolbar.CheckBox("Keep first row");
       checkBox.set({
@@ -179,7 +178,7 @@ qx.Class.define("qxl.themedemo.TableWindow", {
             "be rendered completely when scrolling."
         ),
       });
-      checkBox.addListener("changeValue", (evt) => {
+      checkBox.addListener("changeValue", () => {
         this.table.setKeepFirstVisibleRowComplete(this._checkBox1.getValue());
       });
       part.add(checkBox);
