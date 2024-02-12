@@ -5,7 +5,7 @@ qx.Class.define("qxl.themedemo.window.Factory", {
         getWindow(name){
             switch (name){
                 case "WidgetBrowser":
-                    return new qxl.themedemo.WidgetBrowser();
+                    return new qxl.themedemo.window.WidgetBrowser();
                 case "WebBrowser":
                     return new qxl.themedemo.window.WebBrowser();
                 case "Table":
