@@ -16,8 +16,8 @@ qx.Class.define("qxl.themedemo.About", {
   extend: qxl.themedemo.window.Window,
 
   construct(link) {
-    super();
     this._aboutTextUrl = link;
+    super();
   },
 
   members: {
