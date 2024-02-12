@@ -7,15 +7,15 @@ qx.Class.define("qxl.themedemo.window.Factory", {
                 case "WidgetBrowser":
                     return new qxl.themedemo.WidgetBrowser();
                 case "WebBrowser":
-                    return new qxl.themedemo.WebBrowser();
+                    return new qxl.themedemo.window.WebBrowser();
                 case "Table":
-                    return new qxl.themedemo.TableWindow();
+                    return new qxl.themedemo.window.Table();
                 case "Calculator":
-                    return new qxl.themedemo.Calculator();
+                    return new qxl.themedemo.window.Calculator();
                 case "ColorSelector":
-                    return new qxl.themedemo.ColorChooser();
+                    return new qxl.themedemo.window.ColorChooser();
                 case "AudioPlayer":
-                    return new qxl.themedemo.PlayerWindow();
+                    return new qxl.themedemo.window.Player();
             }
         }
     }

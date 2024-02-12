@@ -20,7 +20,7 @@
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-color-chooser.png)
  */
 
-qx.Class.define("qxl.themedemo.ColorChooser", {
+qx.Class.define("qxl.themedemo.window.ColorChooser", {
   extend: qxl.themedemo.window.Window,
 
   members: {

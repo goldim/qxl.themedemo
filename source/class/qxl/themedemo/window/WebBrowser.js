@@ -23,7 +23,7 @@
  * @asset(qx/icon/${qx.icontheme}/16/categories/internet.png)
  */
 
-qx.Class.define("qxl.themedemo.WebBrowser", {
+qx.Class.define("qxl.themedemo.window.WebBrowser", {
   extend: qxl.themedemo.window.Window,
 
   construct() {

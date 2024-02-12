@@ -26,7 +26,7 @@
  * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
  */
 
-qx.Class.define("qxl.themedemo.TableWindow", {
+qx.Class.define("qxl.themedemo.window.Table", {
   extend: qxl.themedemo.window.Window,
 
   members: {

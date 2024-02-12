@@ -12,7 +12,7 @@
 
 ************************************************************************ */
 
-qx.Class.define("qxl.themedemo.VideoWindow", {
+qx.Class.define("qxl.themedemo.window.Video", {
   extend: qxl.themedemo.window.Window,
 
   members: {

@@ -39,7 +39,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
 
         onOpenHomepage(e) {
             if (!this.homePageWindow) {
-              this.homePageWindow = new qxl.themedemo.WebBrowser();
+              this.homePageWindow = qxl.themedemo.window.Factory.getWindow("WebBrowser");
               qxl.themedemo.Desktop.getInstance().add(this.homePageWindow);
             }
             this.openWebPage(this.homePageWindow, e.getData());
@@ -47,7 +47,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
 
         onOpenWikipedia(e) {
             if (!this.wikipediaWindow) {
-                this.wikipediaWindow = new qxl.themedemo.WebBrowser();
+                this.wikipediaWindow = qxl.themedemo.window.Factory.getWindow("WebBrowser");
                 qxl.themedemo.Desktop.getInstance().add(this.wikipediaWindow);
             }
             this.openWebPage(this.wikipediaWindow, e.getData());
@@ -55,7 +55,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
 
         onOpenVideo(e) {
             if (!this.videoWindow) {
-              this.videoWindow = new qxl.themedemo.VideoWindow();
+              this.videoWindow = new qxl.themedemo.window.Video();
               qxl.themedemo.Desktop.getInstance().add(this.videoWindow, { top: 60, right: 20 });
             }
             this.openVideoPage(this.videoWindow, e.getData());

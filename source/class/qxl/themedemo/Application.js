@@ -54,7 +54,7 @@ qx.Class.define("qxl.themedemo.Application", {
 
       this.getRoot().add(mainContainer, { edge: 0 });
 
-      const about = (this.about = new qxl.themedemo.About(
+      const about = (this.about = new qxl.themedemo.window.About(
         options ? options.about_url : ""
       ));
       about.open();
