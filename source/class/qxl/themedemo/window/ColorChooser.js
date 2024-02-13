@@ -16,10 +16,6 @@
 
 ************************************************************************ */
 
-/**
- * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-color-chooser.png)
- */
-
 qx.Class.define("qxl.themedemo.window.ColorChooser", {
   extend: qxl.themedemo.window.Window,
 
@@ -27,7 +23,7 @@ qx.Class.define("qxl.themedemo.window.ColorChooser", {
     _createControls() {
       this.set({
         layout: new qx.ui.layout.VBox(16),
-        icon: "icon/16/apps/utilities-color-chooser.png",
+        icon: qxl.themedemo.IconFactory.getInstance().getIcons().COLOR_SELECTOR_SMALL,
         caption: "Color Selector",
         allowStretchX: false,
         allowStretchY: false,

@@ -16,10 +16,6 @@
 
 ************************************************************************ */
 
-/**
- * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-calculator.png)
- */
-
 qx.Class.define("qxl.themedemo.window.Calculator", {
   extend: qxl.themedemo.window.Window,
 
@@ -37,7 +33,7 @@ qx.Class.define("qxl.themedemo.window.Calculator", {
         minWidth: 260,
         height: 260,
         caption: "Calculator",
-        icon: "icon/16/apps/utilities-calculator.png",
+        icon: qxl.themedemo.IconFactory.getInstance().getIcons().CALCULATOR_SMALL,
         allowStretchX: false,
         allowStretchY: false,
       });

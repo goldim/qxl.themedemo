@@ -41,34 +41,35 @@ qx.Class.define("qxl.themedemo.ButtonPanel", {
         },
 
         getButtonData() {
+            const icons = qxl.themedemo.IconFactory.getInstance().getIcons()
             return [
               {
-                icon: "icon/32/apps/utilities-statistics.png",
+                icon: icons.WIDGET_BROWSER,
                 toolTip: "Widget Browser",
                 name: "WidgetBrowser"
               },
               {
-                icon: "icon/32/apps/utilities-calculator.png",
+                icon: icons.CALCULATOR,
                 toolTip: "Calculator",
                 name: "Calculator"
               },
               {
-                icon: "icon/32/apps/utilities-color-chooser.png",
+                icon: icons.COLOR_SELECTOR,
                 toolTip: "Color Selector",
                 name: "ColorSelector"
               },
               {
-                icon: "icon/32/apps/office-chart.png",
+                icon: icons.TABLE,
                 toolTip: "Table",
                 name: "Table"
               },
               {
-                icon: "icon/32/categories/internet.png",
+                icon: icons.WEB_BROWSER,
                 toolTip: "Web Browser",
                 name: "WebBrowser"
               },
               {
-                icon: "icon/32/apps/media-audio-player.png",
+                icon: icons.MEDIA_PLAYER,
                 toolTip: "Audio Player",
                 name: "AudioPlayer"
               },

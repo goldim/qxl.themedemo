@@ -13,7 +13,6 @@
 ************************************************************************ */
 
 /**
- * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-statistics.png)
  * @usefont(MaterialIcons)
  */
 qx.Class.define("qxl.themedemo.window.WidgetBrowser", {
@@ -27,7 +26,7 @@ qx.Class.define("qxl.themedemo.window.WidgetBrowser", {
         layout: new qx.ui.layout.VBox(),
         contentPadding: [10, 0, 0, 0],
         caption: "WidgetBrowser",
-        icon: "icon/16/apps/utilities-statistics.png",
+        icon: qxl.themedemo.IconFactory.getInstance().getIcons().WIDGET_BROWSER_SMALL,
       });
 
       this._tabView = new qxl.widgetbrowser.view.TabView();

@@ -20,7 +20,6 @@
  * @asset(qx/icon/${qx.icontheme}/16/actions/media-playback-start.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/go-previous.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/go-next.png)
- * @asset(qx/icon/${qx.icontheme}/16/categories/internet.png)
  */
 
 qx.Class.define("qxl.themedemo.window.WebBrowser", {
@@ -48,7 +47,7 @@ qx.Class.define("qxl.themedemo.window.WebBrowser", {
         width: 900,
         height: 700,
         contentPadding: 0,
-        icon: "icon/16/categories/internet.png",
+        icon: qxl.themedemo.IconFactory.getInstance().getIcons().WEB_BROWSER_SMALL,
       });
 
       var toolbar = this._createToolbar();

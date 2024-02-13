@@ -15,15 +15,9 @@
 /**
  * @asset(qxl/themedemo/*)
  *
- * @asset(qx/icon/${qx.icontheme}/32/apps/media-audio-player.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/media-photo-album.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/office-address-book.png)
- * @asset(qx/icon/${qx.icontheme}/32/apps/office-chart.png)
- * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-calculator.png)
- * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-color-chooser.png)
- * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-statistics.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-text-editor.png)
- * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
  *
  * @asset(qx/icon/${qx.icontheme}/48/devices*)
  * @usefont(JosefinSlab)

@@ -17,13 +17,11 @@
 ************************************************************************ */
 
 /**
- * @asset(qx/icon/${qx.icontheme}/16/apps/office-chart.png)
  * @asset(qx/icon/${qx.icontheme}/16/apps/office-calendar.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/edit-undo.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/list-add.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/list-remove.png)
  * @asset(qx/icon/${qx.icontheme}/16/status/dialog-information.png)
- * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
  */
 
 qx.Class.define("qxl.themedemo.window.Table", {
@@ -38,7 +36,7 @@ qx.Class.define("qxl.themedemo.window.Table", {
         layout: new qx.ui.layout.VBox(0),
         contentPadding: 3,
         caption: "Table",
-        icon: "icon/16/apps/office-chart.png",
+        icon: qxl.themedemo.IconFactory.getInstance().getIcons().TABLE_SMALL,
       });
 
       var table = this.createTable();

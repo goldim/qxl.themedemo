@@ -19,7 +19,6 @@
 
 /**
  * @asset(qx/icon/${qx.icontheme}/16/actions/go-home.png)
- * @asset(qx/icon/${qx.icontheme}/16/apps/media-audio-player.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/media-skip-backward.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/media-skip-forward.png)
  * @asset(qx/icon/${qx.icontheme}/22/actions/media-playback-pause.png)
@@ -65,7 +64,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
         contentPadding: 2,
         showMaximize: false,
         layout: new qx.ui.layout.VBox(5),
-        icon: "icon/16/apps/media-audio-player.png",
+        icon: qxl.themedemo.IconFactory.getInstance().getIcons().MEDIA_PLAYER_SMALL,
         caption: this._defaultCaption,
         resizable: false,
       });
