@@ -41,7 +41,7 @@ qx.Class.define("qxl.themedemo.ButtonPanel", {
         },
 
         getButtonData() {
-            const icons = qxl.themedemo.IconFactory.getInstance().getIcons()
+            const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
             return [
               {
                 icon: icons.WIDGET_BROWSER,

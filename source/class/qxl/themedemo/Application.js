@@ -15,10 +15,6 @@
 /**
  * @asset(qxl/themedemo/*)
  *
- * @asset(qx/icon/${qx.icontheme}/32/apps/media-photo-album.png)
- * @asset(qx/icon/${qx.icontheme}/32/apps/office-address-book.png)
- * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-text-editor.png)
- *
  * @asset(qx/icon/${qx.icontheme}/48/devices*)
  * @usefont(JosefinSlab)
  */

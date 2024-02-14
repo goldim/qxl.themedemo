@@ -16,12 +16,6 @@
 
 ************************************************************************ */
 
-/**
- * @asset(qx/icon/${qx.icontheme}/16/actions/media-playback-start.png)
- * @asset(qx/icon/${qx.icontheme}/16/actions/go-previous.png)
- * @asset(qx/icon/${qx.icontheme}/16/actions/go-next.png)
- */
-
 qx.Class.define("qxl.themedemo.window.WebBrowser", {
   extend: qxl.themedemo.window.Window,
 
@@ -63,11 +57,12 @@ qx.Class.define("qxl.themedemo.window.WebBrowser", {
     },
 
     _createToolbar() {
+      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
       var toolbar = new qx.ui.toolbar.ToolBar();
 
       var btnBack = new qx.ui.toolbar.Button(
         null,
-        "icon/16/actions/go-previous.png"
+        icons.WEB_BROWSER_PREVIOUS
       );
       btnBack.addListener("execute", (e) => {
         // this.iframe.getWindow().history.back();
@@ -75,7 +70,7 @@ qx.Class.define("qxl.themedemo.window.WebBrowser", {
       toolbar.add(btnBack);
       var btnForward = new qx.ui.toolbar.Button(
         null,
-        "icon/16/actions/go-next.png"
+        icons.WEB_BROWSER_NEXT
       );
       btnForward.addListener("execute", (e) => {
         // this.iframe.getWindow().history.forward();
@@ -100,7 +95,7 @@ qx.Class.define("qxl.themedemo.window.WebBrowser", {
 
       var btnGo = new qx.ui.toolbar.Button(
         null,
-        "icon/16/actions/media-playback-start.png"
+        icons.WEB_BROWSER_GO
       );
       btnGo.addListener("execute", (e) => {
         this.surfTo(this.txtUrl.getValue());

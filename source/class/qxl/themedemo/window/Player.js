@@ -17,14 +17,6 @@
    
 ************************************************************************ */
 
-/**
- * @asset(qx/icon/${qx.icontheme}/16/actions/go-home.png)
- * @asset(qx/icon/${qx.icontheme}/16/actions/media-skip-backward.png)
- * @asset(qx/icon/${qx.icontheme}/16/actions/media-skip-forward.png)
- * @asset(qx/icon/${qx.icontheme}/22/actions/media-playback-pause.png)
- * @asset(qx/icon/${qx.icontheme}/22/actions/media-playback-start.png)
- */
-
 qx.Class.define("qxl.themedemo.window.Player", {
   extend: qx.ui.window.Window,
 
@@ -160,13 +152,14 @@ qx.Class.define("qxl.themedemo.window.Player", {
     },
 
     _createPlayBar() {
+      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
       this._ttPlay = new qx.ui.tooltip.ToolTip("Start playback");
       this._ttPause = new qx.ui.tooltip.ToolTip("Pause playback");
       this._ttResume = new qx.ui.tooltip.ToolTip("Resume playback");
 
       var btnSkipBackward = (this._btnSkipBackward = new qx.ui.toolbar.Button(
         null,
-        "icon/16/actions/media-skip-backward.png"
+        icons.MEDIA_PLAYER_SKIP_BACK
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Previous song"),
@@ -175,7 +168,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
       var btnSkipForward = (this._btnSkipForward = new qx.ui.toolbar.Button(
         null,
-        "icon/16/actions/media-skip-forward.png"
+        icons.MEDIA_PLAYER_SKIP_FORWARD
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Next song"),
@@ -184,7 +177,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
       var btnPlay = (this._btnPlay = new qx.ui.toolbar.CheckBox(
         null,
-        "icon/22/actions/media-playback-start.png"
+        icons.MEDIA_PLAYER_START
       ).set({
         enabled: false,
         toolTip: this._ttPlay,
@@ -293,9 +286,10 @@ qx.Class.define("qxl.themedemo.window.Player", {
     },
 
     _createInfoBar() {
+      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
       var btnHomepage = (this._btnHomepage = new qx.ui.toolbar.Button(
         null,
-        "icon/16/actions/go-home.png"
+        icons.GO_HOME
       ).set({
         enabled: false,
       }));
@@ -306,13 +300,13 @@ qx.Class.define("qxl.themedemo.window.Player", {
         this.fireDataEvent("openHomepage", {
           caption: this._playlistData[this._currAlbum].artist + " :: Homepage",
           url: this._playlistData[this._currAlbum].homepage,
-          icon: "icon/16/actions/go-home.png",
+          icon: icons.GO_HOME,
         });
       });
 
       var btnWikipedia = (this._btnWikipedia = new qx.ui.toolbar.Button(
         null,
-        "qxl/themedemo/icon/16/wikipedia.png"
+        icons.WIKIPEDIA
       ).set({
         enabled: false,
       }));
@@ -323,13 +317,13 @@ qx.Class.define("qxl.themedemo.window.Player", {
         this.fireDataEvent("openWikipedia", {
           caption: this._playlistData[this._currAlbum].artist + " :: Wikipedia",
           url: this._playlistData[this._currAlbum].wikipedia,
-          icon: "qxl/themedemo/icon/16/wikipedia.png",
+          icon: icons.WIKIPEDIA
         });
       });
 
       var btnVideo = (this._btnVideo = new qx.ui.toolbar.Button(
         null,
-        "qxl/themedemo/icon/16/youtube.jpg"
+        icons.YOUTUBE
       ).set({
         enabled: false,
       }));
@@ -343,7 +337,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
             " :: " +
             this._playlistData[this._currAlbum].video.title,
           video: this._playlistData[this._currAlbum].video,
-          icon: "qxl/themedemo/icon/16/youtube.jpg",
+          icon: icons.YOUTUBE,
         });
       });
 
@@ -505,11 +499,12 @@ qx.Class.define("qxl.themedemo.window.Player", {
     },
 
     _onPlay(e) {
+      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
       var pressed = e.getData();
       this._btnPlay.setIcon(
         pressed
-          ? "icon/22/actions/media-playback-pause.png"
-          : "icon/22/actions/media-playback-start.png"
+          ? icons.MEDIA_PLAYER_PAUSE
+          : icons.MEDIA_PLAYER_START
       );
       if (pressed) {
         this._playSong(false);
