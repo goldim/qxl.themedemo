@@ -34,7 +34,7 @@ qx.Class.define("qxl.themedemo.PanelButton", {
               this.setValue(false);
               this.fireEvent("windowClose");
           });
-          qxl.themedemo.Desktop.getInstance().add(this.window, { top: 20, right: 50 });
+          qxl.themedemo.Desktop.getInstance().add(this.window);
         },
 
         __clickButton(openFunc) {
