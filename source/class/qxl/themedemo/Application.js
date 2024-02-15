@@ -12,12 +12,6 @@
 
 ************************************************************************ */
 
-/**
- * @asset(qxl/themedemo/*)
- *
- * @asset(qx/icon/${qx.icontheme}/48/devices*)
- * @usefont(JosefinSlab)
- */
 qx.Class.define("qxl.themedemo.Application", {
   extend: qx.application.Standalone,
 
