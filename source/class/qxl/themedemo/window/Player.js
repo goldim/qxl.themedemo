@@ -17,6 +17,9 @@
    
 ************************************************************************ */
 
+/**
+ * @asset(qxl/themedemo/playlist.json)
+ */
 qx.Class.define("qxl.themedemo.window.Player", {
   extend: qx.ui.window.Window,
 
@@ -558,23 +561,24 @@ qx.Class.define("qxl.themedemo.window.Player", {
       this._volumeLabel.setValue(String(volume));
 
       var currIcon = this._volumeIcon.getSource();
-      var statusIcon = "qxl/themedemo/icon/16/nm-signal-00.png";
+      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
+      var statusIcon = icons.MEDIA_PLAYER_LEVEL_00;
 
       switch (true) {
         case volume == 100:
-          statusIcon = "qxl/themedemo/icon/16/nm-signal-100.png";
+          statusIcon = icons.MEDIA_PLAYER_LEVEL_100;
           break;
 
         case volume >= 66:
-          statusIcon = "qxl/themedemo/icon/16/nm-signal-75.png";
+          statusIcon = icons.MEDIA_PLAYER_LEVEL_75;
           break;
 
         case volume >= 33:
-          statusIcon = "qxl/themedemo/icon/16/nm-signal-50.png";
+          statusIcon = icons.MEDIA_PLAYER_LEVEL_50;
           break;
 
         case volume > 0:
-          statusIcon = "qxl/themedemo/icon/16/nm-signal-25.png";
+          statusIcon = icons.MEDIA_PLAYER_LEVEL_25;
           break;
       }
       if (statusIcon != currIcon) {

@@ -6,15 +6,12 @@
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-calculator.png)
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-statistics.png)
  * @asset(qx/icon/${qx.icontheme}/16/categories/internet.png)
- * 
  * @asset(qx/icon/${qx.icontheme}/32/apps/media-audio-player.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/office-chart.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-color-chooser.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-calculator.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-statistics.png)
  * @asset(qx/icon/${qx.icontheme}/32/categories/internet.png)
- * @asset(qxl/themedemo/icon/16/wikipedia.png)
- * @asset(qxl/themedemo/icon/16/youtube.jpg)
  * @asset(qx/icon/${qx.icontheme}/16/actions/media-playback-start.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/go-previous.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/go-next.png)
@@ -27,6 +24,14 @@
  * @asset(qx/icon/${qx.icontheme}/16/actions/list-add.png)
  * @asset(qx/icon/${qx.icontheme}/16/actions/list-remove.png)
  * @asset(qx/icon/${qx.icontheme}/16/status/dialog-information.png)
+ * 
+ * @asset(qxl/themedemo/icon/16/wikipedia.png)
+ * @asset(qxl/themedemo/icon/16/youtube.jpg)
+ * @asset(qxl/themedemo/icon/16/nm-signal-00.png)
+ * @asset(qxl/themedemo/icon/16/nm-signal-25.png)
+ * @asset(qxl/themedemo/icon/16/nm-signal-50.png)
+ * @asset(qxl/themedemo/icon/16/nm-signal-75.png)
+ * @asset(qxl/themedemo/icon/16/nm-signal-100.png)
  */
 qx.Class.define("qxl.themedemo.Icons", {
     type: "static",
@@ -42,6 +47,11 @@ qx.Class.define("qxl.themedemo.Icons", {
         MEDIA_PLAYER_SKIP_FORWARD: "icon/16/actions/media-skip-forward.png",
         MEDIA_PLAYER_START: "icon/22/actions/media-playback-start.png",
         MEDIA_PLAYER_PAUSE: "icon/22/actions/media-playback-pause.png",
+        MEDIA_PLAYER_LEVEL_00: "qxl/themedemo/icon/16/nm-signal-00.png",
+        MEDIA_PLAYER_LEVEL_25: "qxl/themedemo/icon/16/nm-signal-25.png",
+        MEDIA_PLAYER_LEVEL_50: "qxl/themedemo/icon/16/nm-signal-50.png",
+        MEDIA_PLAYER_LEVEL_75: "qxl/themedemo/icon/16/nm-signal-75.png",
+        MEDIA_PLAYER_LEVEL_100: "qxl/themedemo/icon/16/nm-signal-100.png",
 
         WEB_BROWSER_PREVIOUS: "icon/16/actions/go-previous.png",
         WEB_BROWSER_NEXT: "icon/16/actions/go-next.png",
