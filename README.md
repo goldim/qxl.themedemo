@@ -8,3 +8,4 @@ Theme Demo Browser
  - Make default case if decorator doesn't exist in child class
  - Add a font for main theme label
  - Fix license in all source files
+ - Change position to some other points except center
