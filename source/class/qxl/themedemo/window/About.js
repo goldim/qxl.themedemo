@@ -12,6 +12,9 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(qxl/themedemo/blank.html)
+ */
 qx.Class.define("qxl.themedemo.window.About", {
   extend: qxl.themedemo.window.Window,
 
