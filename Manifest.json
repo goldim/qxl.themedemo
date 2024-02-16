@@ -26,7 +26,27 @@
     "encoding"    : "utf-8",
     "class"       : "source/class",
     "resource"    : "source/resource",
-    "translation" : "source/translation"
+    "translation" : "source/translation",
+    "fonts": {
+      "JosefinSlab Bold": {
+        "fontFaces": [
+          {
+            "paths": [
+              "qxl/themedemo/font/JosefinSlab-Bold.ttf"
+            ]
+          }
+        ]
+      },
+      "JosefinSlab Regular": {
+        "fontFaces": [
+          {
+            "paths": [
+              "qxl/themedemo/font/JosefinSlab-Regular.ttf"
+            ]
+          }
+        ]
+      }
+    }
   },
 
   "requires": {

@@ -6,6 +6,5 @@ Theme Demo Browser
  - Fix `showDialog` method of table window
  - Make special decorator names
  - Make default case if decorator doesn't exist in child class
- - Add a font for main theme label
  - Fix license in all source files
  - Change position to some other points except center

@@ -3,6 +3,10 @@
   "targets": [
     {
       "type": "source",
+      "fonts": {
+        "local": true,
+        "fontTypes": ["ttf"]
+      },
       "outputPath": "compiled/source",
       "bundle": {
         "include": "qx.*"

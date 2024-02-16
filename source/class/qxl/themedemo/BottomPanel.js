@@ -32,9 +32,8 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
         },
 
         createVersionInfo() {
-            const font = new qx.bom.Font(19, ["serif"]);
             const qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
-                font,
+                font: "qooxdoo",
                 paddingBottom: 3,
                 cursor: "pointer",
             });
