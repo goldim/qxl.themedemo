@@ -161,8 +161,6 @@ qx.Class.define("qxl.themedemo.window.Table", {
       part = new qx.ui.toolbar.Part();
       bar.add(part);
 
-      var table = this._table;
-
       checkBox = this._checkBox1 = new qx.ui.toolbar.CheckBox("Keep first row");
       checkBox.set({
         value: this.table.getKeepFirstVisibleRowComplete(),

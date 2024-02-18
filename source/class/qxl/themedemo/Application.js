@@ -1,7 +1,7 @@
 /* ************************************************************************
 
    Copyright:
-     2015-2024 Norbert Schröder, Dmitrii Zolotov
+     2015-2024 Norbert Schröder
 
    License:
      MIT: https://opensource.org/licenses/MIT
@@ -9,6 +9,7 @@
 
    Authors:
      * Norbert Schröder (scro34)
+     * Dmitrii Zolotov (goldim)
 
 ************************************************************************ */
 

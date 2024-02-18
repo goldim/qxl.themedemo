@@ -9,6 +9,7 @@
 
    Authors:
      * Norbert Schröder (scro34)
+     * Dmitrii Zolotov (goldim)
 
 ************************************************************************ */
 

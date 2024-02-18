@@ -1,3 +1,18 @@
+/* ************************************************************************
+
+   Copyright:
+     2015-2024 Norbert Schröder
+
+   License:
+     MIT: https://opensource.org/licenses/MIT
+     See the LICENSE file in the project's top-level directory for details.
+
+   Authors:
+     * Norbert Schröder (scro34)
+     * Dmitrii Zolotov (goldim)
+
+************************************************************************ */
+
 qx.Class.define("qxl.themedemo.AudioPlayerButton", {
     extend: qxl.themedemo.PanelButton,
 

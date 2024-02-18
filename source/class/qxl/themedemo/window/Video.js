@@ -1,14 +1,21 @@
 /* ************************************************************************
 
    Copyright:
-     2015 Norbert Schröder
+     2015-2021 Norbert Schröder
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
+     MIT: https://opensource.org/licenses/MIT
+     See the LICENSE file in the project's top-level directory for details.
 
    Authors:
      * Norbert Schröder (scro34)
+     * Dmitrii Zolotov (goldim)
+
+   Note:
+     The Audio Player loads its playlist from a file containing data in
+     JSON format. See the accompanying "playlist.json" for information
+     about the data structure.
+   
 
 ************************************************************************ */
 
