@@ -24,7 +24,6 @@ qx.Class.define("qxl.themedemo.window.Window", {
     members: {
         __initWindow(){
             this.addListener("appear", () => {
-                // this.center();
                 this.fadeIn(200);
             });
             this.addListener("keypress", (e) => {
