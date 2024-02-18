@@ -52,8 +52,6 @@ qx.Class.define("qxl.themedemo.window.ColorChooser", {
 
       box.add(colorSelector);
       this.add(box, { flex: 1 });
-
-      this.addListenerOnce("appear", this.center, this);
     },
   },
 });

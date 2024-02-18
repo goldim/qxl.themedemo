@@ -23,6 +23,8 @@ qx.Class.define("qxl.themedemo.PanelButton", {
         });
         this.addState("circle");
         this.__name = options.name;
+        this.__position = options.position;
+        this.__center = options.center;
         this.addListener("changeValue", this._onPress, this);
     },
 
@@ -48,7 +50,10 @@ qx.Class.define("qxl.themedemo.PanelButton", {
               this.setValue(false);
               this.fireEvent("windowClose");
           });
-          qxl.themedemo.Desktop.getInstance().add(this.window);
+          qxl.themedemo.Desktop.getInstance().add(this.window, this.__position);
+          if (this.__center){
+            this.window.center();
+          }
         },
 
         __clickButton(openFunc) {

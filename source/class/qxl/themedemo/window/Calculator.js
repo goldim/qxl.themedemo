@@ -41,7 +41,6 @@ qx.Class.define("qxl.themedemo.window.Calculator", {
 
       this.addListenerOnce("appear", () => {
         this.add(this._createCalculator(), { flex: 1 });
-        this.center();
       });
     },
 

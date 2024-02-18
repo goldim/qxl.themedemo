@@ -60,32 +60,38 @@ qx.Class.define("qxl.themedemo.ButtonPanel", {
               {
                 icon: icons.WIDGET_BROWSER,
                 toolTip: "Widget Browser",
-                name: "WidgetBrowser"
+                name: "WidgetBrowser",
+                center: true
               },
               {
                 icon: icons.CALCULATOR,
                 toolTip: "Calculator",
-                name: "Calculator"
+                name: "Calculator",
+                position: {top: 20, right: 50}
               },
               {
                 icon: icons.COLOR_SELECTOR,
                 toolTip: "Color Selector",
-                name: "ColorSelector"
+                name: "ColorSelector",
+                position:  {bottom: 30, right: 10}
               },
               {
                 icon: icons.TABLE,
                 toolTip: "Table",
-                name: "Table"
+                name: "Table",
+                position: {left: 50, bottom: 20}
               },
               {
                 icon: icons.WEB_BROWSER,
                 toolTip: "Web Browser",
-                name: "WebBrowser"
+                name: "WebBrowser",
+                center: true
               },
               {
                 icon: icons.MEDIA_PLAYER,
                 toolTip: "Audio Player",
-                name: "AudioPlayer"
+                name: "AudioPlayer",
+                position: {top: 110, left: 20}
               },
             ];
           }

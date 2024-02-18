@@ -55,6 +55,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
         onOpenHomepage(e) {
             if (!this.homePageWindow) {
               this.homePageWindow = qxl.themedemo.window.Factory.getWindow("WebBrowser");
+              this.homePageWindow.center();
               qxl.themedemo.Desktop.getInstance().add(this.homePageWindow);
             }
             this.openWebPage(this.homePageWindow, e.getData());
@@ -63,6 +64,7 @@ qx.Class.define("qxl.themedemo.AudioPlayerButton", {
         onOpenWikipedia(e) {
             if (!this.wikipediaWindow) {
                 this.wikipediaWindow = qxl.themedemo.window.Factory.getWindow("WebBrowser");
+                this.wikipediaWindow.center();
                 qxl.themedemo.Desktop.getInstance().add(this.wikipediaWindow);
             }
             this.openWebPage(this.wikipediaWindow, e.getData());
