@@ -38,6 +38,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
     this.addListener("beforeMinimize", this._onBeforeMinimize, this);
     this.addListener("beforeMaximize", this._onBeforeMaximize, this);
+    this.addListener("close", () => this._audio.pause());
   },
 
   members: {
