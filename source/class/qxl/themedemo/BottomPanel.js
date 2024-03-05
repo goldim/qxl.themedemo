@@ -47,7 +47,7 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
 
         createVersionInfo() {
             const qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
-                font: "qooxdoo",
+                // font: "qooxdoo",
                 paddingBottom: 3,
                 cursor: "pointer",
             });

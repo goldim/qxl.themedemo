@@ -50,8 +50,8 @@ qx.Class.define("qxl.themedemo.Application", {
     createTitle(title) {
       const separator = new qxl.themedemo.Separator(80);
 
-      const themeLabel = new qx.ui.basic.Label(title+"dDa").set({
-        font: "title",
+      const themeLabel = new qx.ui.basic.Label(title).set({
+        // font: "title",
         textColor: "text-label",
         cursor: "pointer",
       });
