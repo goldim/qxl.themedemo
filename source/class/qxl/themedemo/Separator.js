@@ -38,7 +38,7 @@ qx.Class.define("qxl.themedemo.Separator", {
     const decorator = qx.theme.manager.Decoration.getInstance().resolve("demo-title-separator");
     this.add(
       new qx.ui.basic.Atom().set({
-        decorator:  decorator ?? "radiobutton-hovered",
+        decorator:  decorator ?? "radiobutton",
         width: 15,
         height: 15,
         maxHeight: 15,
