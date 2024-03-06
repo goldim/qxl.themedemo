@@ -13,6 +13,9 @@
 
 ************************************************************************ */
 
+/**
+ * @usefont(JosefinSlabRegular)
+ */
 qx.Class.define("qxl.themedemo.Application", {
   extend: qx.application.Standalone,
 
@@ -50,8 +53,10 @@ qx.Class.define("qxl.themedemo.Application", {
     createTitle(title) {
       const separator = new qxl.themedemo.Separator(80);
 
+      const font = new qx.bom.Font(36, ["JosefinSlab Regular"]);
+
       const themeLabel = new qx.ui.basic.Label(title).set({
-        // font: "title",
+        font,
         textColor: "text-label",
         cursor: "pointer",
       });

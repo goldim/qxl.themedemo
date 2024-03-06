@@ -44,6 +44,10 @@ qx.Class.define("qxl.themedemo.PanelButton", {
             });
         },
 
+        getName(){
+          return this.__name;
+        },
+
         __createWindow(){
           this.window = qxl.themedemo.window.Factory.getWindow(this.__name);
           this.window.addListener("close", () => {

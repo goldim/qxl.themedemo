@@ -48,10 +48,8 @@ qx.Class.define("qxl.themedemo.ButtonPanel", {
 
         pressButton(name){
             const buttons = this.getChildren();
-            const found = buttons.find(button => button.getUserData("name") == name);
-            if (found){
-                found.setValue(true);
-            }
+            const found = buttons.find(button => button.getName() == name);
+            found?.setValue(true);
         },
 
         getButtonData() {

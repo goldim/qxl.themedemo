@@ -28,18 +28,24 @@
     "resource"    : "source/resource",
     "translation" : "source/translation",
     "fonts": {
-      "JosefinSlab Bold": {
+      "JosefinSlabBold": {
         "fontFaces": [
           {
+            "fontFamily": "JosefinSlab Bold",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
             "paths": [
               "qxl/themedemo/font/JosefinSlab-Bold.ttf"
             ]
           }
         ]
       },
-      "JosefinSlab Regular": {
+      "JosefinSlabRegular": {
         "fontFaces": [
           {
+            "fontFamily": "JosefinSlab Regular",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "paths": [
               "qxl/themedemo/font/JosefinSlab-Regular.ttf"
             ]

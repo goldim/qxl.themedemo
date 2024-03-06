@@ -1,6 +1,9 @@
 # qxl.themedemo
 Theme Demo Browser
 
+# Decorator Demo reserved names
+ - theme-demo-title-separator
+
 ## TODO
 
  - Fix `showDialog` method of table window

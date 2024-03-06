@@ -12,6 +12,9 @@
 
 ************************************************************************ */
 
+/**
+ * @usefont(JosefinSlabBold)
+ */
 qx.Class.define("qxl.themedemo.BottomPanel", {
     extend: qx.ui.container.Composite,
 
@@ -46,8 +49,9 @@ qx.Class.define("qxl.themedemo.BottomPanel", {
         },
 
         createVersionInfo() {
+            const font = new qx.bom.Font(19, ["JosefinSlab Bold"]);
             const qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
-                // font: "qooxdoo",
+                font,
                 paddingBottom: 3,
                 cursor: "pointer",
             });
