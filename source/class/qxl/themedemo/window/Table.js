@@ -28,7 +28,7 @@ qx.Class.define("qxl.themedemo.window.Table", {
         layout: new qx.ui.layout.VBox(0),
         contentPadding: 3,
         caption: "Table",
-        icon: qxl.themedemo.IconFactory.getInstance().getIcons().TABLE_SMALL,
+        icon: qxl.themedemo.IconFactory.getInstance().getIcon("TABLE_SMALL"),
       });
 
       var table = this.createTable();
@@ -73,11 +73,11 @@ qx.Class.define("qxl.themedemo.window.Table", {
       tcm.setDataCellRenderer(3, new qx.ui.table.cellrenderer.Boolean());
 
       // use a different header renderer
-      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
+      const icons = qxl.themedemo.IconFactory.getInstance();
       tcm.setHeaderCellRenderer(
         2,
         new qx.ui.table.headerrenderer.Icon(
-          icons.TABLE_CALENDAR,
+          icons.getIcon("TABLE_CALENDAR"),
           "A date"
         )
       );
@@ -108,11 +108,11 @@ qx.Class.define("qxl.themedemo.window.Table", {
       part = new qx.ui.toolbar.Part();
       bar.add(part);
 
-      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
+      const icons = qxl.themedemo.IconFactory.getInstance();
 
       button = new qx.ui.toolbar.Button(
         "Change row with ID 10",
-        icons.TABLE_EDIT_UNDO
+        icons.getIcon("TABLE_EDIT_UNDO")
       );
       button.addListener("execute", (evt) => {
         var rowData = this.createRandomRows(1);
@@ -125,7 +125,7 @@ qx.Class.define("qxl.themedemo.window.Table", {
 
       button = new qx.ui.toolbar.Button(
         "Add 10 rows",
-        icons.TABLE_LIST_ADD
+        icons.getIcon("TABLE_LIST_ADD")
       );
       button.addListener("execute", (evt) => {
         var rowData = this.createRandomRows(10);
@@ -136,7 +136,7 @@ qx.Class.define("qxl.themedemo.window.Table", {
 
       button = new qx.ui.toolbar.Button(
         "Remove 5 rows",
-        icons.TABLE_LIST_REMOVE
+        icons.getIcon("TABLE_LIST_REMOVE")
       );
       button.addListener("execute", (evt) => {
         var rowCount = this._tableModel.getRowCount();
@@ -147,7 +147,7 @@ qx.Class.define("qxl.themedemo.window.Table", {
 
       button = new qx.ui.toolbar.Button(
         "Show selection",
-        icons.TABLE_SHOW_SELECTION
+        icons.getIcon("TABLE_SHOW_SELECTION")
       );
       button.addListener("execute", (evt) => {
         var selection = [];

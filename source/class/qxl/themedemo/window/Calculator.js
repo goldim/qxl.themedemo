@@ -34,7 +34,7 @@ qx.Class.define("qxl.themedemo.window.Calculator", {
         minWidth: 260,
         height: 260,
         caption: "Calculator",
-        icon: qxl.themedemo.IconFactory.getInstance().getIcons().CALCULATOR_SMALL,
+        icon: qxl.themedemo.IconFactory.getInstance().getIcon("CALCULATOR_SMALL"),
         allowStretchX: false,
         allowStretchY: false,
       });

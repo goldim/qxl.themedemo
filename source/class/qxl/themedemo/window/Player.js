@@ -62,7 +62,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
         contentPadding: 2,
         showMaximize: false,
         layout: new qx.ui.layout.VBox(5),
-        icon: qxl.themedemo.IconFactory.getInstance().getIcons().MEDIA_PLAYER_SMALL,
+        icon: qxl.themedemo.IconFactory.getInstance().getIcon("MEDIA_PLAYER_SMALL"),
         caption: this._defaultCaption,
         resizable: false,
       });
@@ -158,14 +158,14 @@ qx.Class.define("qxl.themedemo.window.Player", {
     },
 
     _createPlayBar() {
-      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
+      const icons = qxl.themedemo.IconFactory.getInstance();
       this._ttPlay = new qx.ui.tooltip.ToolTip("Start playback");
       this._ttPause = new qx.ui.tooltip.ToolTip("Pause playback");
       this._ttResume = new qx.ui.tooltip.ToolTip("Resume playback");
 
       var btnSkipBackward = (this._btnSkipBackward = new qx.ui.toolbar.Button(
         null,
-        icons.MEDIA_PLAYER_SKIP_BACK
+        icons.getIcon("MEDIA_PLAYER_SKIP_BACK")
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Previous song"),
@@ -174,7 +174,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
       var btnSkipForward = (this._btnSkipForward = new qx.ui.toolbar.Button(
         null,
-        icons.MEDIA_PLAYER_SKIP_FORWARD
+        icons.getIcon("MEDIA_PLAYER_SKIP_FORWARD")
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Next song"),
@@ -183,7 +183,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
       var btnPlay = (this._btnPlay = new qx.ui.toolbar.CheckBox(
         null,
-        icons.MEDIA_PLAYER_START
+        icons.getIcon("MEDIA_PLAYER_START")
       ).set({
         enabled: false,
         toolTip: this._ttPlay,
@@ -207,7 +207,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
     _createVolumeControl() {
       var volumeIcon = (this._volumeIcon = new qx.ui.basic.Image(
-        "qxl/themedemo/icon/16/nm-signal-50.png"
+        qxl.themedemo.IconFactory.getInstance().getIcon("MEDIA_PLAYER_LEVEL_50")
       ).set({ enabled: false }));
 
       var volumeSlider = (this._volumeSlider = new qx.ui.form.Slider(
@@ -292,10 +292,10 @@ qx.Class.define("qxl.themedemo.window.Player", {
     },
 
     _createInfoBar() {
-      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
+      const icons = qxl.themedemo.IconFactory.getInstance();
       var btnHomepage = (this._btnHomepage = new qx.ui.toolbar.Button(
         null,
-        icons.GO_HOME
+        icons.getIcon("GO_HOME")
       ).set({
         enabled: false,
       }));
@@ -312,7 +312,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
       var btnWikipedia = (this._btnWikipedia = new qx.ui.toolbar.Button(
         null,
-        icons.WIKIPEDIA
+        icons.getIcon("WIKIPEDIA")
       ).set({
         enabled: false,
       }));
@@ -329,7 +329,7 @@ qx.Class.define("qxl.themedemo.window.Player", {
 
       var btnVideo = (this._btnVideo = new qx.ui.toolbar.Button(
         null,
-        icons.YOUTUBE
+        icons.getIcon("YOUTUBE")
       ).set({
         enabled: false,
       }));
@@ -505,12 +505,12 @@ qx.Class.define("qxl.themedemo.window.Player", {
     },
 
     _onPlay(e) {
-      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
+      const icons = qxl.themedemo.IconFactory.getInstance();
       var pressed = e.getData();
       this._btnPlay.setIcon(
         pressed
-          ? icons.MEDIA_PLAYER_PAUSE
-          : icons.MEDIA_PLAYER_START
+          ? icons.getIcon("MEDIA_PLAYER_PAUSE")
+          : icons.getIcon("MEDIA_PLAYER_START")
       );
       if (pressed) {
         this._playSong(false);
@@ -564,28 +564,29 @@ qx.Class.define("qxl.themedemo.window.Player", {
       this._volumeLabel.setValue(String(volume));
 
       var currIcon = this._volumeIcon.getSource();
-      const icons = qxl.themedemo.IconFactory.getInstance().getIcons();
-      var statusIcon = icons.MEDIA_PLAYER_LEVEL_00;
+      const icons = qxl.themedemo.IconFactory.getInstance();
+      var statusIcon = "MEDIA_PLAYER_LEVEL_00";
 
       switch (true) {
         case volume == 100:
-          statusIcon = icons.MEDIA_PLAYER_LEVEL_100;
+          statusIcon = "MEDIA_PLAYER_LEVEL_100";
           break;
 
         case volume >= 66:
-          statusIcon = icons.MEDIA_PLAYER_LEVEL_75;
+          statusIcon = "MEDIA_PLAYER_LEVEL_75";
           break;
 
         case volume >= 33:
-          statusIcon = icons.MEDIA_PLAYER_LEVEL_50;
+          statusIcon = "MEDIA_PLAYER_LEVEL_50";
           break;
 
         case volume > 0:
-          statusIcon = icons.MEDIA_PLAYER_LEVEL_25;
+          statusIcon = "MEDIA_PLAYER_LEVEL_25";
           break;
       }
       if (statusIcon != currIcon) {
-        this._volumeIcon.setSource(statusIcon);
+        var icon = icons.getIcon(statusIcon);
+        this._volumeIcon.setSource(icon);
       }
     },
   },

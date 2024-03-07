@@ -24,7 +24,7 @@ qx.Class.define("qxl.themedemo.window.ColorChooser", {
     _createControls() {
       this.set({
         layout: new qx.ui.layout.VBox(16),
-        icon: qxl.themedemo.IconFactory.getInstance().getIcons().COLOR_SELECTOR_SMALL,
+        icon: qxl.themedemo.IconFactory.getInstance().getIcon("COLOR_SELECTOR_SMALL"),
         caption: "Color Selector",
         allowStretchX: false,
         allowStretchY: false,

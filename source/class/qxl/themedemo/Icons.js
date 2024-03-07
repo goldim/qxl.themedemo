@@ -48,9 +48,20 @@
  * @asset(qxl/themedemo/icon/16/nm-signal-100.png)
  */
 qx.Class.define("qxl.themedemo.Icons", {
-    type: "static",
+  type: "static",
 
-    statics: {
+  statics: {
+    getIcon(name){
+      let icon = this._getIcon(name);
+      return icon ? icon : this.__getDefaultIcon(name);
+    },
+
+    _getIcon(name){
+      return null;
+    },
+
+    __getDefaultIcon(name){
+      const icons = {
         TABLE_LIST_ADD: "icon/16/actions/list-add.png",
         TABLE_LIST_REMOVE: "icon/16/actions/list-remove.png",
         TABLE_SHOW_SELECTION: "icon/16/status/dialog-information.png",
@@ -87,6 +98,9 @@ qx.Class.define("qxl.themedemo.Icons", {
         COLOR_SELECTOR_SMALL: "icon/16/apps/utilities-color-chooser.png",
         TABLE_SMALL: "icon/16/apps/office-chart.png",
         MEDIA_PLAYER_SMALL: "icon/16/apps/media-audio-player.png",
-        WEB_BROWSER_SMALL: "icon/16/categories/internet.png"
+        WEB_BROWSER_SMALL: "icon/16/categories/internet.png",
+      }
+      return icons[name];
     }
+  }
 });
