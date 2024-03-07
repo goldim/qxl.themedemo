@@ -237,7 +237,7 @@ qx.Class.define("qxl.themedemo.window.Table", {
         dlg.setLayout(layout);
 
         dlg.add(
-          new qx.ui.basic.Image("icon/32/status/dialog-information.png"),
+          new qx.ui.basic.Image(qxl.themedemo.IconFactory.getInstance().getIcon("TABLE_SHOW_DIALOG")),
           { row: 0, column: 0 }
         );
 

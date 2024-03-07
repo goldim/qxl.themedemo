@@ -20,6 +20,7 @@
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-calculator.png)
  * @asset(qx/icon/${qx.icontheme}/16/apps/utilities-statistics.png)
  * @asset(qx/icon/${qx.icontheme}/16/categories/internet.png)
+ * @asset(qx/icon/${qx.icontheme}/32/status/dialog-information.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/media-audio-player.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/office-chart.png)
  * @asset(qx/icon/${qx.icontheme}/32/apps/utilities-color-chooser.png)
@@ -62,6 +63,7 @@ qx.Class.define("qxl.themedemo.Icons", {
 
     __getDefaultIcon(name){
       const icons = {
+        TABLE_SHOW_DIALOG: "icon/32/status/dialog-information.png",
         TABLE_LIST_ADD: "icon/16/actions/list-add.png",
         TABLE_LIST_REMOVE: "icon/16/actions/list-remove.png",
         TABLE_SHOW_SELECTION: "icon/16/status/dialog-information.png",
