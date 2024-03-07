@@ -21,7 +21,6 @@ Create html page and put it into resource folder. Pass the link in constructor o
 
 ## TODO
 
- - Fix `showDialog` method of table window
  - Fix WebBrowser buttons (they don't work)
  - Make optional icons and use default case if there is no icon
  - Make special decorator names
