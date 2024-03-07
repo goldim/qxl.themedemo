@@ -13,22 +13,28 @@
 ************************************************************************ */
 
 qx.Class.define("qxl.themedemo.IconFactory", {
-    extend: qx.core.Object,
-    type: "singleton",
+  extend: qx.core.Object,
+  type: "singleton",
 
-    construct(){
-      this.__icons = qxl.themedemo.Icons;
+  construct(){
+    this.__defaultIcons = qxl.themedemo.Icons;
+  },
+
+  members: {
+    __customIcons: null,
+
+    getIcon(name){
+      if (this.__icons){
+        const icon = this.__icons.getIcon(name);
+        if (icon){
+          return icon;
+        }
+      }
+      return qxl.themedemo.Icons.getIcon(name);
     },
 
-    members: {
-        __icons: null,
-
-        getIcon(name){
-          return qxl.themedemo.Icons.getIcon(name);
-        },
-
-        setSource(icons){
-          this.__icons = icons;
-        }
+    setCustomIcons(icons){
+      this.__customIcons = icons;
     }
+  }
 });

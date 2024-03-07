@@ -53,15 +53,6 @@ qx.Class.define("qxl.themedemo.Icons", {
 
   statics: {
     getIcon(name){
-      let icon = this._getIcon(name);
-      return icon ? icon : this.__getDefaultIcon(name);
-    },
-
-    _getIcon(name){
-      return null;
-    },
-
-    __getDefaultIcon(name){
       const icons = {
         TABLE_SHOW_DIALOG: "icon/32/status/dialog-information.png",
         TABLE_LIST_ADD: "icon/16/actions/list-add.png",
