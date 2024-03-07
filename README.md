@@ -15,6 +15,10 @@ There is a common appearance of some widgets in the application but you may rede
 # Icons
 There are default Oxygen icons for buttons but you also may redefine them too.
 
+# Theme information
+There is a theme description which could be shown in About window. The window will be opened on application start.
+Create html page and put it into resource folder. Pass the link in constructor of Application class via options.about_url argument.
+
 ## TODO
 
  - Fix `showDialog` method of table window
