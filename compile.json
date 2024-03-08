@@ -30,9 +30,9 @@
   },
   "applications": [
     {
-      "class": "qxl.themedemo.Application",
-      "theme": "qxl.themedemo.theme.Theme",
-      "name": "qxl.themedemo",
+      "class": "scro34.themedemo.demo.Application",
+      "theme": "scro34.themedemo.theme.Theme",
+      "name": "scro34.themedemo",
       "bootPath": "source/boot"
     }
   ]

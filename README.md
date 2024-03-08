@@ -1,5 +1,5 @@
-# qxl.themedemo
-Theme Demo Browser is a extended version of Widgetbrowser.
+# ThemeDemo
+Theme Demo Browser is a extended version of Widgetbrowser. Initially it was developed by Norbert Schröder.
 This application has next subapplications:
  - Calculator
  - Color Picker
