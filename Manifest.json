@@ -1,32 +1,29 @@
 {
- "$schema": "https://qooxdoo.org/schema/Manifest-2-0-0.json",
-  "info" :
-  {
-    "name" : "themedemo",
-    "summary" : "Common used from demo",
-    "description" : "This is a demo containing a different widgets to show theme features.",
-    "homepage" : "",
-    "license" : "MIT license",
-    "authors" : [
+  "$schema": "https://qooxdoo.org/schema/Manifest-2-0-0.json",
+  "info": {
+    "name": "themedemo",
+    "summary": "Common used from demo",
+    "description": "This is a demo containing a different widgets to show theme features.",
+    "homepage": "",
+    "license": "MIT license",
+    "authors": [
       {
-        "name" : "Norbert Schröder (scro34)",
-        "email" : "schroeder@scro34.de"
+        "name": "Norbert Schröder (scro34)",
+        "email": "schroeder@scro34.de"
       },
       {
         "name": "Dmitrii Zolotov (goldim)",
         "email": "zolotovdy@yandex.ru"
       }
-],
-    "version" : "1.0.0"
+    ],
+    "version": "1.0.0"
   },
-
-  "provides" :
-  {
-    "namespace"   : "scro34.themedemo",
-    "encoding"    : "utf-8",
-    "class"       : "source/class",
-    "resource"    : "source/resource",
-    "translation" : "source/translation",
+  "provides": {
+    "namespace": "scro34.themedemo",
+    "encoding": "utf-8",
+    "class": "source/class",
+    "resource": "source/resource",
+    "translation": "source/translation",
     "fonts": {
       "JosefinSlabBold": {
         "fontFaces": [
@@ -54,7 +51,6 @@
       }
     }
   },
-
   "requires": {
     "@qooxdoo/framework": "^7.6.3",
     "qooxdoo/qxl.widgetbrowser": "^2.0.0",
