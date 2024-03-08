@@ -17,20 +17,20 @@ qx.Class.define("qxl.themedemo.IconFactory", {
   type: "singleton",
 
   construct(){
-    this.__defaultIcons = qxl.themedemo.Icons;
+    this.__defaultIcons = new qxl.themedemo.Icons();
   },
 
   members: {
     __customIcons: null,
 
     getIcon(name){
-      if (this.__icons){
-        const icon = this.__icons.getIcon(name);
+      if (this.__customIcons){
+        const icon = this.__customIcons.getIcon(name);
         if (icon){
           return icon;
         }
       }
-      return qxl.themedemo.Icons.getIcon(name);
+      return this.__defaultIcons.getIcon(name);
     },
 
     setCustomIcons(icons){

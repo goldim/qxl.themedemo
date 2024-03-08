@@ -30,6 +30,11 @@ qx.Class.define("qxl.themedemo.Application", {
 
       /***************************************************************************/
 
+      const customIcons = this._getCustomIcons();
+      console.log(customIcons);
+      if (customIcons){
+        qxl.themedemo.IconFactory.getInstance().setCustomIcons(customIcons);
+      }
       const desktop = qxl.themedemo.Desktop.getInstance();
       const title = this.__defineThemeTitle(options);
       desktop.add(this.createTitle(title), { top: 10, left: 10 });
@@ -48,6 +53,10 @@ qx.Class.define("qxl.themedemo.Application", {
       about.open();
 
       desktop.add(about);
+    },
+
+    _getCustomIcons(){
+      return null;
     },
 
     createTitle(title) {

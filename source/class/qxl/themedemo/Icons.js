@@ -49,9 +49,9 @@
  * @asset(qxl/themedemo/icon/16/nm-signal-100.png)
  */
 qx.Class.define("qxl.themedemo.Icons", {
-  type: "static",
+  extend: qx.core.Object,
 
-  statics: {
+  members: {
     getIcon(name){
       const icons = {
         TABLE_SHOW_DIALOG: "icon/32/status/dialog-information.png",
