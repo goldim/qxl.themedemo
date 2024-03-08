@@ -7,17 +7,19 @@ This application has next subapplications:
  - Audio and Video players
  - Table Demo
 
-# Decorator Demo reserved names
+# Custom Decorators
 There is a common appearance of some widgets in the application but you may redefine them via decorators:
  - theme-demo-title-separator
  - input
 
-# Icons
-There are default Oxygen icons for buttons but you also may redefine them too.
+# Custom Icons
+By default there are used a set of Oxygen icons. You can replace them all or some of them.
+To do it you have to override `_getCustomIcons` method of `Application` class.
+The method has to return object of Class with has method `getIcons(name)` which returns a icon URL by name.
 
 # Theme information
 There is a theme description which could be shown in About window. The window will be opened on application start.
-Create html page and put it into resource folder. Pass the link in constructor of Application class via options.about_url argument.
+Create html page and put it into resource folder. Pass the link in constructor of `Application` class via options.about_url argument.
 
 ## TODO
 
