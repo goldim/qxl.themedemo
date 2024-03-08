@@ -306,7 +306,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
         this.fireDataEvent("openHomepage", {
           caption: this._playlistData[this._currAlbum].artist + " :: Homepage",
           url: this._playlistData[this._currAlbum].homepage,
-          icon: icons.GO_HOME,
+          icon: icons.getIcon("GO_HOME"),
         });
       });
 
@@ -323,7 +323,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
         this.fireDataEvent("openWikipedia", {
           caption: this._playlistData[this._currAlbum].artist + " :: Wikipedia",
           url: this._playlistData[this._currAlbum].wikipedia,
-          icon: icons.WIKIPEDIA
+          icon: icons.getIcon("WIKIPEDIA")
         });
       });
 
@@ -343,7 +343,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
             " :: " +
             this._playlistData[this._currAlbum].video.title,
           video: this._playlistData[this._currAlbum].video,
-          icon: icons.YOUTUBE,
+          icon: icons.getIcon("YOUTUBE"),
         });
       });
 
@@ -517,9 +517,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
         this._positionKnob.setDecorator("slider-knob-hovered");
         this._btnPlay.setToolTip(this._ttPause);
       } else {
-        if (this._audio){
-          this._audio.pause();
-        }
+        this._audio.pause();
         this._positionKnob.setDecorator("slider-knob");
         this._btnPlay.setToolTip(this._ttResume);
       }
