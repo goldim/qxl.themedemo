@@ -35,7 +35,7 @@ qx.Class.define("scro34.themedemo.Separator", {
       })
     );
 
-    const decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-title-decorator");
+    const decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-title-separator");
     this.add(
       new qx.ui.basic.Atom().set({
         decorator:  decorator ?? "radiobutton",
