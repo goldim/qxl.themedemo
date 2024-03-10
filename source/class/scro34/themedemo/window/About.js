@@ -37,14 +37,7 @@ qx.Class.define("scro34.themedemo.window.About", {
         resizable: false,
       });
 
-      if (this._aboutTextUrl) {
-        const appName = qx.core.Environment.get("qx.application");
-        const nsName = appName.replace(".Application", "");
-        const OPTION_NAME = "resourceUri";
-        const libManager = qx.util.LibraryManager.getInstance();
-        const resourcePath = libManager.get(nsName, OPTION_NAME);
-        this._aboutTextUrl = resourcePath + "/" + this._aboutTextUrl;
-      } else {
+      if (!this._aboutTextUrl) {
         this._aboutTextUrl = "scro34/themedemo/blank.html";
       }
 
