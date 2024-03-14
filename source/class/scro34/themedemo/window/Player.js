@@ -163,27 +163,32 @@ qx.Class.define("scro34.themedemo.window.Player", {
       this._ttPause = new qx.ui.tooltip.ToolTip("Pause playback");
       this._ttResume = new qx.ui.tooltip.ToolTip("Resume playback");
 
-      var btnSkipBackward = (this._btnSkipBackward = new qx.ui.toolbar.Button(
+      var btnSkipBackward = (this._btnSkipBackward = new scro34.themedemo.toolbar.Button(
         null,
-        icons.getIcon("MEDIA_PLAYER_SKIP_BACK")
+        icons.getIcon("MEDIA_PLAYER_SKIP_BACK"),
+        icons.getIcon("MEDIA_PLAYER_SKIP_BACK_HOVER")
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Previous song"),
       }));
       btnSkipBackward.addListener("execute", this._onSkipBackward, this);
 
-      var btnSkipForward = (this._btnSkipForward = new qx.ui.toolbar.Button(
+      var btnSkipForward = (this._btnSkipForward = new scro34.themedemo.toolbar.Button(
         null,
-        icons.getIcon("MEDIA_PLAYER_SKIP_FORWARD")
+        icons.getIcon("MEDIA_PLAYER_SKIP_FORWARD"),
+        icons.getIcon("MEDIA_PLAYER_SKIP_FORWARD_HOVER")
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Next song"),
       }));
       btnSkipForward.addListener("execute", this._onSkipForward, this);
 
-      var btnPlay = (this._btnPlay = new qx.ui.toolbar.CheckBox(
+      var btnPlay = (this._btnPlay = new scro34.themedemo.toolbar.CheckBox(
         null,
-        icons.getIcon("MEDIA_PLAYER_START")
+        icons.getIcon("MEDIA_PLAYER_START"),
+        icons.getIcon("MEDIA_PLAYER_START_HOVER"),
+        icons.getIcon("MEDIA_PLAYER_PAUSE"),
+        icons.getIcon("MEDIA_PLAYER_PAUSE_HOVER")
       ).set({
         enabled: false,
         toolTip: this._ttPlay,
@@ -293,9 +298,10 @@ qx.Class.define("scro34.themedemo.window.Player", {
 
     _createInfoBar() {
       const icons = scro34.themedemo.IconFactory.getInstance();
-      var btnHomepage = (this._btnHomepage = new qx.ui.toolbar.Button(
+      var btnHomepage = (this._btnHomepage = new scro34.themedemo.toolbar.Button(
         null,
-        icons.getIcon("GO_HOME")
+        icons.getIcon("GO_HOME"),
+        icons.getIcon("GO_HOME_HOVER"),
       ).set({
         enabled: false,
       }));
@@ -306,13 +312,14 @@ qx.Class.define("scro34.themedemo.window.Player", {
         this.fireDataEvent("openHomepage", {
           caption: this._playlistData[this._currAlbum].artist + " :: Homepage",
           url: this._playlistData[this._currAlbum].homepage,
-          icon: icons.getIcon("GO_HOME"),
+          icon: icons.getIcon("GO_HOME_HOVER"),
         });
       });
 
-      var btnWikipedia = (this._btnWikipedia = new qx.ui.toolbar.Button(
+      var btnWikipedia = (this._btnWikipedia = new scro34.themedemo.toolbar.Button(
         null,
-        icons.getIcon("WIKIPEDIA")
+        icons.getIcon("WIKIPEDIA"),
+        icons.getIcon("WIKIPEDIA_HOVER"),
       ).set({
         enabled: false,
       }));
@@ -323,13 +330,14 @@ qx.Class.define("scro34.themedemo.window.Player", {
         this.fireDataEvent("openWikipedia", {
           caption: this._playlistData[this._currAlbum].artist + " :: Wikipedia",
           url: this._playlistData[this._currAlbum].wikipedia,
-          icon: icons.getIcon("WIKIPEDIA")
+          icon: icons.getIcon("WIKIPEDIA_HOVER")
         });
       });
 
-      var btnVideo = (this._btnVideo = new qx.ui.toolbar.Button(
+      var btnVideo = (this._btnVideo = new scro34.themedemo.toolbar.Button(
         null,
-        icons.getIcon("YOUTUBE")
+        icons.getIcon("YOUTUBE"),
+        icons.getIcon("YOUTUBE_HOVER")
       ).set({
         enabled: false,
       }));
@@ -343,7 +351,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
             " :: " +
             this._playlistData[this._currAlbum].video.title,
           video: this._playlistData[this._currAlbum].video,
-          icon: icons.getIcon("YOUTUBE"),
+          icon: icons.getIcon("YOUTUBE_HOVER"),
         });
       });
 

@@ -71,6 +71,11 @@ qx.Class.define("scro34.themedemo.Icons", {
         MEDIA_PLAYER_LEVEL_75: "scro34/themedemo/icon/16/nm-signal-75.png",
         MEDIA_PLAYER_LEVEL_100: "scro34/themedemo/icon/16/nm-signal-100.png",
 
+        MEDIA_PLAYER_SKIP_BACK_HOVER: "icon/16/actions/media-skip-backward.png",
+        MEDIA_PLAYER_SKIP_FORWARD_HOVER: "icon/16/actions/media-skip-forward.png",
+        MEDIA_PLAYER_START_HOVER: "icon/22/actions/media-playback-start.png",
+        MEDIA_PLAYER_PAUSE_HOVER: "icon/22/actions/media-playback-pause.png",
+
         WEB_BROWSER_PREVIOUS: "icon/16/actions/go-previous.png",
         WEB_BROWSER_NEXT: "icon/16/actions/go-next.png",
         WEB_BROWSER_GO: "icon/16/actions/media-playback-start.png",
@@ -78,6 +83,10 @@ qx.Class.define("scro34.themedemo.Icons", {
         GO_HOME: "icon/16/actions/go-home.png",
         WIKIPEDIA: "scro34/themedemo/icon/16/wikipedia.png",
         YOUTUBE: "scro34/themedemo/icon/16/youtube.jpg",
+
+        GO_HOME_HOVER: "icon/16/actions/go-home.png",
+        WIKIPEDIA_HOVER: "scro34/themedemo/icon/16/wikipedia.png",
+        YOUTUBE_HOVER: "scro34/themedemo/icon/16/youtube.jpg",
 
         WIDGET_BROWSER: "icon/32/apps/utilities-statistics.png",
         CALCULATOR: "icon/32/apps/utilities-calculator.png",
