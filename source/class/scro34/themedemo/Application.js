@@ -61,7 +61,7 @@ qx.Class.define("scro34.themedemo.Application", {
     createTitle(title) {
       const separator = new scro34.themedemo.Separator(80);
 
-      const font = new qx.bom.Font(36, ["JosefinSlab Regular"]);
+      const font = new qx.bom.Font(36, ["JosefinSlab Regular", "serif"]);
 
       const themeLabel = new qx.ui.basic.Label(title).set({
         font,

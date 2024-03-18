@@ -49,7 +49,7 @@ qx.Class.define("scro34.themedemo.BottomPanel", {
         },
 
         createVersionInfo() {
-            const font = new qx.bom.Font(19, ["JosefinSlab Bold"]);
+            const font = new qx.bom.Font(19, ["JosefinSlab Bold", "serif"]);
             const qooxdoo = new qx.ui.basic.Label("qooxdoo").set({
                 font,
                 paddingBottom: 3,
