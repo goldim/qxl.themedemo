@@ -16,7 +16,7 @@
         "email": "zolotovdy@yandex.ru"
       }
     ],
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "provides": {
     "namespace": "scro34.themedemo",
