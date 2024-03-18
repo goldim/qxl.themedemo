@@ -55,7 +55,10 @@ qx.Class.define("scro34.themedemo.window.Calculator", {
 
       box.setLayout(this.__createGridLayout());
 
-      const decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
+      let decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-input");
+      if (!decorator){
+        decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
+      }
       this.__display = new qx.ui.basic.Label(
         this.__cal.getCurrentValue().toString()
       ).set({

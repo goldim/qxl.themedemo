@@ -37,7 +37,10 @@ qx.Class.define("scro34.themedemo.window.Video", {
         resizable: false,
       });
 
-      const decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
+      let decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-input");
+      if (!decorator){
+        decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
+      }
       this.htmlFrame = new qx.ui.embed.Html();
       this.htmlFrame.set({
         width: 642,

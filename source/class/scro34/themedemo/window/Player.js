@@ -99,7 +99,10 @@ qx.Class.define("scro34.themedemo.window.Player", {
       }));
       albumCover.addListener("changeSource", this._onChangeSource, this);
 
-      const decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
+      let decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-input");
+      if (!decorator){
+        decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
+      }
       var albumBox = (this._albumBox = new qx.ui.container.Composite(
         new qx.ui.layout.VBox(0)
       ).set({

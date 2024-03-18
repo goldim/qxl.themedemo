@@ -35,11 +35,13 @@ qx.Class.define("scro34.themedemo.Separator", {
       })
     );
 
-    const decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-title-separator");
-    const decorator2 = qx.theme.manager.Decoration.getInstance().resolve("radiobutton");
+    let decorator = qx.theme.manager.Decoration.getInstance().resolve("theme-demo-title-separator");
+    if (!decorator){
+      decorator = qx.theme.manager.Decoration.getInstance().resolve("radiobutton");
+    }
     this.add(
       new qx.ui.basic.Atom().set({
-        decorator:  decorator ?? decorator2 ?? null,
+        decorator:  decorator ?? null,
         width: 15,
         height: 15,
         maxHeight: 15,
