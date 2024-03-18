@@ -24,6 +24,4 @@ Create html page and put it into resource folder. Pass the link in constructor o
 ## TODO
 
  - Fix WebBrowser buttons (they don't work)
- - Make default case if decorator doesn't exist in child class
  - Stop media players after closing windows
- - Test icons with Web Fonts
