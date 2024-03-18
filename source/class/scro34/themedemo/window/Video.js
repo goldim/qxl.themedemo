@@ -37,11 +37,12 @@ qx.Class.define("scro34.themedemo.window.Video", {
         resizable: false,
       });
 
+      const decorator = qx.theme.manager.Decoration.getInstance().resolve("input");
       this.htmlFrame = new qx.ui.embed.Html();
       this.htmlFrame.set({
         width: 642,
         height: 482,
-        decorator: "input",
+        decorator: decorator ?? null,
         padding: 0,
       });
 
