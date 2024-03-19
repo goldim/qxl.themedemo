@@ -27,3 +27,5 @@ Create html page and put it into resource folder. Pass the link in constructor o
  - Stop media players after closing windows
  - Add a game (Minesweeper for example)
  - Change audio list source
+ - Move media player to separate package and include as dependency
+ - Fix audio player knob (broken for some themes)
