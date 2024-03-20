@@ -184,11 +184,8 @@ qx.Class.define("scro34.themedemo.window.Player", {
       btnSkipForward.addListener("execute", this._onSkipForward, this);
 
       var btnPlay = (this._btnPlay = new scro34.themedemo.toolbar.CheckBox(
-        null,
-        icons.getIcon("MEDIA_PLAYER_START"),
-        icons.getIcon("MEDIA_PLAYER_START_HOVER"),
-        icons.getIcon("MEDIA_PLAYER_PAUSE"),
-        icons.getIcon("MEDIA_PLAYER_PAUSE_HOVER")
+        "MEDIA_PLAYER_START",
+        "MEDIA_PLAYER_PAUSE"
       ).set({
         enabled: false,
         toolTip: this._ttPlay,
