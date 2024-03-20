@@ -2,7 +2,7 @@
 
    qooxdoo - the new era of web development
 
-   http://qooxdoo.org
+   https://qooxdoo.org
 
    Copyright:
      2004-2010 1&1 Internet AG, Germany, http://www.1und1.de
@@ -83,7 +83,7 @@ qx.Class.define("scro34.themedemo.window.WebBrowser", {
       btnBack.setToolTipText("This feature is currently not supported.");
       this.txtUrl = new qx.ui.form.TextField().set({
         marginLeft: 1,
-        value: "http://qooxdoo.org",
+        value: "https://qooxdoo.org",
         padding: 2,
         alignY: "middle",
       });
@@ -107,8 +107,10 @@ qx.Class.define("scro34.themedemo.window.WebBrowser", {
     },
 
     surfTo(url) {
-      if (url.indexOf("http://") !== 0) {
-        url = "http://" + url;
+      var hasHttp = url.indexOf("http://") === 0;
+      var hasHttps = url.indexOf("https://") === 0;
+      if (!hasHttp || !hasHttps) {
+        url = "https://" + url;
       }
       this.txtUrl.setValue(url);
       this.iframe.setSource(url);

@@ -2,7 +2,7 @@
 
    qooxdoo - the new era of web development
 
-   http://qooxdoo.org
+   https://qooxdoo.org
 
    Copyright:
      2004-2010 1&1 Internet AG, Germany, http://www.1und1.de
