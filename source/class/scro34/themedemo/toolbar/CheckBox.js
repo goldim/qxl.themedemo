@@ -4,8 +4,8 @@
      2015 Norbert Schröder, http://scro34.de
 
    License:
-     LGPL: http://www.gnu.org/licenses/lgpl.html
-     EPL: http://www.eclipse.org/org/documents/epl-v10.php
+     MIT: https://opensource.org/licenses/MIT
+     See the LICENSE file in the project's top-level directory for details.
 
    Authors:
      * Norbert Schröder (scro34)
