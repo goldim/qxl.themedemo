@@ -80,6 +80,10 @@ qx.Class.define("scro34.themedemo.Icons", {
         WEB_BROWSER_NEXT: "icon/16/actions/go-next.png",
         WEB_BROWSER_GO: "icon/16/actions/media-playback-start.png",
 
+        WEB_BROWSER_PREVIOUS_HOVER: "icon/16/actions/go-previous.png",
+        WEB_BROWSER_NEXT_HOVER: "icon/16/actions/go-next.png",
+        WEB_BROWSER_GO_HOVER: "icon/16/actions/media-playback-start.png",
+
         GO_HOME: "icon/16/actions/go-home.png",
         WIKIPEDIA: "scro34/themedemo/icon/16/wikipedia.png",
         YOUTUBE: "scro34/themedemo/icon/16/youtube.jpg",
