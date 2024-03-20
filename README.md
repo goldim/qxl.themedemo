@@ -29,3 +29,4 @@ Create html page and put it into resource folder. Pass the link in constructor o
  - Change audio list source
  - Move media player to separate package and include as dependency
  - Fix audio player knob (broken for some themes)
+ - Refactor toolbar buttons: exclude not required arguments
