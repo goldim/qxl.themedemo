@@ -168,9 +168,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
       this._ttResume = new qx.ui.tooltip.ToolTip("Resume playback");
 
       var btnSkipBackward = (this._btnSkipBackward = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("MEDIA_PLAYER_SKIP_BACK"),
-        icons.getIcon("MEDIA_PLAYER_SKIP_BACK_HOVER")
+        "MEDIA_PLAYER_SKIP_BACK"
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Previous song"),
@@ -178,9 +176,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
       btnSkipBackward.addListener("execute", this._onSkipBackward, this);
 
       var btnSkipForward = (this._btnSkipForward = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("MEDIA_PLAYER_SKIP_FORWARD"),
-        icons.getIcon("MEDIA_PLAYER_SKIP_FORWARD_HOVER")
+        "MEDIA_PLAYER_SKIP_FORWARD"
       ).set({
         enabled: false,
         toolTip: new qx.ui.tooltip.ToolTip("Next song"),
@@ -303,9 +299,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
     _createInfoBar() {
       const icons = scro34.themedemo.IconFactory.getInstance();
       var btnHomepage = (this._btnHomepage = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("GO_HOME"),
-        icons.getIcon("GO_HOME_HOVER"),
+        "GO_HOME"
       ).set({
         enabled: false,
       }));
@@ -321,9 +315,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
       });
 
       var btnWikipedia = (this._btnWikipedia = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("WIKIPEDIA"),
-        icons.getIcon("WIKIPEDIA_HOVER"),
+        "WIKIPEDIA"
       ).set({
         enabled: false,
       }));
@@ -339,9 +331,7 @@ qx.Class.define("scro34.themedemo.window.Player", {
       });
 
       var btnVideo = (this._btnVideo = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("YOUTUBE"),
-        icons.getIcon("YOUTUBE_HOVER")
+        "YOUTUBE"
       ).set({
         enabled: false,
       }));

@@ -62,18 +62,14 @@ qx.Class.define("scro34.themedemo.window.WebBrowser", {
       var toolbar = new qx.ui.toolbar.ToolBar();
 
       var btnBack = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("WEB_BROWSER_PREVIOUS"),
-        icons.getIcon("WEB_BROWSER_PREVIOUS_HOVER")
+        "WEB_BROWSER_PREVIOUS"
       );
       btnBack.addListener("execute", (e) => {
         // this.iframe.getWindow().history.back();
       });
       toolbar.add(btnBack);
       var btnForward = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("WEB_BROWSER_NEXT"),
-        icons.getIcon("WEB_BROWSER_NEXT_HOVER")
+        "WEB_BROWSER_NEXT"
       );
       btnForward.addListener("execute", (e) => {
         // this.iframe.getWindow().history.forward();
@@ -97,9 +93,7 @@ qx.Class.define("scro34.themedemo.window.WebBrowser", {
       toolbar.add(this.txtUrl, { flex: 1 });
 
       var btnGo = new scro34.themedemo.toolbar.Button(
-        null,
-        icons.getIcon("WEB_BROWSER_GO"),
-        icons.getIcon("WEB_BROWSER_GO_HOVER")
+        "WEB_BROWSER_GO"
       );
       btnGo.addListener("execute", (e) => {
         this.surfTo(this.txtUrl.getValue());

@@ -15,11 +15,13 @@
 qx.Class.define("scro34.themedemo.toolbar.Button", {
   extend: qx.ui.toolbar.Button,
 
-  construct(label, iconDefault, iconHovered){
-    super(label, iconDefault);
+  construct(name){
+    const icons = scro34.themedemo.IconFactory.getInstance();
+    const iconDefault = icons.getIcon(name);
+    super(null, iconDefault);
 
     this._iconDefault = iconDefault;
-    this._iconHovered = iconHovered;
+    this._iconHovered = icons.getIcon(name + "_HOVER");
 
     this.addListener("pointerover", () => this.setIcon(this._iconHovered));
     this.addListener("pointerout", () => this.setIcon(this._iconDefault));
