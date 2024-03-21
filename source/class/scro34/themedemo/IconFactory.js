@@ -33,6 +33,10 @@ qx.Class.define("scro34.themedemo.IconFactory", {
       return this.__defaultIcons.getIcon(name);
     },
 
+    hasCustomIcon(name){
+      return this.__customIcons && this.__customIcons.getIcon(name);
+    },
+
     setCustomIcons(icons){
       this.__customIcons = icons;
     }

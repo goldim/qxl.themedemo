@@ -5,7 +5,9 @@
       "type": "source",
       "fonts": {
         "local": true,
-        "fontTypes": ["ttf"]
+        "fontTypes": [
+          "ttf"
+        ]
       },
       "outputPath": "compiled/source",
       "bundle": {
@@ -16,7 +18,9 @@
       "type": "build",
       "fonts": {
         "local": true,
-        "fontTypes": ["ttf"]
+        "fontTypes": [
+          "ttf"
+        ]
       },
       "outputPath": "compiled/build"
     }
@@ -34,6 +38,32 @@
       "theme": "scro34.themedemo.theme.Theme",
       "name": "scro34.themedemo",
       "bootPath": "source/boot"
+    },
+    {
+      "class": "qxl.widgetbrowser.Application",
+      "theme": "qx.theme.Indigo",
+      "name": "widgetbrowser",
+      "title": "WidgetBrowser",
+      "include": [
+        "qx.theme.IndigoDark",
+        "qx.theme.Modern",
+        "qx.theme.Simple",
+        "qx.theme.Classic",
+        "qx.theme.TangibleLight",
+        "qx.theme.TangibleDark",
+        "qxl.widgetbrowser.pages.Tree",
+        "qxl.widgetbrowser.pages.List",
+        "qxl.widgetbrowser.pages.Table",
+        "qxl.widgetbrowser.pages.Form",
+        "qxl.widgetbrowser.pages.ToolBar",
+        "qxl.widgetbrowser.pages.Window",
+        "qxl.widgetbrowser.pages.Tab",
+        "qxl.widgetbrowser.pages.Control",
+        "qxl.widgetbrowser.pages.Embed",
+        "qxl.widgetbrowser.pages.EmbedFrame",
+        "qxl.widgetbrowser.pages.Basic",
+        "qxl.widgetbrowser.pages.Misc"
+      ]
     }
   ]
 }

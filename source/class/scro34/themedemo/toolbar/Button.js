@@ -20,8 +20,14 @@ qx.Class.define("scro34.themedemo.toolbar.Button", {
     const iconDefault = icons.getIcon(name);
     super(null, iconDefault);
 
+    const hoverName = name + "_HOVER";
+    let iconHovered = iconDefault;
+    if (icons.hasCustomIcon(hoverName)){
+      iconHovered = icons.getIcon(hoverName);
+    }
+
     this._iconDefault = iconDefault;
-    this._iconHovered = icons.getIcon(name + "_HOVER");
+    this._iconHovered = iconHovered;
 
     this.addListener("pointerover", () => this.setIcon(this._iconHovered));
     this.addListener("pointerout", () => this.setIcon(this._iconDefault));

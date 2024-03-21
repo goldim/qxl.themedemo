@@ -20,14 +20,27 @@ qx.Class.define("scro34.themedemo.toolbar.CheckBox", {
     const iconDefault = icons.getIcon(name);
     super(null, iconDefault);
 
-    const iconHovered = icons.getIcon(name + "_HOVER");
+    const hoverName = name + "_HOVER";
+    let iconHovered = iconDefault;
+    if (icons.hasCustomIcon(hoverName)){
+      iconHovered = icons.getIcon(hoverName);
+    }
     this._iconDefault = iconDefault;
-    this._iconHovered = iconHovered ? iconHovered : iconDefault;
+    this._iconHovered = iconHovered;
 
-    const iconPressedDefault = icons.getIcon(namePressed);
-    const iconPressedHovered = icons.getIcon(namePressed + "_HOVER");
-    this._iconPressedDefault = iconPressedDefault ? iconPressedDefault : iconDefault;
-    this._iconPressedHovered = iconPressedHovered ? iconPressedHovered : iconHovered;
+    let iconPressedDefault = iconDefault;
+    if (icons.hasCustomIcon(namePressed)){
+      iconPressedDefault = icons.getIcon(namePressed);
+    }
+
+    const hoverPressedName = namePressed + "_HOVER";
+    let iconPressedHovered = iconPressedDefault;
+    if (icons.hasCustomIcon(hoverPressedName)){
+      iconPressedHovered = icons.getIcon(hoverName);
+    }
+
+    this._iconPressedDefault = iconPressedDefault;
+    this._iconPressedHovered = iconPressedHovered;
 
     this.addListener("pointerover", () => {
       this.setIcon(this.getValue() ? this._iconPressedHovered : this._iconHovered);
