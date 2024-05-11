@@ -162,7 +162,6 @@ qx.Class.define("scro34.themedemo.window.Player", {
     },
 
     _createPlayBar() {
-      const icons = scro34.themedemo.IconFactory.getInstance();
       this._ttPlay = new qx.ui.tooltip.ToolTip("Start playback");
       this._ttPause = new qx.ui.tooltip.ToolTip("Pause playback");
       this._ttResume = new qx.ui.tooltip.ToolTip("Resume playback");
