@@ -58,7 +58,6 @@ qx.Class.define("scro34.themedemo.window.WebBrowser", {
     },
 
     _createToolbar() {
-      const icons = scro34.themedemo.IconFactory.getInstance();
       var toolbar = new qx.ui.toolbar.ToolBar();
 
       var btnBack = new scro34.themedemo.toolbar.Button(
