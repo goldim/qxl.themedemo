@@ -21,12 +21,7 @@ qx.Class.define("scro34.themedemo.ButtonPanel", {
         this.setPaddingBottom(5);
         this.addListener("appear", () => this.fadeIn(200));
         this.getButtonData().forEach(options => {
-          let button;
-          if (options.name === "AudioPlayer"){
-            button = new scro34.themedemo.AudioPlayerButton(options)
-          } else {
-            button = new scro34.themedemo.PanelButton(options)
-          }
+          let button = new scro34.themedemo.PanelButton(options);
           button.addListener("windowClose", () => {
             this.checkShow();
           });

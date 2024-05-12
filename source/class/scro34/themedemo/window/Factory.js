@@ -12,6 +12,9 @@
 
 ************************************************************************ */
 
+/**
+ * @asset(scro34/themedemo/playlist.json)
+ */
 qx.Class.define("scro34.themedemo.window.Factory", {
     type: "static",
 
@@ -29,7 +32,10 @@ qx.Class.define("scro34.themedemo.window.Factory", {
                 case "ColorSelector":
                     return new scro34.themedemo.window.ColorChooser();
                 case "AudioPlayer":
-                    return new scro34.themedemo.window.Player();
+                    const player = new scro34.audioplayer.Player();
+                    player.setDesktop(scro34.themedemo.Desktop.getInstance());
+                    player.setPlaylist("scro34/themedemo/playlist.json");
+                    return player;
             }
         }
     }

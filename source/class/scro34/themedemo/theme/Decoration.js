@@ -12,22 +12,6 @@ qx.Theme.define("scro34.themedemo.theme.Decoration", {
   extend: qx.theme.indigo.Decoration,
 
   decorations: {
-    "slider-knob": {
-      include: "button-checked",
-
-      style: {
-        radius: 15,
-      },
-    },
-
-    "slider-knob-hovered": {
-      include: "slider-knob",
-
-      style: {
-        endColor: "text-selected",
-      },
-    },
-
     input: {
       style: {
         color: "border-input",
